@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>层级选择器</title>
+  </head>
+  <body>
+
+    <div class="one">第1个div</div>
+    <div class="one">第2个div</div>
+    <div>第3个div</div>
+    <p>dkjkjhkjhkjhkjhkjhkhjk</p>
+
+    <ul id="lists">
+      <li>111</li>
+      <li>222</li>
+      <li>333</li>
+    </ul>
+
+
+    <div class="three">
+      <div class="three_s">111</div>
+      <div class="three_s">
+        222
+        <div>three的孙子元素</div>
+      </div>
+    </div>
+
+
+
+    <div>1</div>
+    <div class="four">2</div>
+    <p>2222</p>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      /*
+      jQuery 等价于 $ 符号
+      */
+      // console.log($("div"));
+      $("div").css("color", "red");
+      $("div.one").css("color", "green");
+      $("#lists").css("font-size", "50px");
+
+
+
+      /*
+      层级选择器和css中是一样的
+      */
+      // 子选择器 >
+      $(".three > div").css("border", "1px solid red");
+
+      // 相邻下一个兄弟选择器 +
+      $(".four + div ").css("font-size", "50px");
+
+
+      //后边的所有符合条件的兄弟
+      $(".four ~ div").css("color", "green");
+
+
+
+
+    </script>
+
+  </body>
+</html>

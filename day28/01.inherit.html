@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>原型链继承</title>
+</head>
+
+<body>
+
+  <script>
+    function Animal(species) {
+      this.species = species;
+    }
+
+    Animal.prototype.eat = function() {
+      console.log("eat .....");
+    };
+
+    function Dog(type, hairColor) {
+      this.species = "dog";
+      this.type = type;
+      this.hairColor = hairColor;
+    }
+
+
+    Dog.prototype = new Animal();
+    Dog.prototype.constructor = Dog;
+
+    //添加自己的原型方法时，一定要在继承之后,否则会被覆盖
+    Dog.prototype.bark = function() {
+      console.log("wang wang .....");
+    }
+
+    Dog.prototype.run = function() {
+      console.log("so so .....");
+    }
+
+
+    /*
+    属性和方法的查找顺序：
+    从构造中内部开始 -----> 自己的原型  ----> 继承来的  ----> 继承来的 ...... ----> Object
+    */
+    Dog.prototype.eat = function () {
+      console.log("dog eat ...");
+    }
+
+
+
+    var jinmao = new Dog("jinmao", "yellow");
+    console.log(jinmao);
+
+    jinmao.bark();
+    jinmao.run();
+    jinmao.eat();
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

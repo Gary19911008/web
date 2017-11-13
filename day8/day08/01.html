@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul li {
+        list-style: none;
+      }
+
+      #menu {
+        width: 250px;
+        border: 1px solid red;
+        position: absolute;
+        display: none;
+      }
+
+      #menu li {
+        height: 30px;
+        line-height: 30px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <ul id="menu">
+      <li>skjgkdjhkj</li>
+      <li>skjgkdjhkj</li>
+      <li>skjgkdjhkj</li>
+      <li>skjgkdjhkj</li>
+      <li>skjgkdjhkj</li>
+      <li>skjgkdjhkj</li>
+    </ul>
+
+    <script src="./jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    $(document).contextmenu(function(e){
+      //获得鼠标坐标
+      var x = e.pageX;
+      var y = e.pageY;
+
+      //去掉浏览器的默认右键
+      e.preventDefault();
+      e.stopPropagation();
+
+     //显示菜单
+     /*
+     菜单的边界问题，需要解决？？？？？
+     */
+     $("#menu").css({
+       "display":"block",
+       "top": y + "px",
+       "left": x + "px"
+     });
+
+    });
+
+    </script>
+
+  </body>
+</html>

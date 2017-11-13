@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>DOM2级event</title>
+</head>
+
+<body>
+
+  <button id="btn">按钮</button>
+
+  <script type="text/javascript">
+    var btn = document.getElementById("btn");
+
+    function handler1() {
+      console.log("%c 单击111", "color:red;font-size:40px");
+    }
+
+    function handler2() {
+      console.log("%c 单击222", "color:red;font-size:40px");
+
+      // 移除click事件的第一个事件处理程序
+      // 要想移除处理函数，那么该函数必须有名字(在指定的作用域中可访问到)
+      btn.removeEventListener('click', handler1, false);
+      btn.removeEventListener('click', handler2, false);
+    }
+
+    btn.addEventListener('click', handler1, false);
+    btn.addEventListener('click', handler2, false);
+  </script>
+
+</body>
+
+</html>

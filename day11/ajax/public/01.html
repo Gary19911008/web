@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery的ajax</title>
+  </head>
+  <body>
+
+    <button id="btn">ajax</button>
+
+    <script src="./js/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+     $("#btn").click(function(){
+
+       $.ajax({
+         method: "post",
+         url: "/index", //直接填写路由即可
+         data: {name:'lisi', age: 22, score:59},
+         success: function(data, textStatus, jqXHR){
+           console.log("recv from server: ",data);
+           console.log("http status code : " + textStatus);
+
+           //跳转页面
+          //  window.location = "https://www.jd.com/";
+         },
+         error: function(jqXHR, textStatus, error){
+           console.log(error);
+           console.log("http status code : " + textStatus);
+         }
+       });
+
+     });
+
+    /*
+     1. 模拟登录
+     2. 使用ajax(post), url: "/login", 不要form
+     3. 只完成前端的步骤即可（获取用户名(admin)，密码(123)，判断  是否有效，是否显示错误提示等）
+     4. 如果数据都正确，那么就发送ajax！！！
+    */
+
+    </script>
+  </body>
+</html>

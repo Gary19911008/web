@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>宽度左侧固定，右侧适应， 三种方法</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .f {
+        height: 100px;
+        background: yellow;
+        margin-bottom: 50px;
+        display: flex;
+      }
+
+      .f-1 {
+        width: 300px;
+        height: 100px;
+        background: blue;
+      }
+
+      .f-2 {
+        height: 100px;
+        background: pink;
+        flex: 1;
+      }
+
+      .f1 {
+        height: 100px;
+        background: yellow;
+        margin-bottom: 50px;
+        position: relative;
+      }
+
+      .f1-1 {
+        width: 300px;
+        height: 100px;
+        background: blue;
+        float: left;
+      }
+
+      .f1-2 {
+        height: 100px;
+        background: pink;
+        position: absolute;
+        top: 0;
+        left: 300px;
+        right: 0;
+      }
+
+
+      .f2 {
+        height: 100px;
+        background: yellow;
+        margin-bottom: 50px;
+      }
+
+      .f2-1 {
+        height: 100px;
+        width: 300px;
+        background: blue;
+        float:left;
+      }
+
+      .f2-2 {
+        height: 100px;
+        background: pink;
+        margin-left: 300px;
+      }
+
+
+    </style>
+  </head>
+  <body>
+
+    <!-- 1. 使用flex  -->
+    <div class="f">
+      <div class="f-1">f-1</div>
+      <div class="f-2">f-2</div>
+    </div>
+
+    <!--2. f1-1浮动， f1-2 绝对定位，定位的left固定，right:0  -->
+    <div class="f1">
+      <div class="f1-1">f1-1</div>
+      <div class="f1-2">f1-2</div>
+    </div>
+
+
+    <!-- 3. f2-1 浮动， f2-2 margin-left：固定  -->
+    <div class="f2">
+      <div class="f2-1">f2-1</div>
+      <div class="f2-2">f2-2</div>
+    </div>
+
+
+
+  </body>
+</html>

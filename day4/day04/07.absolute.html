@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>position定位</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one {
+        width: 300px;
+        height: 200px;
+        background: blue;
+
+        /*
+        此时one除了body之外，没有其他祖先元素
+        此时的绝对定位是相对于body
+        */
+        position: absolute;
+        top: 100px;
+        left: 10%; /*此处的百分比相对于body元素*/
+
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="one"></div>
+    <p>ksjgkjhkdjhkjhkjhkfjkhjfkhjkfjhkjfkhjfkjhkfjkfjkflkjlkfjklfjklfjlkfjhfkljflj</p>
+
+
+  </body>
+</html>

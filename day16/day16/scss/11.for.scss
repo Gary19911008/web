@@ -1,0 +1,33 @@
+// for each
+
+@for $i from 1 through 5 {
+  .item-#{$i}{
+    width: 100px * $i;
+    height:  50px * $i;
+  }
+}
+
+@for $i from 1 to 5 {
+  .class-#{$i}{
+    width: 100px * $i;
+    height:  50px * $i;
+  }
+}
+
+
+$px: top 10px solid, bottom 20px dotted , left 30px  dashed,right 40px double;
+
+@each $dir, $size, $style in $px {
+  .border-#{$dir}{
+    border-#{$dir}: $size $style red;
+  }
+}
+
+
+$h: (h1: 50px, h2: 40px, h3: 30px, h4: 20px);
+
+@each $key, $value in $h {
+  .item-#{$key} {
+    font-size: $value;
+  }
+}

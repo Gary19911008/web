@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>旋转盒子</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 310px;
+        height: 438px;
+        margin: 100px auto;
+        position: relative;
+        transform-style: preserve-3d;
+        transform-origin: left center; /*设置box旋转的轴, 不会影响子元素的属性*/
+        transition:  all 1s;
+      }
+      .top, .bottom {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      .top {
+        transform: rotateY(90deg) translateZ(155px) translateX(155px);
+      }
+
+      .box:hover {
+        transform: rotateY(-90deg);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="box">
+      <div class="top">
+        <img src="image/pk1.png" alt="" />
+      </div>
+      <div class="bottom">
+        <img src="image/pk2.png" alt="" />
+      </div>
+    </div>
+  </body>
+</html>

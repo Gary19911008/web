@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- saved from url=(0173)file:///E:/%E8%AF%BE%E7%A8%8B%E5%87%86%E5%A4%87/A%E8%8F%9C%E9%B8%9Fsvn%E6%B1%87%E6%80%BB/course_svn/personal/%E9%97%AE%E9%A2%98%E4%BB%A3%E7%A0%81/canvas_demo/02.animate.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>弹力球</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <canvas id="canvas" width="600" height="500" style="border: 1px solid red;"></canvas>
+
+  <script type="text/javascript">
+    var can = document.getElementById("canvas");
+    can.width = 600;
+    can.height = 500;
+    can.style.border = "1px solid red";
+
+    var cxt = can.getContext('2d');
+
+    var x = 50, y = 50, vx = 2, vy = 0, gy = 1;
+
+    var timer = setInterval(function () {
+
+      //render
+      can.width = can.width;
+      cxt.fillStyle = "red";
+      cxt.arc(x, y, 20, 0, Math.PI * 2, false );
+      cxt.fill();
+
+
+      //update
+      x += vx;
+      y += vy;
+      vy += gy;
+
+      if ( y > can.height - 20) {
+        y = can.height - 20;
+        vy  =  -vy * 0.7;
+        vy = Math.abs(vy) < 4 ? 0 : vy;
+
+        if (vy === 0) {
+          vx = 0;
+          clearInterval(timer);
+        }
+      } else if ( y < 20) {
+        y = 20;
+        vy  =  -vy * 0.7;
+      }
+
+    }, 50);
+  </script>
+
+
+
+
+</body></html>

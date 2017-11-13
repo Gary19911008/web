@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>立方体</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        width: 200px;
+        height: 200px;
+        position: relative;
+        text-align: center;
+        line-height: 200px;
+
+        margin: 200px auto;
+        transform-style: preserve-3d;
+
+        /*perspective: 1000px;*/
+
+        transform: rotateX(27deg) rotateY(-6deg);
+      }
+
+      .box>div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .font {
+        background: rgba(255, 0, 0, 0.3);
+        transform: rotateX(-90deg)  translateZ(100px);
+      }
+
+      .back{
+        background: rgba(0, 255, 0, 0.3);
+        transform: rotateX(-90deg) translateZ(-100px);
+      }
+
+      .left {
+        background: rgba(0, 0, 255, 0.3);
+        transform: rotateY(-90deg) translateZ(100px);
+      }
+
+      .right{
+        background: rgba(0, 126, 255, 0.3);
+        transform: rotateY(-90deg) translateZ(-100px);
+      }
+
+      .top {
+        background: rgba(126, 0, 255, 0.3);
+        transform: translateZ(100px);
+      }
+
+      .bottom{
+        background: rgba(200, 120, 50, 0.3);
+        transform: translateZ(-100px);
+      }
+
+
+    </style>
+  </head>
+  <body>
+
+
+    <div class="box">
+      <div class="font">font</div>
+      <div class="back">back</div>
+      <div class='left'>left</div>
+      <div class="right">right</div>
+      <div class="top">top</div>
+      <div class="bottom">bottom</div>
+    </div>
+
+  </body>
+</html>

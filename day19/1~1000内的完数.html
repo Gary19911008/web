@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>1~1000内的完数</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    (function(window, document) {
+      function displayRes() {
+        var arr = [];
+        var max = 1000;
+        arr = getCompleteNum(max);
+        for (var i = 0; i < arr.length; i++) {
+          var div = document.createElement("div");
+          var text = document.createTextNode(arr[i]);
+          div.appendChild(text);
+          document.getElementById("res").appendChild(div);
+        }
+      }
+
+      function getCompleteNum(max) {
+        var arr = [];
+        for (var i = 1; i <= max; i++) {
+          var h = 0;
+          for (var d = 1; d < i; d++) {
+            if (i % d === 0) {
+              h += d;
+            }
+          }
+          if (h === i) {
+            arr.push(i);
+          }
+        }
+        return arr;
+      }
+      displayRes();
+    })(window, document)
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>javascript设置样式</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      width: 300px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      background: blue;
+    }
+
+    .one {
+      color: red;
+      font-size: 50px;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="box">box元素</div>
+
+  <script type="text/javascript">
+    var box = document.getElementById("box");
+
+    /*
+    1.
+    box.style.color = "red";
+    console.log(box.getAttribute("style"));
+    console.log(box.style.color);
+    box.style.fontSize = "50px";
+    */
+
+    /*
+    2.
+    box.style.cssText = "color:red;font-size:50px;text-decoration:underline;";
+    // box.style.cssText += "border: 10px solid yellow;";
+    box.style.border = "10px solid yellow";
+    box.style.fontSize = "20px";
+    */
+
+    //3.
+    box.className = "one";
+
+
+    //特殊命名 float ===> cssFloat
+    console.log(box.style.cssFloat);
+
+
+
+    //window.getComputedStyle
+    //访问的任意属性
+    var styles = window.getComputedStyle(box);
+    console.log(styles.width);//应用在box元素行的所有样式
+    console.log(styles.height);//应用在box元素行的所有样式
+    console.log(styles.color);//应用在box元素行的所有样式
+    console.log(styles.fontSize);//应用在box元素行的所有样式
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

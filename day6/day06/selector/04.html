@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>和css中的伪类选择器一致</title>
+  </head>
+  <body>
+
+    <ul class="one">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <p>p元素</p>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+    </ul>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+     $(".one li:first-child").css("color", "red");
+
+     //nth-child 把所有的同辈元素都计数了
+     //eq只把符合条件的同辈元素计数
+     $(".one li:nth-child(5)").css("font-size", "50px");
+     $(".one li:eq(4)").css("font-size", "50px");
+
+
+
+     // :nth-child伪类可以传递表达式
+     $(".one li:nth-child(2n)").css("border", "1px solid red");
+     $(".one li:nth-child(2n+1)").css("border", "1px solid green");
+
+
+     /*
+     1. 自学 :nth-of-type 
+     */
+
+    </script>
+
+  </body>
+</html>

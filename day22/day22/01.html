@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    /*
+    功能：事件移除函数，兼容浏览器
+    @elem, 移除该元素上的事件
+    @type, 移除的事件名称
+    @handler,移除的处理函数的名字
+    */
+    function removeEvent(elem,type,handler){
+      if (elem.removeEventListener){
+        elem.removeEventListener(type,handler,false);
+      } else if (elem.detachEvent){
+        elem.detachEvent('on' + type, handler);
+      } else {
+        elem['on' + type] = null;
+      }
+    }
+
+    </script>
+
+  </body>
+</html>

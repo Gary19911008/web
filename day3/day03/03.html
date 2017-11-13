@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    .one {
+      font-size: 50px;
+      letter-spacing: 10px;
+      /*允许使用负值*/
+    }
+
+    .two {
+      font-size: 30px;
+      word-spacing: 50px;
+    }
+
+    .three {
+      font-size: 30px;
+      /*line-height: 120%;*/
+      /*line-height: 36px;*/
+      /*line-height: 1.2em;*/
+      /*
+      three的行高为 36px
+      以上3种方式设置的line-height都会让后代继承：继承祖先元素的行高！
+      */
+      /*
+      后代会继承该因子而不是继承父元素行高！！！！
+      */
+      line-height: 1.2;
+    }
+
+    .three p {
+      font-size: 50px;
+    }
+
+    a {
+      /* underline overline line-through*/
+      text-decoration: none;
+    }
+
+    .four {
+      text-align: center;
+    }
+
+    img.small {
+      width: 200px;
+      height: 200px;
+    }
+
+    .five img {
+      vertical-align: middle;
+    }
+
+    .six {
+      /*text-indent: 20px;*/
+      text-indent: 2em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <p class="one">
+    helloworld中国人
+  </p>
+
+  <p class="two">
+    hello world google apple 中国
+  </p>
+
+  <div class="three">
+    helloworkskgjgjkj <br> 看说就赶快结婚看到建行卡 <br> 看说就赶快结婚看到建行卡 <br> 看说就赶快结婚看到建行卡 <br> 看说就赶快结婚看到建行卡 <br>
+
+    <p>
+      看大家很快 <br> 看大家很快 <br> 看大家很快 <br>
+    </p>
+
+  </div>
+
+  <a href="#">链接</a>
+
+  <div class="four">
+    进口货看到机会端口号就看到机会快乐就好交换空间很久很久 <br> 进口货看到机会端口号就看到机会快乐就好交换空间很久很久 <br> 进口货看到机会端口号就看到机会快乐就好交换空间很久很久 <br> 进口货看到机会端口号就看到机会快乐就好交换空间很久很久 <br>
+
+    <img class="small" src="./colors.png" alt="">
+    <img class="small" src="./colors.png" alt="">
+  </div>
+
+  <p class="five">
+    <img class="small" src="./colors.png" alt=""> <span>颜色图片</span>
+  </p>
+
+  <p class="six">
+    可是结果看见了大家好就到了看好就打开了很久了看就好了看见好看 <br>
+    可是结果看见了大家好就到了看好就打开了很久了看就好了看见好看 <br>
+    可是结果看见了大家好就到了看好就打开了很久了看就好了看见好看 <br>
+    可是结果看见了大家好就到了看好就打开了很久了看就好了看见好看 <br>
+    可是结果看见了大家好就到了看好就打开了很久了看就好了看见好看 <br>
+    可是结果看见了大家好就到了看好就打开了很久了看就好了看见好看 <br>
+  </p>
+
+
+
+</body>
+
+</html>

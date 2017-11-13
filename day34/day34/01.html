@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>canvas绘图</title>
+  </head>
+  <body>
+
+    <canvas id="canvas">你的浏览器不支持canvas</canvas>
+
+    <script type="text/javascript">
+
+    //1. 获得canvas画布dom对象
+    var can = document.getElementById("canvas");
+
+    //canvas元素是具有width, height的属性
+    can.width = 500;
+    can.height = 500;
+
+    can.style.border = "1px solid red";
+
+    //2. 获得画布的上下文对象
+    var cxt = can.getContext("2d");
+
+
+
+    //3. 开始绘制图形
+
+    cxt.beginPath();
+    //确定画笔的开始位置
+    cxt.moveTo(10, 10);
+
+    //确定直线的一个点
+    cxt.lineTo(100, 100);
+
+    //确定直线的一个点
+    cxt.lineTo(200, 30);
+
+    //确定直线的一个点
+    cxt.lineTo(10, 10);
+
+    //进行描边操作(必须要描边)
+    cxt.stroke();
+
+
+    cxt.beginPath();
+    cxt.moveTo(250, 250);
+    cxt.lineTo(350, 250);
+    cxt.lineTo(350, 300);
+    cxt.lineTo(250, 300);
+    cxt.lineTo(250, 250);
+    //填充图形
+    cxt.fill();
+
+
+
+    //绘制矩形
+    cxt.beginPath();
+
+    //设置样式
+    cxt.fillStyle = "pink";
+    cxt.fillRect(200,300, 100, 100);
+
+    //线条颜色
+    cxt.strokeStyle = "red";
+    //线条宽度
+    cxt.lineWidth = 5;
+    cxt.strokeRect(50,300, 100, 100);
+
+    cxt.beginPath();
+    cxt.fillStyle = "blue";
+    cxt.fillRect(400,400, 50, 50);
+
+    cxt.closePath();
+
+
+    //进行矩形区域的擦除
+    // cxt.clearRect(0, 250, 500, 300);
+
+    //重新设置画布的宽高，可将画布清空
+    // can.width = can.width;
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

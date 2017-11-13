@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>判断手势</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var startX, endX, startY, endY;
+    document.addEventListener('touchstart', function(event){
+      startX = event.touches[0].clientX;
+      startY = event.touches[0].clientY;
+    },false);
+
+    document.addEventListener('touchend', function(event){
+      endX = event.changedTouches[0].clientX;
+      endY = event.changedTouches[0].clientY;
+
+      //判断手势,通过差值
+      var tempX = endX - startX;
+      var tempY = endY - startY;
+
+      //Math.abs(value);绝对值
+
+      //认为是水平的方向
+      if (Math.abs(tempX) >= Math.abs(tempY)){
+        if (tempX > 0){
+          alert("手势为右滑动");
+        } else {
+          alert("手势为左滑动");
+        }
+      } else {
+        if (tempY > 0){
+          alert("手势为下滑动");
+        } else {
+          alert("手势为上滑动");
+        }
+      }
+
+    },false);
+
+    </script>
+
+  </body>
+</html>

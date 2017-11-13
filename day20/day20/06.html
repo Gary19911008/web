@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>数组方法</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var a1 = [1,2,3];
+    a1[3] = 4;
+    a1[4] = 5;
+
+    //末尾的添加，删除
+    a1.push(10,20,30);
+    console.log(a1);
+
+    delete a1[0];//不影响长度
+    console.log(a1);
+
+    //删除最后一个，长度减1
+    console.log(a1.pop());
+
+
+    //开头添加，删除
+    //shift unshift
+    var a2 = [1,2,3,4,5];
+    console.log(a2.shift());//1
+
+    // a2.unshift(10,20,30);
+    a2.unshift(10);
+    a2.unshift(20);
+    a2.unshift(30);
+    console.log(a2);
+
+
+    //遍历方式
+    for (var i in a2) {
+      console.log(a2[i]);
+    }
+
+
+    //join 数组拼接
+    console.log(a2.join());
+    console.log(a2.join(''));
+    console.log(a2.join('*'));
+    console.log(a2.join('+'));
+
+
+    var a3 = ['hello', 'world', 'iphonex'];
+    console.log(a3.join(''));
+    console.log(a3);
+
+
+    //reverse颠倒，数组本身也被修改了
+    var a4 = ['h', 'e', 'l', 'l', 'o'];
+    console.log(a4.reverse());
+    console.log(a4.reverse());
+
+
+    //普通类型, 相互之间修改不影响
+    var b1 = b2 = 30;
+    console.log(b1,b2);//30,30
+
+    b2 = 20;
+    console.log(b1,b2);//30,20
+
+
+    /*
+    引用类型: 如果引用的是同一块内存地址，那么相互之间修改会有影响
+    */
+
+    //a5,a6是同一块内存地址
+    var a5 = a6 = [1,2,3,4,5];
+    console.log(a5,a6);
+    a6[0] = 100;
+    console.log(a5,a6);
+
+    var a7 = [1,2,3,4,5], a8 = [1,2,3,4,5];
+    a7[0] = 100;
+    console.log(a7,a8);
+
+
+    //sort排序
+    console.log("***************sort *************");
+
+    var a9 = [10,2,3,80];
+    console.log(a9.sort());//按照字符的编码进行排序，默认从小到大
+
+    // sort传入参数进行排序
+    a9.sort(function(a,b){
+      console.log("a = %d, b = %d", a, b);
+
+      //从小到大排序
+      return a - b;
+    });
+
+    //影响原数组
+    console.log(a9);
+
+
+    console.log("************concat***********");
+
+    //concat 连接数组，可以填写任何个参数
+    var a10 = ['hello', 'world', 'google'];
+    var a11 = ['iphonex', 'apple'];
+
+    console.log(a10.concat(a11, "android"));
+
+
+    console.log("************slice*************");
+   //slice 数组切片
+   var a12 = [1,2,3,4,5,6,7,8,9,10];
+
+   //begin end(不包含)
+   console.log(a12.slice(1,4));
+   console.log(a12.slice());//全切
+   console.log(a12.slice(3));//从3开始切，到最后
+   console.log(a12.slice(-7,8));//从4开始。。。。。
+
+   var result = a12.slice(0,3);
+   result[0] = 100;
+   //result, a12不是同一块内存地址，相互不影响
+   console.log(a12, result);
+
+
+
+   //slice浅复制(引用类型)
+   var a13 = [[100,200,300],1,2,3,4,5];
+   result = a13.slice(0,3);
+
+   //修改切片后的数组
+   result[0][0] = 1000;
+   console.log(a13, result);
+
+
+
+   console.log("******************splice*************");
+  /*
+  splice: 添加，删除，修改
+  */
+  var myFish = ["angel", "clown", "mandarin", "surgeon"];
+  result = myFish.splice(0,1);//result，删除元素组成的数组
+  console.log(myFish,result);
+
+  //任意位置添加
+  myFish.splice(1,0,"hello", "world");
+  console.log(myFish);//["clown","hello", "world","mandarin", "surgeon"]
+
+  //修改
+  myFish.splice(2,1, "china");
+  console.log(myFish);
+
+
+  //toString
+  console.log(myFish.toString());
+  console.log(myFish.join());
+
+
+  // forEach直接遍历
+  var a14 = [1,2,3,4,5,6,7,8];
+  var sum = 0;
+
+  // 直接遍历
+  a14.forEach(function(current,index, arr){
+    console.log("current = ", current);
+    // console.log("index = ", index);
+    // console.log("arr = ", arr);
+    sum += current;
+  });
+  console.log(sum);
+
+
+  // for (var i = 0; i < a14.length; i++) {
+  //   a14[i] += 10;
+  // }
+
+  //map
+  var result = a14.map(function(current,index,arr){
+
+    //map需要每次返回，由返回的数据共同组成一个新数组
+     return current + 10;
+  });
+  console.log(result);
+
+
+  //查找
+  var a15 = [10,20,30,20,80,60,34];
+  console.log(a15.indexOf(20));//1
+  console.log(a15.indexOf(200));//-1
+
+
+  /*
+  作业：
+  1. 编写一个冒泡排序？
+  2. 封装函数：数组去重
+     比如；[1,2,3,3,4,2,5,1] =====> [1,2,3,4,5];
+  3. 封装函数：将10进制转成2进制？？
+  4. 封装函数： 判断一个数组是否是回文数组？？？
+    比如： ["hello", "world", "hehe","eheh", "dlrow", "olleh"]
+  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

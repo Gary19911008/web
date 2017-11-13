@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title> 使用离屏canvas实现放大镜效果</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #canvas-1 {
+      display: block;
+      margin: 100px auto;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="canvas-1"></canvas>
+  <canvas id="canvas-2" style="display:block"></canvas>
+
+  <script type="text/javascript">
+
+    var w = 1226, h = 460;
+    var can1 = document.getElementById("canvas-1");
+    var can2 = document.getElementById("canvas-2");
+
+    can1.width = w / 2;
+    can1.height = h / 2;
+
+    var can1OffsetLeft = can1.offsetLeft;
+    var can1OffsetTop = can1.offsetTop;
+
+    /*
+    浏览器可视窗口的尺寸发生变化时，就会触发！！！
+    */
+    window.onresize = function() {
+      can1OffsetLeft = can1.offsetLeft;
+      can1OffsetTop = can1.offsetTop;
+      console.log(can1OffsetLeft, can1OffsetTop);
+    }
+
+    can2.width = w ;
+    can2.height = h;
+
+    var cxt1 = can1.getContext('2d');
+    var cxt2 = can2.getContext('2d');
+
+    var img = new Image();
+
+    img.onload = function() {
+      cxt1.drawImage(img, 0, 0, can2.width, can2.height, 0, 0, can1.width, can1.height);
+      cxt2.drawImage(img, 0, 0, can2.width, can2.height, 0, 0, can2.width, can2.height);
+
+      can1.onmousemove = function (event) {
+        can1.width = can1.width;
+        cxt1.drawImage(img, 0, 0, can2.width, can2.height, 0, 0, can1.width, can1.height);
+
+        var can1X = event.pageX - can1OffsetLeft;
+        var can1Y = event.pageY - can1OffsetTop;
+
+        if (can1X < 50) {
+          can1X = 50;
+        } else if (can1X > can1.width - 50) {
+          can1X = can1.width - 50;
+        }
+
+        if (can1Y < 50) {
+          can1Y = 50;
+        } else if (can1Y > can1.height - 50) {
+          can1Y = can1.height - 50;
+        }
+
+
+        cxt1.strokeStyle = "#009ad6";
+        cxt1.lineWidth = 5;
+        cxt1.arc(can1X, can1Y, 50, 0, Math.PI * 2, false);
+        cxt1.stroke();
+
+        cxt1.clip();
+
+        var can2StartX = can1X * 2 - 50  ;
+        var can2StartY = can1Y * 2 - 50  ;
+        cxt1.drawImage(can2, can2StartX, can2StartY, 100, 100, can1X - 50, can1Y - 50, 100, 100);
+
+        can1.onmouseleave = function (){
+          can1.width = can1.width;
+          cxt1.drawImage(img, 0, 0, can2.width, can2.height, 0, 0, can1.width, can1.height);
+        }
+      };
+    };
+
+    img.src = "./mi.jpg";
+  </script>
+
+</body>
+
+</html>

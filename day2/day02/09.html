@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>css的优先级问题，重点!!!</title>
+    <style>
+
+
+     #oneId {
+       color: green;
+     }
+
+     .one {
+       color:red;
+     }
+
+     p {
+       /*
+       !important 用于确定最高优先级
+       */
+       color: yellow !important;
+     }
+
+     .two {
+       color: purple;
+     }
+
+     #twoId {
+       color: pink;
+     }
+
+
+     .three-1 {
+       color: red;
+     }
+
+     div.three-1 {
+       color: yellow;
+     }
+
+     div .three-2 {
+       color:green;
+     }
+    </style>
+  </head>
+  <body>
+
+    <!--
+    css的选择器规则，是按照从右到左寻找的！！！！！
+   -->
+
+    <!--
+    优先级的计算公式(在元素本身上)：
+    !important > 行内style > id > class > 标签 > 继承 > 浏览器的默认
+    计算公式：在同一个css的规则中,默认优先级为0
+     出现一次 标签，优先级加 1
+     出现一次 class，优先级加 10
+     出现一次 id ,优先级加 100
+    优先级相同，最后的设置有效
+    -->
+
+    <div class="one" id="oneId">
+      div元素
+      <p class="two" id="twoId"  style="color:brown;">请问p元素是什么颜色？？？</p>
+    </div>
+
+    <!---->
+
+    <div>
+      <div class="three-1 three-2">div的颜色？？？</div>
+    </div>
+
+  </body>
+</html>

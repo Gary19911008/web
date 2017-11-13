@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>兼容浏览器的事件对象(基本)</title>
+</head>
+
+<body>
+
+
+  <button id="btn">按钮</button>
+
+  <script type="text/javascript">
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function(event) {
+      // 使用或运算或者条件判断来 实现event的兼容
+      var event = event || window.event;
+      console.log(event.target || event.srcElement);
+      event.stopPropagation ? event.stopPropagation() : event.cancelBubblue = true;
+    }
+
+  </script>
+
+
+</body>
+</html>

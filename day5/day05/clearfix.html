@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>使用伪元素清除浮动</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one {
+        font-size: 50px;
+        color: red;
+      }
+
+      .one::before {
+        /*content必须填写，有没有值无所谓*/
+        content: "";
+        color: green;
+      }
+
+      .one::after{
+        content: "after";
+        color: purple;
+      }
+
+
+
+      /*
+      清除浮动
+      */
+      .clearfix::before,
+      .clearfix::after {
+        content: "";
+        clear: both;
+        display: block;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .lists li {
+        float: left;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="one">div元素</div>
+
+    <ul class="lists  clearfix">
+      <li>111</li>
+      <li>222</li>
+      <li>333</li>
+    </ul>
+    <p>看手机号看见好看看到机会看到机会看大家看好的好咖啡机好看房交会库房尽快放假看房间号咖啡机好看房交会</p>
+
+
+
+  </body>
+</html>

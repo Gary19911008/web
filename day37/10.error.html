@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>错误类型</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var obj = {value: 10};
+    //instanceof 测试一个对象是否是由一个构造函数产生的
+    console.log(obj instanceof Object);
+
+
+
+    // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Error
+
+    try {
+      fun();
+    } catch (e){
+      //可以根据不同的错误类型，进行不同的错误处理
+      if (e instanceof ReferenceError){
+        console.log("ReferenceError....");
+      } else if (e instanceof TypeError){
+        console.log("TypeError ...");
+      } else {
+        console.log("other error...");
+      }
+    }
+    </script>
+
+  </body>
+</html>

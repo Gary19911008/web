@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>css操作</title>
+    <style>
+      .back{
+        width: 500px;
+        height: 500px;
+        background: pink;
+      }
+
+      .color_red {
+        color: red;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="one">hjjhdjhkjhk</div>
+    <div class="one">hjjhdjhkjhk</div>
+    <div class="one">hjjhdjhkjhk</div>
+    <div class="one">hjjhdjhkjhk</div>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    // $(".one").css("width", "500px");
+    // $(".one").css("height", "500px");
+    // $(".one").css("background", "pink");
+
+    /*
+    //一次性设置多个
+    $(".one").css({
+      "width": "500px",
+      "height": "500px",
+      "background": "pink"
+    });
+    */
+
+
+    //使用addClass来添加样式最方便
+    $(".one").addClass("back color_red");
+
+    //使用removeClass来移除样式
+    $(".one").removeClass("color_red back");
+
+
+    //有类就删除，没有就添加
+    $(".one").toggleClass("back");
+
+
+
+
+
+    //获取样式
+    console.log($(".one").css("width"));//获取width
+    console.log($(".one").css("height"));//获取height
+    console.log($(".one").css("background-color"));
+
+    //返回一个包含指定属性的对象
+    console.log($(".one").css(["width", "height", "background-color"]));
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

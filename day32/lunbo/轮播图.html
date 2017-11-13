@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>轮播图</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+    .box {
+      width: 1226px;
+      height: 460px;
+      margin: 100px auto;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image {
+      height: 460px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .image li {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transition: all 0.5s linear;
+      z-index: -1;
+      opacity: 0;
+    }
+
+    .image li.current {
+      z-index: 0;
+      opacity: 1;
+    }
+
+    .point {
+      position: absolute;
+      left: 50%;
+      bottom: 10px;
+    }
+
+    .point span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin-right: 5px;
+      background: gray;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .point span.current {
+      background: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box" id="box-id">
+    <ul class="image" id="img-id">
+      <li class="current"><a href="#"><img src="./image/1.jpg" alt=""></a></li>
+      <li><a href="#"><img src="./image/2.jpg" alt=""></a></li>
+      <li><a href="#"><img src="./image/3.jpg" alt=""></a></li>
+      <li><a href="#"><img src="./image/4.jpg" alt=""></a></li>
+    </ul>
+    <div class="point" id="point-id"></div>
+  </div>
+  <script src="jquery.min.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    var $box = $("#box-id");
+
+    var $images = $("#img-id");
+    var imgWidth = $box.width();
+
+    var lis = $images.children();
+    var $point = $("#point-id");
+
+    for (var i = 0; i < lis.length; i++) {
+      $("<span>").appendTo($point);
+    }
+
+    var spans = $point.children();
+    spans.eq(0).addClass("current");
+
+    var timer = null;
+    var ul_num = 0,span_num = 0;
+
+    for (var i = 0; i < spans.length; i++) {
+      spans.eq(i).on("click",i,function(event){
+        $(this).addClass('current').siblings("span").removeClass('current');
+
+        lis.eq(event.data).addClass('current').siblings('li').removeClass('current');
+        ul_num = span_num = event.data;
+      });
+    }
+
+    timer = setInterval(play, 2000);
+
+    function play() {
+      ul_num++;
+      if (ul_num > spans.length - 1){
+        ul_num = 0;
+      }
+
+      lis.eq(ul_num).addClass('current').siblings("li").removeClass('current');
+
+      span_num++;
+      if (span_num > spans.length - 1) {
+        span_num = 0;
+      }
+
+      spans.eq(span_num).addClass('current').siblings('span').removeClass('current');
+    }
+
+    $box.hover(function(){
+      clearInterval(timer);
+    },function(){
+      timer = setInterval(play,2000);
+    });
+
+
+  </script>
+</body>
+
+</html>

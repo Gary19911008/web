@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>cookie如何操作</title>
+  </head>
+  <body>
+
+    <!--
+    cookie是什么？存储在哪？前后端如何操作？存储周期？存储容量 ?
+    session是什么？
+    cookie session的区别？
+   -->
+
+   <!--
+   cookie是基本不需要前端操作的，浏览器会自定存储和发送
+   -->
+   <script type="text/javascript">
+
+   //必须在服务器上测试
+  // cookie  读写
+
+  //cookie的读取
+  console.log(document.cookie);
+
+
+  //cookie的添加
+  document.cookie = 'name=lisi';
+  document.cookie = 'age=10';
+
+  console.log(document.cookie);
+   </script>
+
+
+
+
+  </body>
+</html>

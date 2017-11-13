@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>mi</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .w {
+      width: 1226px;
+      margin: 0 auto;
+    }
+
+
+
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    .clearfix {
+      zoom: 1;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+    .nav {
+      font-size: 16px;
+      position: relative;
+    }
+
+    .nav-top {
+      height: 60px;
+      padding: 20px 0;
+    }
+
+    .nav-top .logo {
+      float: left;
+      width: 60px;
+      height: 60px;
+      /*background-color: #ff6700;*/
+      background: #ff6700 url("./images/mi-logo.png") no-repeat center center;
+    }
+
+    .nav-top .nav-item {
+      float: left;
+      height: 60px;
+      padding: 0 80px;
+    }
+
+    .nav-top .nav-item a {
+      height: 60px;
+      line-height: 60px;
+      color: #333;
+      padding: 0 10px;
+    }
+
+    .nav-top .nav-item a:hover {
+      color: #ff6700;
+    }
+
+
+    .nav-top  .search {
+      float: right;
+      position: relative;
+    }
+
+    .nav-top .search > input {
+      float: left;
+      width: 230px;
+      height: 50px;
+      padding-left: 15px;
+      border: 1px solid #ff6700;
+      outline: none;
+    }
+
+    .nav-top .search > button{
+      float: left;
+      height: 52px;
+      width: 60px;
+      border: none;
+      background: #ff6700;
+    }
+
+
+    .nav-top .search-lists {
+      position: absolute;
+      top: 51px;
+      left: 0;
+      width: 225px;
+      padding: 0 10px;
+      border: 1px solid #ff6700;
+      font-size: 13px;
+
+      /*默认隐藏*/
+      display: none;
+      background: #fff;
+    }
+
+    .nav-top .search-lists li {
+      height: 30px;
+      line-height: 30px;
+    }
+
+    .nav-top .search-lists li:hover {
+      background-color: #eee;
+    }
+
+    .nav-top .search-lists li span:nth-child(1) {
+      float: left;
+    }
+
+    .nav-top .search-lists li span:nth-child(2) {
+      float: right;
+    }
+
+    .nav-bottom {
+      position: absolute;
+      top: 100px ;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background: yellow;
+      z-index: 2;
+      display: none;
+    }
+
+    .nav-bottom ul {
+      width: 100%;
+      height: 100%;
+    }
+
+    .nav-bottom ul li {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+
+    .nav-bottom ul li.active {
+      display: block;
+    }
+
+
+    .content {
+      height: 200px;
+      background: blue;
+    }
+
+  </style>
+</head>
+
+<body>
+
+
+  <div class="nav  w">
+    <div class="nav-top clearfix">
+      <div class="logo"></div>
+      <div class="nav-item">
+        <a href="#" class="item">小米手机</a>
+        <a href="#" class="item">红米</a>
+        <a href="#" class="item">平板 · 笔记本</a>
+        <a href="#" class="item">电视</a>
+        <a href="#" class="item">盒子 · 影音</a>
+        <a href="#" class="item">路由器</a>
+        <a href="#" class="item">智能硬件</a>
+        <a href="#">服务</a>
+        <a href="#">社区</a>
+
+      </div>
+      <div class="search clearfix">
+        <input type="text" name="search-con">
+        <button>搜索</button>
+        <ul class="search-lists">
+          <li><span>路由器</span><span>约有6件</span></li>
+          <li><span>路由器</span><span>约有6件</span></li>
+          <li><span>路由器</span><span>约有6件</span></li>
+          <li><span>路由器</span><span>约有6件</span></li>
+          <li><span>路由器</span><span>约有6件</span></li>
+          <li><span>路由器</span><span>约有6件</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="nav-bottom">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="content  w"></div>
+
+
+
+  <script src="./jquery.min.js"></script>
+  <script type="text/javascript">
+  $(function(){
+
+    $(".search input[name=search-con]").focus(function(){
+      //下拉显示
+      $(".search-lists").slideDown(100);
+    }).blur(function(){
+      //上拉隐藏
+      $(".search-lists").slideUp(100);
+    });
+
+
+    //注册鼠标移动到导航的事件
+    $(".nav-item a.item").each(function(index){
+      //此处的index为 从0开始的计数。。。。
+      $(".nav-item a.item").eq(index).mouseover(function(){
+        //显示nav-bottom
+        $(".nav .nav-bottom").show();
+
+        //显示nav-bottom 中对应的li
+        $(".nav-bottom li").eq(index).addClass("active").siblings().removeClass("active");
+      });
+
+    });
+
+    $(".nav .nav-bottom").mouseout(function(){
+      $(this).hide();
+    });
+  });
+
+  </script>
+
+</body>
+
+</html>

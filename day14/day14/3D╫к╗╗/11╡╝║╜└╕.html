@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>导航栏</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      .nav {
+        width: 1000px;
+        margin: 100px auto;
+      }
+      li {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        float: left;
+        position: relative;
+        transform-style: preserve-3d;
+        transition: all 0.5s;
+      }
+      li span {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      li span:nth-child(1) {
+        background: pink;
+        transform:  translateZ(25px);
+      }
+      li span:nth-child(2) {
+        background: yellow;
+        transform: rotateX(90deg) translateZ(25px);
+      }
+
+      li:hover {
+        transform: rotateX(-90deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="nav">
+      <ul>
+        <li>
+          <span>首页一</span>
+          <span>首页二</span>
+        </li>
+        <li>
+          <span>首页一</span>
+          <span>首页二</span>
+        </li>
+        <li>
+          <span>首页一</span>
+          <span>首页二</span>
+        </li>
+        <li>
+          <span>首页一</span>
+          <span>首页二</span>
+        </li>
+      </ul>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>图片放大镜效果</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #canvas {
+        display: block;
+        margin: 100px auto;
+      }
+    </style>
+  </head>
+  <body>
+
+    <canvas id="canvas">浏览器不支持canvas</canvas>
+    <script type="text/javascript">
+
+    var w = 1226, h = 460;//原始尺寸
+
+    var can = document.getElementById("canvas");
+    can.width = w / 2;
+    can.height = h / 2;
+
+    var r = 50;//放大镜的半径
+
+    var cxt = can.getContext("2d");
+
+    var offsetLeft = can.offsetLeft;//canvas距离body左边框的距离
+    var offsetTop = can.offsetTop;
+
+
+    window.onresize = function(){
+      offsetLeft = can.offsetLeft;//canvas距离body左边框的距离
+      offsetTop = can.offsetTop;
+    }
+
+    var img = new Image();
+    img.onload = function(){
+      cxt.drawImage(img, 0, 0, w, h, 0, 0, can.width, can.height);
+
+      can.onmousemove = function(event){
+        //每次移动，都先清空画布
+        can.width = can.width;
+        cxt.drawImage(img, 0, 0, w, h, 0, 0, can.width, can.height);
+
+        var rx = event.pageX - offsetLeft;
+        var ry = event.pageY - offsetTop;
+
+        if (rx <= r ) {
+          rx = r;
+        } else if (rx >= can.width - r) {
+          rx = can.width - r;
+        }
+
+        if (ry <= r) {
+          ry = r;
+        } else if (ry >= can.height - r) {
+          ry = can.height - r;
+        }
+
+        //绘制放大镜
+        cxt.lineWidth = 5;
+        cxt.strokeStyle = "lightblue";
+        cxt.arc(rx, ry, r, 0, Math.PI * 2, false);
+        cxt.stroke();
+        cxt.clip();
+
+        /*
+        根据当前鼠标位置，得到从原图上应该抠下对应的区域
+        并且将抠下的区域显示到放大镜内区域
+        */
+
+        cxt.drawImage(img, 2*rx - r, 2 * ry - r, 2*r, 2*r, rx - r, ry - r, 2*r, 2*r );
+      }
+
+      can.onmouseleave = function(){
+        can.width = can.width;
+        cxt.drawImage(img, 0, 0, w, h, 0, 0, can.width, can.height);
+      }
+    };
+    img.src = "./mi.jpg";
+
+
+    </script>
+
+
+  </body>
+</html>

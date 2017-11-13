@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jquery两个版本冲突问题</title>
+  </head>
+  <body>
+
+    <script src="./jquery-2.2.2.min.js" charset="utf-8"></script>
+    <script src="./jquery-3.0.0.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    //3.0.0
+    //$.fn.jquery输出当前版本号
+    console.log($.fn.jquery);
+    console.log(jQuery.fn.jquery);
+    console.log("noConflict 之前 ");
+
+    //使用 $.noConflict();
+    /*
+    noConflict不写参数(false)，那么当前的jquery版本只会放弃$符号，不会放弃jQuery符号
+    noConflict参数为true，那么当前的jquery版本将 $、jQuery符号都放弃给其他版本
+    */
+
+    //返回值为当前jquery的可用符号
+    var $$ = $.noConflict(true);
+
+    console.log($.fn.jquery);//2.2.2
+    console.log(jQuery.fn.jquery);//2.2.2
+    console.log($$.fn.jquery);//3.0.0
+
+
+
+
+
+
+
+
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      #lists li {
+        margin: 30px 0px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <ul id="lists">
+      <li>11</li>
+      <li>22</li>
+      <li>33</li>
+    </ul>
+
+    <div id="box" name="hehe">sd卡好看见好看</div>
+
+
+    <div id="clone">
+      <div>点我</div>
+    </div>
+
+
+    <script src="./jquery.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+      // jQuery中的事件委托操作
+      $("#lists").on("click", "li", function(event){
+
+        //jQuery中的事件委托中， 处理函数内容  this  =====  event.target都是事件源
+        console.log(event.target);
+        console.log(this);
+      });
+
+      // jQuery中的特性操作
+      var box = $("#box");
+      console.log(box.attr("name"));//hehe
+      console.log(box.attr("age"));//undefined
+
+      //此处用prop获得不了特定name
+      console.log(box.prop("name"));//undefined
+
+
+      //设置特性
+      box.attr("name", "lisi");
+      //删除特性
+      box.removeAttr("name");
+
+
+      //clone有关
+      var cl = $("#clone");
+      cl.click(function(){
+        console.log("clone元素被点击。。。。");
+      });
+
+      cl.children().eq(0).mouseover(function(){
+        console.log("clone的子元素 mouseover ...");
+      });
+
+      //参数为true，保证了所有的事件也被克隆了
+      cl.clone(true).appendTo("body");
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

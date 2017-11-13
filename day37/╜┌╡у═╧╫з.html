@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .list {
+        width: 200px;
+        margin: 100px auto;
+      }
+
+      .list li {
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+
+      .list li:nth-child(2n){
+        background: rgb(28, 142, 74);
+      }
+
+      .list li:nth-child(2n+1){
+        background: rgb(167, 50, 46);
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <!--
+    实现拖拽功能
+    -->
+
+    <ul class="list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+
+
+    <script type="text/javascript">
+
+    document.addEventListener("DOMContentLoaded", function(){
+
+      var list = document.querySelectorAll('.list')[0];
+
+      list.onselectstart = function(){
+        //selectstart事件中  return false是 阻止文本选中
+        return false;
+      }
+
+      function updateIndex(elems){
+        for (var i = 0; i < elems.children.length; i++){
+          elems.children[i].index = i;
+        }
+      }
+
+      updateIndex(list);
+
+      for (var i = 0; i < list.children.length; i++){
+
+        list.children[i].setAttribute("draggable", "true");
+
+        list.children[i].addEventListener('dragstart', function(event){
+          //event.dataTransfer.setData 设置拖拽的值
+          event.dataTransfer.setData("srcElemIndex", this.index);
+        },false);
+
+        list.children[i].addEventListener('dragover', function(event){
+          event.stopPropagation();
+          event.preventDefault();
+        },false);
+
+
+        list.children[i].addEventListener('drop', function(event){
+
+          //event.dataTransfer.getData 获得传递的值
+          var srcElemIndex =  event.dataTransfer.getData("srcElemIndex");
+          var next = this.nextElementSibling;
+          list.insertBefore(list.children[srcElemIndex], next);
+
+          /*
+          每次移动位置之后,需要更新各个子元素的索引，因为他们的排列顺序已经变化了
+          list.chidren[srcElemIndex]取到的元素就不是被拖动的了。
+          */
+          updateIndex(list);
+        },false);
+      }
+
+
+    },false);
+
+
+    </script>
+  </body>
+</html>

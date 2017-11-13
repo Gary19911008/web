@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>float</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one {
+        width: 600px;
+        height: 100px;
+        background: yellow;
+        float: left;
+      }
+
+      .two {
+        width: 700px;
+        height: 100px;
+        background: blue;
+
+        /*脱离标准流，不占原来的位置，后边的元素都会跟上来*/
+        float: left;
+      }
+
+      .three {
+        width: 800px;
+        height: 100px;
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+
+  </body>
+</html>

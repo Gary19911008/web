@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>文件</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      table {
+        text-align: center;
+        border-collapse: collapse;
+      }
+
+      tr,td,th {
+        border: 1px solid gray;
+      }
+
+      td, th {
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!--
+    accept的作用用于指定input选择的文件的类型
+    <input type="file" accept="video/*" >
+    <input type="file" accept="application/msword" >
+   -->
+
+    <input type="file" multiple>
+    <table id="show">
+      <caption><h2>文件信息</h2></caption>
+      <thead>
+        <th>文件名称</th>
+        <th>文件大小KB</th>
+        <th>文件最后的修改时间</th>
+      </thead>
+      <tbody ></tbody>
+    </table>
+
+    <script type="text/javascript">
+
+    var f = document.querySelector('input[type=file]');
+    var tb = document.querySelector('#show tbody');
+
+    f.addEventListener('change', function(){
+
+      //获得用于选择的文件信息
+      // console.log(f.files);
+
+      for (var i = 0; i < f.files.length; i++) {
+        console.log(f.files[i].name);
+        var tr = document.createElement("tr");
+        tr.innerHTML = "<td>" + f.files[i].name + "</td><td>" + f.files[i].size/1024 + "KB</td><td>" + f.files[i].lastModifiedDate + "</td>";
+        tb.appendChild(tr);
+      }
+
+    }, false);
+
+
+
+    </script>
+  </body>
+</html>

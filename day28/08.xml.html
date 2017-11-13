@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>前端解析xml字符串</title>
+</head>
+
+<body>
+
+  <!--
+  xml VS  json:
+  1. xml代码冗余
+  2. xml 数据类型不够广泛
+  3. xml 解析复杂
+  -->
+
+  <script src="./jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var xmlStr =
+      `<?xml version="1.0" encoding="UTF-8"?>
+      <student  class="stu">
+        <name>lisi</name>
+        <age>10</age>
+        <score>88</score>
+        <hobbys>
+          <hobby>read</hobby>
+          <hobby>sport</hobby>
+          <hobby>drink</hobby>
+        </hobbys>
+      </student>`;
+
+      //返回是一个DOM对象, 不是jQuery对象！！！！！
+      var result = $.parseXML(xmlStr);
+      // console.log(result);
+
+      //将DOM对象转换成了jQuery对象
+      var jdoc = $(result);
+
+      var stu = jdoc.find(".stu").eq(0);
+      var name = stu.find('name').text();
+      var age = stu.find('age').text();
+      var score = stu.find('score').text();
+      var hobbys = [];
+
+      stu.find("hobby").each(function(index,elem){
+        hobbys.push($(elem).text());
+      });
+
+      console.log(hobbys);
+
+      /*
+      使用原生javascript进行解析
+      */
+      //此处返回的result和 $.parseXML一模一样
+      result = (new DOMParser()).parseFromString(xmlStr, "application/xml");
+      console.log(result);
+
+
+
+  </script>
+
+</body>
+
+</html>

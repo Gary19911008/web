@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>闭包的优缺点</title>
+</head>
+
+<body>
+
+  <div id="box"></div>
+
+  <script type="text/javascript">
+
+  var box = document.getElementById('box');
+
+    /*
+    闭包优点：
+    1. 实现变量的私有化，减少全局变量的定义
+    2. 动态生成数据(根据参数变化)
+    */
+
+    /*
+    function fun() {
+      //计数功能
+      var count = 0;
+
+      function addCount() {
+        count++;
+      }
+
+      function minCount() {
+        count--;
+      }
+
+      function getCount() {
+        return count;
+      }
+
+      return [addCount, minCount, getCount];
+    }
+
+    var result = fun();
+    var add = result[0];
+    var min = result[1];
+    var get = result[2];
+
+    add();
+    min();
+    console.log(get());
+    */
+
+
+    function fun2(str){
+      return function(tag){
+        return "<" + tag + ">" +  str + "</" +  tag + ">";
+      };
+    }
+
+    var ret = fun2("helloworld");
+    box.innerHTML = ret("h1");
+    box.innerHTML += ret("h2");
+    box.innerHTML += ret("h3");
+
+     ret = fun2("worldhello");
+    box.innerHTML += ret("h4");
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>keyframes</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #time {
+        text-align: center;
+        font-size: 40px;
+        color: red;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        margin: 0px auto;
+        background: yellow;
+        animation: run 10s linear ;
+      }
+
+      @keyframes run {
+       0% {
+       }
+       20% {
+         width: 300px;
+       }
+       30% {
+         height: 300px;
+         background: green;
+       }
+       50% {
+         width: 400px;
+       }
+       60% {
+         height: 400px;
+         background: pink;
+       }
+       100% {
+         width: 500px;
+         height: 500px;
+         background: purple;
+       }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="time">0</div>
+    <div class="box"></div>
+
+    <script type="text/javascript">
+      var t = document.querySelector("#time");
+      var sec = 0;
+      setInterval(function(){
+        sec++;
+        if (sec > 10) return;
+        t.innerHTML = sec;
+      }, 1000);
+    </script>
+  </body>
+</html>

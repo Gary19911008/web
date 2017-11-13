@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>内置的bind</title>
+  </head>
+  <body>
+
+    <button id="btn1">按钮1</button>
+    <button id="btn2">按钮2</button>
+
+    <script type="text/javascript">
+
+    var btn1 = document.getElementById('btn1');
+    var btn2 = document.getElementById('btn2');
+    btn1.value = 1000;
+    btn2.value = 10000;
+
+    var value = 10;
+
+    var obj = {
+      value: 100
+    };
+
+    function handler (arg1,arg2){
+      console.log(this.value);
+      console.log("arg1 = ", arg1);
+      console.log("arg2 = ", arg2);
+    }
+
+
+    //fun1是bind返回的新函数
+    var fun1 = handler.bind(obj, 10, 20);
+    // fun1(); //100
+    // handler();//10
+
+
+    /*
+    函数一旦bind成功，那么从此以后返回的新函数的this就已经固定了。
+    在任何位置调用该新函数，this都不在变了
+    */
+    btn1.addEventListener('click', fun1, false);//100
+    btn2.addEventListener('click', fun1, false);//100
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

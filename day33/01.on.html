@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <button id="btn">点击</button>
+
+    <script src="./jquery-3.0.0.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    //jquery中注册事件时，可以传递额外的参数
+    $("#btn").on('click', {name:'lisi', age: 22}, function(event){
+
+      //直接使用event.data即可得到传递的额外参数
+      console.log("event.data = ", event.data);
+    });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>原生方法生成表格</title>
+</head>
+<style media="screen">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .stu {
+    margin: 200px auto;
+    border-collapse: collapse;
+    border: 1px solid gray;
+    text-align: center;
+  }
+
+  .stu th,
+  .stu td {
+    width: 100px;
+    height: 30px;
+    border: 1px solid gray;
+  }
+</style>
+
+<body>
+  <table class="stu">
+    <caption>
+      <h1>学生信息表</h1></caption>
+    <thead>
+      <tr>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>分数</th>
+        <th><button id="btn">添加学生信息</button></th>
+      </tr>
+    </thead>
+    <tbody id="tbody">
+
+    </tbody>
+  </table>
+
+  <script type="text/javascript">
+    var stus = [
+      ["lisi", 20, 88],
+      ["zhangsan", 18, 59],
+      ["zhaosi", 40, 30],
+      ["wangwu", 30, 66],
+      ["zhaoliu", 34, 67],
+      ["wangqi", 78, 90]
+    ];
+
+    stus.forEach(function(current, index, arr){
+
+    var btn = document.getElementById("btn");
+    var tbody = document.getElementById("tbody");
+    btn.onclick = function() {
+      var tr = document.createElement("tr");
+      var tdName = document.createElement("td");
+      var tdAge = document.createElement("td");
+      var tdScore = document.createElement("td");
+      var td = document.createElement("td");
+      tdName.innerHTML = stus[0][0];
+      tdAge.innerHTML = stus[0][1];
+      tdScore.innerHTML = stus[0][2];
+      td.innerHTML = "<a href='#' onclick='del(this)'>删除</a>"
+      tr.appendChild(tdName);
+      tr.appendChild(tdAge);
+      tr.appendChild(tdScore);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+
+      var tr = document.createElement("tr");
+      var tdName = document.createElement("td");
+      var tdAge = document.createElement("td");
+      var tdScore = document.createElement("td");
+      var td = document.createElement("td");
+      tdName.innerHTML = stus[1][0];
+      tdAge.innerHTML = stus[1][1];
+      tdScore.innerHTML = stus[1][2];
+      td.innerHTML = "<a href='#' onclick='del(this)'>删除</a>"
+      tr.appendChild(tdName);
+      tr.appendChild(tdAge);
+      tr.appendChild(tdScore);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+
+      var tr = document.createElement("tr");
+      var tdName = document.createElement("td");
+      var tdAge = document.createElement("td");
+      var tdScore = document.createElement("td");
+      var td = document.createElement("td");
+      tdName.innerHTML = stus[2][0];
+      tdAge.innerHTML = stus[2][1];
+      tdScore.innerHTML = stus[2][2];
+      td.innerHTML = "<a href='#' onclick='del(this)'>删除</a>"
+      tr.appendChild(tdName);
+      tr.appendChild(tdAge);
+      tr.appendChild(tdScore);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+
+      var tr = document.createElement("tr");
+      var tdName = document.createElement("td");
+      var tdAge = document.createElement("td");
+      var tdScore = document.createElement("td");
+      var td = document.createElement("td");
+      tdName.innerHTML = stus[3][0];
+      tdAge.innerHTML = stus[3][1];
+      tdScore.innerHTML = stus[3][2];
+      td.innerHTML = "<a href='#' onclick='del(this)'>删除</a>"
+      tr.appendChild(tdName);
+      tr.appendChild(tdAge);
+      tr.appendChild(tdScore);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+
+      var tr = document.createElement("tr");
+      var tdName = document.createElement("td");
+      var tdAge = document.createElement("td");
+      var tdScore = document.createElement("td");
+      var td = document.createElement("td");
+      tdName.innerHTML = stus[4][0];
+      tdAge.innerHTML = stus[4][1];
+      tdScore.innerHTML = stus[4][2];
+      td.innerHTML = "<a href='#' onclick='del(this)'>删除</a>"
+      tr.appendChild(tdName);
+      tr.appendChild(tdAge);
+      tr.appendChild(tdScore);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+
+      var tr = document.createElement("tr");
+      var tdName = document.createElement("td");
+      var tdAge = document.createElement("td");
+      var tdScore = document.createElement("td");
+      var td = document.createElement("td");
+      tdName.innerHTML = stus[5][0];
+      tdAge.innerHTML = stus[5][1];
+      tdScore.innerHTML = stus[5][2];
+      td.innerHTML = "<a href='#' onclick='del(this)'>删除</a>"
+      tr.appendChild(tdName);
+      tr.appendChild(tdAge);
+      tr.appendChild(tdScore);
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+    };
+
+    });
+
+    function del(obj) {
+      var tr = obj.parentNode.parentNode;
+      tr.parentNode.removeChild(tr);
+    }
+  </script>
+
+</body>
+
+</html>

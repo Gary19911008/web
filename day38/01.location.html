@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>地理定位</title>
+  <style>
+    #allmap {
+      width: 800px;
+      height: 500px;
+    }
+  </style>
+  <script src="http://api.map.baidu.com/api?v=2.0&ak=bqHWbmgjAXI7THmM4aG0mwmBXS9SX2c9"></script>
+</head>
+
+<body>
+
+  <button id="btn">获得当前坐标</button>
+  <div id="allmap"></div>
+
+  <script type="text/javascript">
+    if (navigator.geolocation) {
+      alert("当前浏览器支持地理定位");
+    } else {
+      alert("当前浏览器不支持地理定位");
+    }
+
+    //获得geolocation对象
+    var geo = navigator.geolocation;
+    var btn = document.querySelector('#btn');
+
+
+    function success(pos) {
+      console.log("pos.coords: ", pos.coords);
+      console.log("pos.timestamp", pos.timestamp);
+
+
+      // 百度地图API功能
+      var map = new BMap.Map("allmap");    // 创建Map实例
+      map.centerAndZoom(new BMap.Point(pos.coords.longitude, pos.coords.latitude), 11);  // 初始化地图,设置中心点坐标和地图级别
+      map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+      map.setCurrentCity("xxx");          // 设置地图显示的城市 此项是必须设置的
+      map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
+    }
+
+    function error(err) {
+      console.log("err.code: ", err.code);
+      console.log("err.message: ", err.message);
+    }
+
+    //精度， 超时时间， 过期时间
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    btn.onclick = function() {
+      //调用getCurrentPosition方法获得位置信息
+      geo.getCurrentPosition(success, error, options);
+    }
+
+
+    /*
+    geo.watchPosition() 监听位置的改变，一旦改变，则自动调用
+    geo.clearWatch() 清除监听
+    */
+
+
+  </script>
+
+</body>
+
+</html>

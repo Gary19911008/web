@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>正则表达式作业</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .error {
+        color: red;
+        visibility: hidden;
+      }
+
+      .error.show {
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <p id="error" class="error">不是合法的邮箱</p>
+    <input id="em" type="text" placeholder="请输入邮箱" >
+
+
+    <script type="text/javascript">
+
+    /*
+    功能：驼峰法命名转换为连字符命名
+    @str, 驼峰法命名的字符串
+    return, 转换成功的字符串
+    */
+    function toHr (str) {
+      return str.replace(/[A-Z]/g, function (match){
+        return "-" + match.toLowerCase();
+      });
+    }
+    console.log(toHr("borderLeftWidth"));
+
+
+
+      var err = document.getElementById("error");
+    var em = document.getElementById("em");
+
+    //当input失去光标时，判断是否符合邮箱格式
+    // xxxx@yyy.zzz
+    em.addEventListener('blur', function(event){
+      var str = this.value;
+
+      //邮箱的匹配的规则(大致)
+      var pat = /^[\w_]+@[a-z\d]+\.[a-z]+$/;
+
+      //如果匹配失败，显示错误提示
+      if (!pat.test(str)){
+        err.className += " show";
+        this.value = "";
+      }
+
+    },false);
+
+
+
+    // name=lisi&age=10&hobby=eat&score=88&hobby=read&hobby=drink
+    /*
+    功能：就是将指定格式的字符串转换为另一种格式
+    @str
+    return, 转换之后的新字符串
+    */
+    function convert(str){
+      var obj = {};
+      var temp = [];
+
+      //使用了replace的特点
+      str.replace(/([^&=]+)=([^&=]+)/g, function(match, p1, p2){
+
+        obj[p1] = obj[p1] ? (obj[p1] + "," + p2 ) : p2  ;
+
+        // if (obj[p1]) {
+        //   obj[p1] += "," + p2;
+        // } else {
+        //   obj[p1] = p2;
+        // }
+      });
+
+      for (var key in obj){
+        temp.push(key + "=" + obj[key]);
+
+
+
+      }
+
+      return temp.join('&');
+    }
+
+    console.log(convert("name=lisi&age=10&hobby=eat&score=88&hobby=read&hobby=drink"));
+
+
+
+
+    </script>
+
+  </body>
+</html>

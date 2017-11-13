@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>自定义控制面板</title>
+    <style media="screen">
+      #progress {
+        width: 550px;
+        height: 15px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <video id="video" controls poster="./3.jpg">
+      <source src="./video/fun.mp4">
+    </video>
+
+    <div >
+      <progress id='progress' value="0" min="0" max="100"></progress>
+      <span id='current'>00:00</span>
+      <span>/</span>
+      <span id='total'>02:30</span>
+    </div>
+    <div>
+      <button id='play'>播放</button>
+      <!-- <button id="pause">暂停</button> -->
+      <button id="muted">静音</button>
+      <input id="volume" type="range" value="0.5" min='0' max='1' step="0.1">
+      <button id="forward">快进5s</button>
+      <button id="backward">后退5s</button>
+      <button id="up">加速</button>
+      <button id='down'>减速</button>
+      <button id="fullscreen">全屏</button>
+    </div>
+
+    <script type="text/javascript">
+       var testVideo = document.getElementById("video");
+      //  console.log(testVideo.duration);
+
+      var play = document.getElementById("play");
+      // var pause = document.getElementById("pause");
+      var muted = document.getElementById("muted");
+      var volume = document.getElementById("volume");
+      var forward = document.getElementById("forward");
+      var backward = document.getElementById("backward");
+      var up = document.getElementById("up");
+      var down = document.getElementById("down");
+      var fullscreen = document.getElementById("fullscreen");
+
+      var progress = document.getElementById("progress");
+      var current = document.getElementById("current");
+      var total = document.getElementById("total");
+
+
+      // play.addEventListener("click", function(e){
+      //   testVideo.play();
+      //   play.disabled = true;
+      //   pause.disabled = false;
+      // });
+      //
+      // pause.addEventListener("click", function(e){
+      //   testVideo.pause();
+      //   pause.disabled = true;
+      //   play.disabled = false;
+      // });
+
+
+      play.addEventListener("click", function(e){
+
+        var text = play.innerHTML;
+        if (text === '播放'){
+          testVideo.play();
+          play.innerHTML = "暂停";
+        }else {
+          testVideo.pause();
+          play.innerHTML = "播放";
+        }
+      });
+
+
+
+      volume.addEventListener('change', function(e){
+        console.log(volume.value);
+        testVideo.volume = Number(volume.value);
+      });
+
+
+
+
+      testVideo.addEventListener('timeupdate', function(e){
+        current.innerHTML = flag(parseInt(testVideo.currentTime/ 60)) + ":" + flag(parseInt(testVideo.currentTime% 60));
+        progress.value =  testVideo.currentTime / testVideo.duration * 100 ;
+      });
+
+      //当视频元数据加载完毕之后，可以获得相关数据
+      testVideo.addEventListener('loadedmetadata', function(e){
+        total.innerHTML = flag(parseInt(testVideo.duration / 60)) + ":" + flag(parseInt(testVideo.duration % 60));
+      });
+
+      function flag(time){
+        return time > 10 ? time : '0'+ time;
+      }
+
+
+      /*
+       快进，快退：currentTime
+       静音： muted
+       加速，减速： playbackRate
+      */
+
+      forward.addEventListener('click', function(e){
+        testVideo.currentTime += 5;
+      });
+
+      backward.addEventListener('click', function(e){
+        testVideo.currentTime -= 5;
+      });
+
+      muted.addEventListener('click', function(e){
+        testVideo.muted = !testVideo.muted ;
+        muted.innerHTML = testVideo.muted ? '取消静音': '静音';
+      });
+
+      up.addEventListener('click', function(e){
+        testVideo.playbackRate += 0.1;
+      });
+
+      down.addEventListener('click', function(e){
+        testVideo.playbackRate -= 0.1;
+      });
+
+    </script>
+
+
+
+  </body>
+</html>

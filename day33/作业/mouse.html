@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 880px;
+            height: 500px;
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            margin-left: -440px;
+        }
+
+        .left {
+            width: 350px;
+            height: 350px;
+            position: relative;
+            float: left;
+            border: 1px solid lightgray;
+        }
+
+        .left .look {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            background: yellow;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .right {
+            width: 500px;
+            height: 500px;
+            float: right;
+            border: 1px solid lightgray;
+            overflow: hidden;
+            display: none;
+            position: relative;
+        }
+
+        .right  .big-image{
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box" id="box-id">
+    <div class="left" id="left-id">
+        <img src="./image/jd-1.jpg" alt="">
+        <div class="look" id="look-id"></div>
+    </div>
+    <div class="right" id="right-id">
+        <div class="big-image" id="big-id">
+            <img src="./image/jd-2.jpg" alt="">
+        </div>
+    </div>
+</div>
+
+
+<script src="./scroll.js"></script>
+<script>
+    var box = document.getElementById("box-id");
+    var leftId = document.getElementById("left-id");
+    var rightId = document.getElementById("right-id");
+    var look = document.getElementById("look-id");
+
+    //当对一个元素设置了display之后，无论是否设置宽高，都没法发获得。
+    var big = document.getElementById("big-id");
+
+
+    function show(obj){
+        obj.style.display = "block";
+    }
+
+    function hidden(obj){
+        obj.style.display = "none";
+    }
+
+    leftId.onmouseover = function () {
+        show(look);
+        show(rightId);
+        this.style.cursor = "move";
+    };
+
+    leftId.onmouseout = function () {
+        hidden(look);
+        hidden(rightId);
+    };
+
+    leftId.onmousemove = function (event) {
+
+        //获得是相对于整个页面的坐标
+        var pageX = event.pageX || event.clientX + getScroll().left;
+        var pageY = event.pageY || event.clientY + getScroll().top;
+
+        var boxLeft = box.offsetLeft;
+        var boxTop = box.offsetTop;
+
+
+        //x,y 得到的是相对于leftId盒子的坐标
+        var x = pageX - boxLeft  - look.offsetWidth / 2;
+        var y = pageY - boxTop - look.offsetHeight / 2;
+
+        if (x <= 0){
+            x = 0;
+        } else if (x >= leftId.offsetWidth - look.offsetWidth) {
+            x = leftId.offsetWidth - look.offsetWidth ;
+        }
+
+        if (y <= 0){
+            y = 0;
+        } else if (y >= leftId.offsetHeight - look.offsetHeight) {
+            y = leftId.offsetHeight - look.offsetHeight;
+            console.log(y);
+        }
+
+        look.style.left = x + "px";
+        look.style.top = y + "px";
+
+        /*
+           (800 - 500) / (350 - 160)
+        */
+        var mul = (big.offsetWidth - rightId.offsetWidth) /
+                (leftId.offsetWidth - look.offsetWidth);
+
+
+        //图片的移动和鼠标刚好的是相反的
+        big.style.left = -x * mul + 　"px";
+        big.style.top = -y * mul + 　"px";
+
+
+
+    };
+
+
+    /**
+     * 对一个已经设置过display: none的盒子如何获得offsetWidth, offsetHeight?????
+     * 方法：获得宽高之后，记得还原.
+     * 1.display: block;
+     * 2. visibility: hidden;
+     * 3. position: absolute;
+     */
+
+</script>
+
+</body>
+</html>

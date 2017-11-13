@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="scroll.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        body,html{
+            height: 100%;
+        }
+
+        .ul-1 {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ul-1 li {
+            width: 100%;
+            height: 100%;
+        }
+
+        .ul-2 {
+            position: fixed;
+            top: 300px;
+            left: 20px;
+        }
+
+        .ul-2 li {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+
+<ul class="ul-1" id="u1-id">
+    <li>第一屏</li>
+    <li>第二屏</li>
+    <li>第三屏</li>
+    <li>第四屏</li>
+</ul>
+
+<ul class="ul-2" id="u2-id">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+</ul>
+
+
+<script src="./jquery-3.0.0.js" ></script>
+<script src="./scroll.js" ></script>
+<script>
+
+    var colors = ["lightyellow", "lightblue", "lightgreen", "lightpink"];
+    var u1 = $("#u1-id");
+    var u2 = $("#u2-id");
+
+    var l1s = u1.children();
+    var l2s = u2.children();
+
+    //一屏幕的高度
+    var sHeight = l1s.eq(0).height();
+
+    var current = 0; //此变量用于保存当前纵向拖动条的值
+    var timer = null;// 定义全局的定时器，用于保证只有一个定时器有效
+
+    window.onscroll = function () {
+      current =  getScroll().top;
+    };
+
+
+    for (var i = 0; i < l1s.length; i++){
+
+      l1s.eq(i).css("backgroundColor", colors[i]);
+      l2s.eq(i).css("backgroundColor", colors[i]);
+
+      l2s.eq(i).on("click", i, function(event){
+        //得到当前颜色的屏幕距离body最顶部的距离
+        var target = event.data * sHeight;
+        move(target);
+      });
+    }
+
+    //target参数表示的是当前的盒子距离父盒子顶部的距离，offsetTop
+    function move(target){
+        clearInterval(timer);
+        timer = setInterval(function(){
+            var speed = (target - current ) / 10;
+
+            //使用ceil或者floor对值进行处理之后，最后可以保证终点和起点的值完全一致，不会有误差
+            speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+            current += speed;
+
+            //用于进行屏幕的滚动
+            window.scrollTo(0, current);
+
+            if ( target === current ) {
+                clearInterval(timer);
+            }
+        }, 30);
+    }
+</script>
+</body>
+</html>

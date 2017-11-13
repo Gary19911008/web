@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>offset相关的</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .f {
+      width: 600px;
+      height: 300px;
+      margin: 50px auto;
+      border: 10px solid green;
+      padding: 10px;
+      position: relative;
+    }
+
+    #box {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      border: 10px solid red;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="f">
+    <div id="box"></div>
+  </div>
+
+  <script src="./jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    console.log("/***********jQuery******************/");
+    console.log($(window).width());
+    console.log($(document).width());
+
+    //获取 内容 width
+    console.log($("#box").width()); //200
+
+    //获取  width + padding
+    console.log($("#box").innerWidth()); //240
+
+    //获取  width + padding + border
+    console.log($("#box").outerWidth()); //260
+
+
+    console.log("/**********原生js*************/");
+    var box = document.getElementById("box");
+
+    //获取  width + padding + border
+    console.log(box.offsetWidth); //260, 只读属性
+
+    //获取  width + padding
+    console.log(box.clientWidth); // 240, 只读属性
+
+
+    //获取  width
+    var styles = window.getComputedStyle(box);
+    console.log(parseInt(styles.width));
+    console.log(styles.border);
+
+
+
+    console.log("/*************位置有关系***********************/");
+    //一个元素和最近的设置过定位(不是static)的祖先元素之间的距离
+    // offsetLeft, offsetTop 只读
+    console.log("box.offsetLeft = ", box.offsetLeft);
+    console.log("box.offsetTop = ", box.offsetTop);
+
+    box.style.left = "100px";//设置完毕之后， offsetLeft也就变了
+    box.style.top = "100px";//设置完毕之后， offsetTop变了
+
+
+    console.log("box.offsetParent = ", box.offsetParent);
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+</body>
+
+</html>

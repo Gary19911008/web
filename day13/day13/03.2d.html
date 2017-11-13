@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>2D转换</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one {
+        width: 200px;
+        height: 200px;
+        background: yellow;
+
+        /*
+        translate属于标准流,相对于自身移动
+        */
+        /*transform: translateX(50px) translateY(50px);*/
+        /*transform: translate(50px,50px);*/
+
+        /*此处的百分比是相对于自身*/
+        transform: translate(-50%,50%);
+      }
+
+
+      .two ,
+      .three,
+      .four{
+        width: 200px;
+        height: 200px;
+        background: blue;
+        margin: 50px;
+        transition: all 2s;
+      }
+
+      .two:hover {
+        transform: scale(2,0.5);
+      }
+
+      .three:hover {
+        transform: rotate(45deg);
+      }
+
+      .four:hover {
+
+        /*
+        倾斜
+        */
+        transform: skew(30deg, 30deg);
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="one"></div>
+    <p>看脚手架的就好了到家了快到家了看好覅纠纷等结了婚就了房交会</p>
+
+
+    <div class="two"></div>
+
+    <div class="three"></div>
+
+    <div class="four"></div>
+
+
+
+  </body>
+</html>

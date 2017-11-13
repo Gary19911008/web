@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>DOM2级event</title>
+</head>
+<body>
+
+  <button id="btn">按钮</button>
+
+  <script type="text/javascript">
+    var btn = document.getElementById("btn");
+
+    function handler1() {
+      console.log("%c 单击111", "color:red;font-size:40px");
+      btn.detachEvent('onclick', handler2);
+    }
+
+    function handler2() {
+      console.log("%c 单击222", "color:red;font-size:40px");
+    }
+
+    /*
+    ie： DOM2级的事件处理
+    ie: 处理程序的执行顺序是和注册顺序相反的
+    */
+    btn.attachEvent('onclick', handler1);
+    btn.attachEvent('onclick', handler2);
+
+    document.attachEvent('onclick', function(){
+      console.log("doucment被触发。。。。");
+    });
+
+
+  </script>
+
+</body>
+
+</html>

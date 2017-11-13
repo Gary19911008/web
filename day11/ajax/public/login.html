@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>登录</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .login {
+      width: 500px;
+      margin: 50px auto;
+    }
+
+    .login > p {
+      color: red;
+      visibility: hidden;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login">
+    <p>用户名或者密码不能为空！</p>
+    用户名：<input type="text" name="username"> <br><br> 密 码：<input type="passwd" name="password"> <br><br>
+    <button id="btn">登录</button>
+  </div>
+
+  <script src="./js/jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(function() {
+
+      $("#btn").click(function() {
+        var username = $(".login input[name=username]").val();
+        var password = $(".login input[name=password]").val();
+
+        if ((!username) || (!password)){
+          //如果为空的情况要执行
+          $(".login > p").css("visibility", "visible");
+          return;
+        }
+
+
+        /*
+        用户的输入都是合法的，发送ajax登录请求
+        */
+        $.ajax({
+           method: "post",
+           url: "/login",
+           data: {name: username, passwd: password},
+           success: function(data, textStatus, jqXHR){
+             if (data == "OK"){
+               //登录
+               window.location = "https://www.baidu.com";
+             } else {
+
+               //将input的值设置为空
+               $(".login input").val("");
+
+               alert("用户名和密码错误");
+             }
+           },
+           error: function(jqXHR, textStatus, error){
+             console.error(error);
+           }
+        });
+
+
+
+      });
+    });
+  </script>
+
+</body>
+
+</html>

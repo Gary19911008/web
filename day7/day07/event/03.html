@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one"></div>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    $(".one").click(function(){
+      console.log("单击。。。");
+    });
+
+    /*
+    双击时会先触发单击！！！！！
+    */
+    $(".one").dblclick(function(){
+      console.log("双击。。。");
+      $(".one").css({
+        "width":"500px",
+        "height": "500px",
+        "background-color":"yellow"
+      });
+    });
+
+
+
+    </script>
+
+  </body>
+</html>

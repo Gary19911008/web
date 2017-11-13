@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+     console.log(typeof 10);//number
+     console.log(typeof true);//boolean
+
+     console.log(typeof NaN);//number类型
+     console.log(10 * "hello");//NaN
+     console.log(10 * "10");//100
+
+    //隐式转换
+    console.log(isNaN(""));//false,将字符串变为0
+    console.log(isNaN("hello"));//true
+
+    console.log(Boolean(NaN));//false
+
+
+    /********************undefined 类型*******************/
+    var one = undefined;//定义了变量，但是变量的值为undefined
+    var two;//变量没有赋值，那么默认值为 undefined!!!!
+    console.log(one);//undefined
+    console.log(two);//undefined
+
+
+    console.log(Boolean(undefined));//false
+    console.log(typeof one);//undefined 类型
+
+    //变量需要定义后才能使用
+    // console.log(three);//错误，程序终止运行！！！！
+
+
+    //typeof测试什么变量都不会报错，typeof没有错误
+    console.log(typeof three);//undefined
+
+
+
+    /**************************null 类型******************/
+    var four = null;
+    console.log(typeof four); //object 对象
+
+    </script>
+
+  </body>
+</html>

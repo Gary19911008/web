@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .one {
+      width: 500px;
+      height: 90px;
+      border: 1px solid red;
+    }
+
+    .one li {
+      float: left;
+      width: 80px;
+      height: 80px;
+    }
+
+    .one ul {
+      width: 562px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="one">
+    <!--
+    ul中的li元素需要浮动到一行上，
+    只和他们父元素的宽度有关系，和其他祖先元素没有关系。
+    只要父元素足够宽，那么就可以浮动到一行
+   -->
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+    </ul>
+  </div>
+
+</body>
+
+</html>

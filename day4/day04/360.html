@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360头部</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* 设置版心的类名*/
+      .w {
+        width: 1250px;
+        margin: 0 auto;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      .head_nav {
+        height: 40px;
+        background: #363636;
+      }
+
+      .head_nav .left,
+      .head_nav .right{
+        height: 40px;
+        line-height: 40px;
+      }
+
+      .head_nav .left {
+        float: left;
+      }
+
+      .head_nav .right {
+        float: right;
+      }
+
+      .head_nav a {
+        color: #bfbfbf;
+        font-size: 14px;
+        padding: 0 10px;
+      }
+
+      .head_nav a:hover {
+        color: #23ac38;
+      }
+
+      .head_bg {
+        height: 60px;
+        background: url("./images/360.jpg") center center;
+      }
+
+      .head_bottom {
+        height: 120px;
+      }
+
+      .head_bottom .logo {
+        float: left;
+        padding-top: 37px;
+      }
+
+      .head_bottom .logo img {
+        width: 160px;
+        height: 45px;
+      }
+
+      .head_bottom .right {
+        float: right;
+        width: 730px;
+        padding-top: 27px;
+      }
+
+      .head_bottom .right .car {
+        float: right;
+        height: 43px;
+        line-height: 43px;
+        padding: 0 25px;
+        border: 1px solid #363636;
+      }
+      .head_bottom .search {
+        height: 45px;
+        width: 540px;
+        float: left;
+      }
+
+      .head_bottom .search_input {
+        width: 450px;
+        height: 43px;
+        border: 1px solid #23ac38;
+        float: left;
+      }
+
+      .head_bottom .search_button {
+        width: 70px;
+        height: 45px;
+        background: #23ac38;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="head">
+      <div class="head_nav">
+        <div class="w">
+          <div class="left">
+            <a href="#">帮助中心</a>
+            <a href="#">收藏本站</a>
+            <a href="#">手机360商城</a>
+          </div>
+          <div class="right">
+            <a href="#">登录</a>
+            <a href="#">注册</a>
+            <a href="#">我的订单</a>
+          </div>
+        </div>
+
+      </div>
+      <div class="head_bg"></div>
+      <div class="head_bottom w">
+        <div class="logo">
+          <img src="./images/360malllogo.png" alt="">
+        </div>
+        <div class="right">
+          <div class="search">
+            <div class="search_input"></div>
+            <div class="search_button"></div>
+          </div>
+          <div class="car">我的购物车</div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

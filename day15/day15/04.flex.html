@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .f1 {
+        width: 100%;
+        height: 300px;
+        border: 1px solid red;
+        box-sizing: border-box;
+
+
+        display: flex;
+        /*
+        center,space-between等
+        */
+        justify-content: space-around;
+
+        /*
+        设置侧轴的对齐方式
+        */
+        align-items: center;
+      }
+
+      .f1_s {
+        width: 400px;
+        height: 100px;
+        background: pink;
+      }
+
+      .f1_s:nth-child(3){
+        /*
+        单独调节自身在侧轴的对齐方式
+        */
+        align-self: flex-start;
+
+        /*
+        值越小越靠前
+        */
+        order: -2;
+      }
+
+      .f1_s:nth-child(4){
+        order: -1;
+      }
+
+      .f2 {
+        width: 100%;
+        height: 600px;
+        border: 1px solid red;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+
+        /*
+        此时主轴是纵轴，所以justify-content设置的是纵轴的对齐方式
+        */
+        justify-content: space-around;
+
+        /*
+        此时横轴是侧轴，所以align-items设置的是横轴的对齐方式
+        */
+        align-items: center;
+      }
+
+      .f2_s {
+        width: 200px;
+        height: 100px;
+        background: pink;
+      }
+
+
+
+     .f3 {
+       width: 100%;
+       height: 600px;
+       border: 1px solid red;
+       box-sizing: border-box;
+       display: flex;
+       flex-direction: column;
+       flex-wrap: wrap;
+
+       /*
+       align-conent（设置的是侧轴）适用于多行或者多列，不换行是没有效果的
+       */
+       align-content: space-between;
+     }
+
+     .f3_s {
+       width: 200px;
+       height: 200px;
+       background: pink;
+     }
+    </style>
+  </head>
+  <body>
+
+     <div class="f1">
+      <div class="f1_s">1</div>
+      <div class="f1_s">2</div>
+      <div class="f1_s">3</div>
+      <div class="f1_s">4</div>
+    </div>
+
+     <div class="f2">
+      <div class="f2_s">1</div>
+      <div class="f2_s">2</div>
+      <div class="f2_s">3</div>
+      <div class="f2_s">4</div>
+    </div>
+
+     <div class="f3">
+      <div class="f3_s">1</div>
+      <div class="f3_s">2</div>
+      <div class="f3_s">3</div>
+      <div class="f3_s">4</div>
+      <div class="f3_s">5</div>
+      <div class="f3_s">6</div>
+      <div class="f3_s">7</div>
+      <div class="f3_s">8</div>
+    </div>
+  </body>
+</html>

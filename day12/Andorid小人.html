@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Andorid小人</title>
+    <style media="screen">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+
+      .Andorid{
+        margin-top: 100px;
+
+      }
+
+      .head{
+        width: 300px;
+        height:150px;
+        border-radius: 50% 50% 0 0 /100% 100% 0 0;
+        border: 1px solid yellow;
+        box-sizing: border-box;
+        background: yellow;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .head:before{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color:red;
+        position: absolute;
+        left: 25%;
+        top: 50%;
+      }
+
+      .head:after{
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color:red;
+        position: absolute;
+        right: 25%;
+        top: 50%;
+      }
+
+      .body{
+        width: 300px;
+        height: 300px;
+        border-radius: 0 0 20% 20%;
+        border: 1px solid yellow;
+        margin: 0 auto;
+        margin-top: 20px;
+        background-color: yellow;
+        position: relative;
+      }
+
+      .body:before{
+        content: "";
+        height: 230px;
+        width: 70px;
+        border-radius: 50%/20%;
+        border: 1px solid red;
+        background: red;
+        position: absolute;
+        left: -80px;
+        top: 10px;
+
+      }
+
+      .body:after{
+        content: "";
+        height: 230px;
+        width: 70px;
+        border-radius: 50%/20%;
+        border: 1px solid red;
+        background: red;
+        position: absolute;
+        right: -80px;
+        top: 10px;
+
+      }
+
+      .foot{
+        content: "";
+        height: 170px;
+        width: 70px;
+        border-radius:0 0 50% 50%/0 0 20% 20%;
+        border: 1px solid red;
+        background: red;
+        margin: 0 auto;
+        position: relative;
+        left: -50px;
+        top: 0px;
+      }
+
+      .foot:before{
+        content: "";
+        height: 170px;
+        width: 70px;
+        border-radius:0 0 50% 50%/0 0 20% 20%;
+        border: 1px solid red;
+        background: red;
+        margin: 0 auto;
+        position: absolute;
+        left: 100px;
+        top: 0px;
+
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="Andorid">
+      <div class="head"></div>
+      <div class="body"></div>
+      <div class="foot"></div>
+    </div>
+
+  </body>
+</html>

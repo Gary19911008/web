@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>伪类</title>
+    <style>
+      a {
+        font-size: 50px;
+      }
+
+      /*伪类，link初始样式*/
+      a:link{
+        color: black;
+      }
+
+      /* 鼠标悬停的效果*/
+      a:hover {
+        color: yellow;
+      }
+
+      /*激活状态，鼠标按下*/
+      a:active {
+        color: green;
+      }
+
+      /*访问过的链接*/
+      a:visited {
+        color: pink;
+      }
+
+      .one:hover {
+        color: purple;
+      }
+
+      .one:active {
+        color: black;
+      }
+
+      /*
+      所有的元素都有link,visited,,hover,active伪类.
+      但是只有a,才都可以设置。其他元素hover,active有效。
+
+      考虑到浏览器的兼容性问题：
+      这四个伪类在a元素要想都有效果，需要按照顺序：link  visited hover  active
+      */
+    </style>
+  </head>
+  <body>
+
+    <a href="https:/www.tmall.com" target="_blank">跳转</a>
+
+    <div class="one">div的颜色变化</div>
+
+  </body>
+</html>

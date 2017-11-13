@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>classList元素的类操作</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .color-red {
+        color: red;
+      }
+
+      .big-font {
+        font-size: 50px;
+      }
+
+      .bottom-border {
+        border-bottom: 1px solid green;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="box" class="">classList操作</div>
+
+    <script type="text/javascript">
+
+    var box = document.querySelector('#box');
+
+    box.classList.add("color-red");
+    box.classList.add("color-red", "big-font");
+    box.classList.remove("color-red");
+    box.classList.toggle("color-red");
+    box.classList.contains("color-red");
+
+
+    //思考，封装函数，实现类似于classList的功能
+    //Attribute
+
+
+    </script>
+
+  </body>
+</html>

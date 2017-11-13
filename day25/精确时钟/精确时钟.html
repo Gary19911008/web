@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>精确时钟</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 600px;
+      height: 600px;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    #hour,
+    #minute,
+    #second {
+      position: absolute;
+      top: 0px;
+      left: 285px;
+      transform-origin: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <div class="clock">
+      <img src="./clock/clock.jpg">
+    </div>
+    <div id="hour">
+      <img src="./clock/hour.png">
+    </div>
+    <div id="minute">
+      <img src="./clock/minute.png">
+    </div>
+    <div id="second">
+      <img src="./clock/second.png">
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var hour = document.getElementById("hour");
+    var minute = document.getElementById("minute");
+    var second = document.getElementById("second");
+    function sport() {
+      var time = new Date();
+      second.style.transform = 'rotate(' + time.getSeconds() * 6 + 'deg)';
+      minute.style.transform = 'rotate(' + (time.getMinutes() + time.getSeconds() / 60) * 6 + 'deg)';
+      hour.style.transform = 'rotate(' + (time.getHours() % 12 + time.getMinutes() / 60 + time.getSeconds() / 3600) * 30 + 'deg)';
+    }
+    sport();
+    setInterval(sport, 10);
+
+  </script>
+
+</body>
+
+</html>

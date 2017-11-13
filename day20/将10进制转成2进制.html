@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>将10进制转成2进制</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    function tobinChange(n) {
+      if (!isNaN(n) && n > 0) {
+        if (n % 2 == 0) {
+          return tobinChange(n / 2) + "0";
+        } else {
+          if (n > 2) {
+            return tobinChange(parseInt(n / 2)) + (n % 2);
+          } else {
+            return tobinChange(0) + n;
+          }
+        }
+      } else {
+        return "";
+      }
+    }
+    console.log(tobinChange(2));
+  </script>
+
+</body>
+
+</html>

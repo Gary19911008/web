@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>off解除事件绑定</title>
+  </head>
+  <body>
+
+    <button id="btn">按钮</button>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    function handlerOne(){
+      console.log("触发单击 1...");
+    }
+
+    $("#btn").on('click', handlerOne);
+
+    $("#btn").on('click', function(){
+      console.log("触发单击 2 ...");
+
+      //使用off解除绑定的事件处理函数
+      //只填写 事件名称，会将该事件上的所有处理函数全都解除绑定了
+      // $("#btn").off('click');
+
+
+      //移除指定处理函数
+       $("#btn").off('click', handlerOne);
+    });
+
+
+   $("#btn").dblclick(function(){
+     console.log("触发双击。。。。。");
+
+     //off没有参数，那么移除该元素上的所有事件的所有函数
+     $("#btn").off();
+   });
+
+
+   /*
+   作业：
+   题目要求：
+
+   */
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>event对象</title>
+  </head>
+  <body>
+
+    <button id="btn">btn</button>
+
+    <script type="text/javascript">
+
+    var btn = document.getElementById("btn");
+
+
+    //event事件对象，包含了一堆和该事件有关系的属性和方法
+    btn.addEventListener('click', function(event){
+      console.log("btn1......");
+
+      // event.stopPropagation();
+
+      //停止冒泡，并且停止后续的所有的事件处理程序
+      event.stopImmediatePropagation();
+    },false);
+
+    btn.addEventListener('click', function(event){
+      console.log("btn2......");
+    },false);
+
+
+    document.onclick = function () {
+      console.log("document.....");
+    };
+
+
+
+    </script>
+
+  </body>
+</html>

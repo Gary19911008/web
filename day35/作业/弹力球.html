@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>弹力球</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <canvas id="canvas"></canvas>
+
+  <script type="text/javascript">
+    var can = document.getElementById("canvas");
+    can.width = 600;
+    can.height = 500;
+    can.style.border = "1px solid red";
+
+    var cxt = can.getContext('2d');
+    var balls = [];
+    var renderTimer;
+
+    function createBalls() {
+      for (let i = 0; i < 12; i++) {
+        let x = Math.floor(Math.random() * 101 + 250);
+        let y = Math.floor(Math.random() * 51 + 50);
+
+        let temp = Math.random() > 0.5 ? 1 : -1;
+        let vx = Math.floor(Math.random() * 3 + 1) * temp;
+        let vy = Math.random() * 2;
+        let radio = Math.floor(Math.random() * 4 + 5) / 10;
+        balls.push({
+          x: x,
+          y: y,
+          vx: vx,
+          vy: vy,
+          gy: 1,
+          radio: radio,
+          color: createColor()
+        });
+      }
+    }
+
+    function createColor() {
+      var color = [];
+      for (var i = 0; i < 3; i++) {
+        color.push(Math.floor(Math.random() * 256));
+      }
+      return "rgb(" + color.join(',') + ")";
+    }
+
+
+    function render() {
+      can.width = can.width;
+
+      for (var i = 0; i < balls.length; i++) {
+        cxt.beginPath();
+        cxt.fillStyle = balls[i].color;
+        cxt.arc(balls[i].x, balls[i].y, 20, 0, Math.PI * 2, false);
+        cxt.fill();
+        cxt.closePath();
+      }
+    }
+
+    function updatePos() {
+      var temp = [],
+        count = 0;
+      for (var i = 0, len = balls.length; i < len; i++) {
+        var cur = balls[i];
+        cur.x += cur.vx;
+        cur.y += cur.vy;
+        cur.vy += cur.gy;
+
+        if (cur.y > can.height - 20) {
+          cur.y = can.height - 20;
+          cur.vy = -cur.vy * cur.radio;
+          if (Math.abs(cur.vy) < 4) {
+            cur.vy = 0;
+          }
+        } else if (cur.y < 20) {
+          cur.y = 20;
+          cur.vy = -cur.vy * cur.radio;
+        }
+
+        if ((cur.x > 0) && (cur.x < can.width) && (cur.vy !== 0)) {
+          temp[count++] = balls[i];
+        }
+      }
+
+      if (temp > 60) {
+        temp.length = 60;
+      }
+      balls = temp;
+    }
+
+    setInterval(function() {
+      clearInterval(renderTimer);
+
+      can.width = can.width;
+      createBalls();
+
+      renderTimer = setInterval(function() {
+        //render
+        render();
+        //update
+        updatePos();
+
+        // console.log(balls.length);
+      }, 30);
+
+    }, 1000);
+  </script>
+
+</body>
+
+</html>

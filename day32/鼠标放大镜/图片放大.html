@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>图片放大效果</title>
+  <style media="screen">
+    *{
+      margin:0;
+      padding:0;
+    }
+
+    .box{
+      width: 880px;
+      height: 500px;
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      margin-left: -440px;
+    }
+
+    .left{
+      width: 350px;
+      height: 350px;
+      border: 1px solid #000;
+      float: left;
+    }
+
+    .look{
+      width: 150px;
+      height: 150px;
+      background-color: yellow;
+      opacity: 0.5;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+    }
+
+    .right{
+      width: 500px;
+      height: 500px;
+      float: right;
+      border: 1px solid #000;
+      position: relative;
+      overflow: hidden;
+      display: none;
+    }
+
+    .right .right-img{
+      width: 800px;
+      height: 800px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box" id="box-id">
+    <div class="left" id="left-id">
+      <img src="./image/jd-1.jpg" alt="">
+      <div class="look" id="look-id"></div>
+    </div>
+    <div class="right" id="right-id">
+      <div class="right-img" id="image-id">
+        <img src="./image/jd-2.jpg" alt="">
+      </div>
+    </div>
+  </div>
+
+  <script src="./getScroll.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+  var box = document.getElementById("box-id");
+  var leftId = document.getElementById("left-id");
+  var lookId = document.getElementById("look-id");
+  var rightId = document.getElementById("right-id");
+  var imageId = document.getElementById("image-id");
+
+  function show(obj){
+    obj.style.display = "block";
+  };
+
+  function hidden(obj){
+    obj.style.display = "none";
+  }
+
+  leftId.onmouseover = function(){
+    show(lookId);
+    show(rightId);
+    this.style.cursor = "crosshair";
+  };
+
+  leftId.onmouseout = function(){
+    hidden(lookId);
+    hidden(rightId);
+  };
+
+  leftId.onmousemove = function(event){
+
+    var pageX = event.pageX || event.clientX + getScroll().left;
+    var pageY = event.pageY || event.clientY + getScroll().top;
+
+    var boxLeft = box.offsetLeft;
+    var boxTop = box.offsetTop;
+
+    var x = pageX - boxLeft - lookId.offsetWidth / 2;
+    var y = pageY - boxTop - lookId.offsetHeight / 2;
+
+    if (x <= 0) {
+      x = 0;
+    }else if (x >= leftId.offsetWidth - lookId.offsetWidth) {
+      x = leftId.offsetWidth - lookId.offsetWidth;
+    }
+
+    if (y <= 0) {
+      y = 0;
+    }else if (y >= leftId.offsetHeight - lookId.offsetHeight) {
+      y = leftId.offsetHeight - lookId.offsetHeight;
+    }
+
+    lookId.style.left = x + "px";
+    lookId.style.top = y + "px";
+
+    var mul = (imageId.offsetWidth - rightId.offsetWidth) / (leftId.offsetWidth - lookId.offsetWidth);
+
+    imageId.style.left = -x * mul + "px";
+    imageId.style.top = -y * mul + "px";
+
+  }
+
+  </script>
+
+</body>
+</html>

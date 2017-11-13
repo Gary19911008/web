@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ie中的event对象</title>
+  </head>
+  <body>
+
+    <button id="btn">按钮</button>
+    <a href="https://www.baidu.com" id="ln" target="_blank">超链接</a>
+
+    <script type="text/javascript">
+    console.log(window);
+
+    var btn = document.getElementById("btn");
+    var ln = document.getElementById("ln");
+
+    btn.onclick = function () {
+
+      //ie低版本中处理函数中，没有event对象
+      //所以只能有window.event来代替
+      // console.log(window.event);
+
+      console.log(this);
+      //ie 低版本中 window.event对象上，没有target,currentTarget
+      //使用srcElement取代target
+
+
+      //停止事件冒泡！！！！
+      //cancelBubble 取代 stopPropagation()
+      window.event.cancelBubble = true;
+    }
+
+    //document 在低版本ie onclick不行
+    document.attachEvent('onclick', function(){
+      console.log("document.....");
+
+      // window.event.srcElement是触发事件的源头
+      console.log(window.event.srcElement);
+    },false);
+
+
+    ln.onclick = function () {
+
+      // window.event.returnValue 的值来决定是否取消默认行为，
+      // 和 event.preventDefault() 功能一致
+      window.event.returnValue = false;
+    }
+    </script>
+
+
+  </body>
+</html>

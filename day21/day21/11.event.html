@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>event对象</title>
+  </head>
+  <body>
+
+    <button id="btn">btn</button>
+
+    <a  id="ln" href="https://www.baidu.com" target="_blank">跳到百度</a>
+
+    <script type="text/javascript">
+
+    var btn = document.getElementById("btn");
+    var ln = document.getElementById("ln");
+
+    //event事件对象，包含了一堆和该事件有关系的属性和方法
+    btn.onclick = function (event){
+      console.log("btn 触发。。。。");
+
+
+      // 阻止事件的传递！！！！！！！
+      event.stopPropagation();
+    };
+
+    document.onclick = function () {
+      console.log("document 触发。。。。");
+    }
+
+    ln.onclick = function (event) {
+
+      event.stopPropagation();
+
+      // 阻止默认的行为
+      event.preventDefault();
+    };
+
+
+
+    </script>
+
+  </body>
+</html>

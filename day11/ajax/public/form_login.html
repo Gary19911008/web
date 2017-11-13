@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #account > p {
+        color: red;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+
+    <form id="account"  action="/login" method="post">
+      <p>用户名或者密码！</p>
+
+      <!-- input的name属性值必须和后端保持一致！！！！  -->
+      username: <input type="text" name="name"> <br> <br>
+      password: <input type="passwd" name="passwd"> <br> <br>
+      <button>登录</button>
+    </form>
+
+
+    <script src="./js/jquery.min.js"></script>
+    <script>
+
+    $(function(){
+
+      //submit事件
+      $("#account").submit(function(){
+
+        var username = $("#account input[name=name]").val();
+        var password = $("#account input[name=passwd]").val();
+
+        if ((!username) || (!password)){
+          $("#account > p").css("visibility", "visible");
+
+          //阻止提交
+          return false;
+        }
+
+        //成功，就自动提交
+      });
+
+    });
+
+
+
+    </script>
+
+  </body>
+</html>

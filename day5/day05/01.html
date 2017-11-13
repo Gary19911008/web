@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one {
+        /*
+        visibility: 元素隐藏，但是仍然占据页面位置
+        */
+        /*visibility: hidden;
+        visibility: visible;*/
+
+        /*
+        display :none; 元素隐藏，并且不占页面位置！！！
+        重新设置block，inline， inline-block 再次显示
+        */
+      }
+
+      .two_s {
+        width: 500px;
+        height: 100px;
+        background: blue;
+      }
+
+      .two_ss {
+        /*
+        块级元素默认的宽度和父元素一样
+        width,height都可以使用百分比设置，但是百分比都是相对于父元素
+        */
+        width: 100px;
+        height: 50px;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <p class="one">介绍个就赶快大口径看到就很快就会开奖号开奖号看见好看回家客户尽快好家伙快回家</p>
+    <div class="two">
+      <div class="two_s">
+        <div class="two_ss"></div>
+      </div>
+    </div>
+
+  </body>
+</html>

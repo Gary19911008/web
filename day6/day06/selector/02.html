@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jquery中特有的选择器</title>
+  </head>
+  <body>
+
+    <ul class="one">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+    </ul>
+
+    <ul class="two">
+      <li>1</li>
+      <li class="two_s">2</li>
+      <li>3</li>
+      <li>4</li>
+      <li class="two_s">5</li>
+      <li>6</li>
+      <li>7</li>
+      <li class="two_s">8</li>
+    </ul>
+
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    //:even 偶数(从0开始)， :odd奇数
+    $(".one li:even").css("color", "red");
+    $(".one li:odd").css("font-size", "50px");
+
+    //:eq(index), index 从0开始
+    $(".one li:eq(4)").css("border", "1px solid red");
+
+
+    //:not(selector), 除去其中class=two_s的li
+    $(".two li:not(.two_s)").css("color", "red");
+
+
+    </script>
+  </body>
+</html>

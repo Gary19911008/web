@@ -1,0 +1,25 @@
+/*
+comment
+*/
+h1 {
+  color: red; }
+
+.one {
+  font-size: 40px;
+  color: #ffc80a; }
+
+.two {
+  border: 1px solid red;
+  font-size: 40px;
+  color: blue; }
+
+.item {
+  background: yellow; }
+
+.three {
+  border-top: 1px solid green; }
+
+.four {
+  font-size: 50px; }
+
+/*# sourceMappingURL=02.value.css.map */

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>date日期时间</title>
+  </head>
+  <body>
+
+    <button id="btn">获取当前时间</button>
+    <button id="btn2">设置时间</button>
+
+    <script type="text/javascript">
+
+     document.getElementById("btn").onclick = function(){
+       var d = new Date();
+       console.log(d);
+
+
+      // 获得精确的时间
+      console.log("年: ", d.getFullYear());
+      console.log("月: ", d.getMonth() + 1);
+      console.log("日: ", d.getDate());
+      console.log("星期 : ", d.getDay());
+      console.log("时 : ", d.getHours());
+      console.log("分 : ", d.getMinutes());
+      console.log("秒 : ", d.getSeconds());
+      console.log("毫秒 : ", d.getMilliseconds());
+      console.log("累计毫秒 : ", d.getTime());
+
+      console.log("---------某种格式的时间格式--------");
+      console.log(d.toDateString());
+      console.log(d.toTimeString());
+      console.log(d.toLocaleDateString());
+      console.log(d.toLocaleTimeString());
+      console.log(d.toString());
+     };
+
+     //设置时间
+     document.getElementById("btn2").onclick = function(){
+
+       //直接传递参数，即可设置
+       var d1 = new Date("2017-11-11 11:11:11 ");
+       console.log(d1);
+
+       var  d2 = new Date();
+       d2.setFullYear(2017);
+       d2.setMonth(10);
+       d2.setDate(11);
+       d2.setHours(11);
+       d2.setMinutes(11);
+       d2.setSeconds(11);
+       console.log(d2);
+     }
+
+
+
+     /*
+     1. 表
+     2. 倒计时，距离 2017-11-11 11:11:11
+     */
+
+    </script>
+
+  </body>
+</html>

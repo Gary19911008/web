@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>video控制面板</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #video {
+        width: 500px;
+        height: 400px;
+      }
+
+      .panel {
+        width: 500px;
+      }
+
+      .panel progress {
+        width: 400px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <video  id="video" controls>
+      <source src="./video/fun.mp4">
+    </video>
+
+    <div class="panel">
+      <div>
+        <progress id="progress" value="0" max="100"></progress>
+        <span id="current">00:00</span>/<span id="total">00:00</span>
+      </div>
+      <div>
+        <button id="play">播放</button>
+        <input  id="volume" type="range" value="0.5" min="0" max="1" step="0.1">
+      </div>
+    </div>
+
+    <script type="text/javascript">
+
+    function formatTime(secs){
+      if (secs < 3600) {
+        var min = parseInt(secs / 60);
+        min = min > 9 ? min : "0" + min;
+
+        var s = parseInt(secs % 60);
+        s = s > 9 ? s: "0" + s;
+        return min + ":" + s;
+      }
+
+    }
+
+    var v = document.getElementById("video");
+    var current = document.getElementById("current");
+    var total = document.getElementById("total");
+    var play = document.getElementById("play");
+    var progress = document.getElementById("progress");
+    var volume = document.getElementById("volume");
+    var totalTime = 0, flag = false;
+
+    //获得视频总长
+    v.addEventListener('loadedmetadata', function(){
+      totalTime = v.duration;
+      total.innerHTML =  formatTime(v.duration);
+    }, false);
+
+    play.onclick = function () {
+      if (!flag) {
+        v.play();
+        flag = true;
+        play.innerHTML = "暂停";
+      } else {
+        v.pause();
+        flag = false;
+        play.innerHTML = "播放";
+      }
+    };
+
+
+    //播放过程中会不断的触发该事件
+    v.addEventListener('timeupdate', function(){
+      current.innerHTML = formatTime(v.currentTime);
+
+      progress.value = (v.currentTime / totalTime ) * 100 ;
+    }, false);
+
+
+    volume.addEventListener('change', function(){
+      v.volume = volume.value;
+    },false);
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>scroll滚动</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 3000px;
+        height: 3000px;
+      }
+
+      #btn {
+        position: fixed;
+        right: 100px;
+        bottom: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <button id="btn">回到顶部</button>
+
+    <script type="text/javascript">
+
+    document.getElementById("btn").onclick = function () {
+      document.documentElement.scrollTop = 0;
+    };
+
+    //获得实际内容的宽高
+    console.log(document.documentElement.scrollWidth);
+    console.log(document.body.scrollWidth);
+
+
+    //设置滚动条的滚动位置, scrollLeft, scrollTop 是可读可写,通过修改值来达到移动滚动条的目的
+    document.documentElement.scrollLeft = 100;
+    document.documentElement.scrollTop = 100;
+
+
+    //获得隐藏的内容（水平，垂直）
+    console.log(document.documentElement.scrollTop);
+    console.log(document.documentElement.scrollLeft);
+
+    </script>
+
+
+
+  </body>
+</html>

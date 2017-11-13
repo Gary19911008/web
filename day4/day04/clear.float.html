@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>nav导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul li {
+      /* 去掉项目符号*/
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+      color: gray;
+    }
+
+    .nav {
+      width: 1000px;
+      margin: 50px auto;
+
+      /*
+        1. 第一种解决方法
+        给父元素设置高度
+        */
+      /*height: 30px;*/
+      /*
+        3. 第三种方法
+        */
+      /*overflow: hidden;*/
+    }
+
+    .nav li {
+      float: left;
+      width: 80px;
+      height: 30px;
+      /*为了让文本在垂直方向居中，height == line-height */
+      line-height: 30px;
+      text-align: center;
+      background: rgba(101, 135, 101, 0.44);
+    }
+
+
+    /*
+    4.终极清除浮动的方法
+    使用伪元素
+    */
+    .clearfix::after {
+      visibility: hidden;
+      clear: both;
+      display: block;
+      content: ".";
+      height: 0;
+    }
+
+    .clearfix {
+      *zoom: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--
+    浮动的影响：
+    父元素没有高度，而所有的子元素都浮动了，会导致父元素高度为0.
+    那么就不占页面位置，下边的元素都会补上来，就会出现元素重叠。
+
+    -->
+  <ul class="nav  clearfix">
+    <li><a href="#">导航一</a></li>
+    <li><a href="#">导航一</a></li>
+    <li><a href="#">导航一</a></li>
+    <li><a href="#">导航一</a></li>
+    <li><a href="#">导航一</a></li>
+
+    <!-- 第2中清除浮动的方式，添加空元素，并且指定clear:both -->
+    <!-- <p style="clear:both;"></p> -->
+  </ul>
+
+  <p>
+    空间商看就看好看的好看就客户看房客户放假好看房客 户大家好抠脚大汉进口货就对话框了减肥咖啡了很久了付款就好了放假了房交会
+  </p>
+
+
+</body>
+
+</html>

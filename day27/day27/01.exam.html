@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>考试</title>
+  </head>
+  <body>
+
+    <script>
+
+      //判断一个数是否是2的n次方
+      function is2Pow(num){
+        return  (num > 0) && ((num & num -1) === 0);
+      }
+
+
+
+      //使用了2个栈，实现先进先出的队列
+      (function(){
+        var src = [], dest = [];
+
+        function enqueue(value){
+          src.push(value);
+        }
+
+        function dequeue(){
+
+          while (src.length){
+            dest.push(src.pop());
+          }
+
+          return  dest.pop();
+        }
+
+
+        enqueue(1);
+        enqueue(2);
+        enqueue(3);
+        enqueue(4);
+
+        console.log(dequeue());//1
+        console.log(dequeue());//2
+        console.log(dequeue());//3
+        console.log(dequeue());//4
+
+      })();
+
+
+
+
+
+    // 递归:必须要有结束条件
+    //求num的阶乘
+    function factorial(num){
+      if ( num === 1){
+        return 1;
+      } else {
+        return num * factorial(num -1);
+      }
+    }
+
+    console.log(factorial(5));
+
+
+
+
+
+    //  //判断一个函数是否是普通对象
+     function isPlainObject(o){
+       return Object.prototype.toString.call(o) === '[object Object]';
+     }
+
+     /*
+     深度克隆, Array,Object
+     @obj,可能是任意一种数据类型
+     */
+
+    //  {name:'lisi', age:22, hobby:[""]}
+     function deepCopy(obj){
+       var o; //o是返回的克隆之后的数据
+
+       //Array  or Object
+       if (typeof obj === 'object'){
+
+         //普通对象
+         if (isPlainObject(obj)){
+           o = {};
+           for (var key in obj) {
+             o[key] = deepCopy(obj[key]);
+           }
+
+           return o;
+         } else {
+           //数组
+           o = [];
+           for (var i = 0; i < obj.length; i++) {
+             o[i] = deepCopy(obj[i]);
+           }
+           return o;
+         }
+       } else {
+         return obj;
+       }
+     }
+
+
+     var stu = {name:'lisi', age: 22, hobby: ["one", "two", {three: [1,2,3]}]};
+     var result = deepCopy(stu);
+
+     result.hobby[2].three.push(4);
+     console.log("result = ", result);
+     console.log("stu = ", stu);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

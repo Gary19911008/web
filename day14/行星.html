@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>行星</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      height: 950px;
+      width: 1900px;
+      background: url("./day14/image/bg.jpg");
+      padding-top: 20px;
+      box-sizing: border-box;
+    }
+
+    .one {
+      width: 900px;
+      height: 900px;
+      box-sizing: border-box;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .one>div {
+      position: absolute;
+      box-sizing: border-box;
+    }
+
+    .one>div:nth-child(1) {
+      width: 850px;
+      height: 850px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -425px;
+      margin-top: -425px;
+    }
+
+    .one>div:nth-child(2) {
+      width: 750px;
+      height: 750px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -375px;
+      margin-top: -375px;
+    }
+
+    .one>div:nth-child(3) {
+      width: 650px;
+      height: 650px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -325px;
+      margin-top: -325px;
+    }
+
+    .one>div:nth-child(4) {
+      width: 550px;
+      height: 550px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -275px;
+      margin-top: -275px;
+    }
+
+    .one>div:nth-child(5) {
+      width: 450px;
+      height: 450px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -225px;
+      margin-top: -225px;
+    }
+
+    .one>div:nth-child(6) {
+      width: 350px;
+      height: 350px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -175px;
+      margin-top: -175px;
+      background: url("./day14/image/asteroids_meteorids.png") no-repeat center center;
+      animation: run 50s linear infinite;
+    }
+
+    .one>div:nth-child(7) {
+      width: 250px;
+      height: 250px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -125px;
+      margin-top: -125px;
+    }
+
+    .one>div:nth-child(8) {
+      width: 150px;
+      height: 150px;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -75px;
+      margin-top: -75px;
+    }
+
+    .one>div:nth-child(9) {
+      width: 75px;
+      height: 75px;
+      border: 1px solid #ffc20e;
+      border-radius: 50%;
+      left: 50%;
+      top: 50%;
+      margin-left: -37.5px;
+      margin-top: -37.5px;
+      background: #ffc20e;
+      box-shadow: 0 0 8px 10px #ffc20e;
+    }
+
+    .two>div {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: yellow;
+      position: absolute;
+      left: 840px;
+      top: 412px;
+      transform-origin: -415px 10px;
+      animation: run 1648s linear infinite;
+    }
+
+
+
+    .three>div {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: blue;
+      position: absolute;
+      left: 740px;
+      top: 363px;
+      transform-origin: -364px 10px;
+      animation: run 840s linear infinite;
+    }
+
+    .four>div {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #fff;
+      position: absolute;
+      left: 640px;
+      top: 315px;
+      transform-origin: -314px 10px;
+      animation: run 295s linear infinite;
+    }
+
+    .five>div {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: green;
+      position: absolute;
+      left: 538px;
+      top: 267px;
+      transform-origin: -264px 10px;
+      animation: run 118s linear infinite;
+    }
+
+    .six>div {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: red;
+      position: absolute;
+      left: 437px;
+      top: 215px;
+      transform-origin: -214px 10px;
+      animation: run 19s linear infinite;
+    }
+
+    .earth {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: green;
+      position: absolute;
+      left: 340px;
+      top: 165px;
+      transform-origin: -165px 10px;
+      animation: run 10s linear infinite;
+    }
+
+    .earth>div {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: yellow;
+      position: absolute;
+      left: 28px;
+      top: 5px;
+      transform-origin: -20px 5px;
+      animation: run 10s linear infinite;
+    }
+
+    .eight>div {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: blue;
+      position: absolute;
+      left: 239px;
+      top: 113px;
+      transform-origin: -115px 8px;
+      animation: run 6.16s linear infinite;
+    }
+
+    .nine>div {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: yellow;
+      position: absolute;
+      left: 138px;
+      top: 63px;
+      transform-origin: -65px 10px;
+      animation: run 2.4s linear infinite;
+    }
+
+    .guangquan {
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      transform: skew(45deg);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -12.5px;
+      margin-top: -12.5px;
+    }
+
+    @keyframes run {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="one">
+      <div class="two">
+        <div></div>
+      </div>
+      <div class="three">
+        <div></div>
+      </div>
+      <div class="four">
+        <div></div>
+      </div>
+      <div class="five">
+        <div>
+          <div class="guangquan">
+
+          </div>
+        </div>
+      </div>
+      <div class="six">
+        <div></div>
+      </div>
+      <div class="seven">
+        <div class="earth">
+          <div></div>
+        </div>
+      </div>
+      <div class="eight">
+        <div></div>
+      </div>
+      <div class="nine">
+        <div></div>
+      </div>
+      <div class="ten"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>

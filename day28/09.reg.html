@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>正则表达式</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    //定义匹配模式
+
+    // 1. 直接定义 ，使用 “/xxxx/”
+    var pat = /\d{1,4}/g;
+    console.log(typeof pat);
+
+    // 2. 使用new 产生
+    var pat2 = new RegExp(/\d{1,4}/, 'g');
+    var pat3 = new RegExp('\d{1,4}', 'g');
+    console.log(pat2, pat3);
+
+
+
+    var str = "helloworldgoogle";
+
+    //test方法就是测试是否匹配
+    console.log(/world/g.test(str)); //
+    console.log(/hehe/g.test(str)); //
+
+    console.log(/\d{3,4}/.test("11abckdjkgjkgj")); //false
+    console.log(/\d{3,4}/.test("123abckdjkgjkgj")); //true
+    console.log(/\d{3,4}/.test("1234abckdjkgjkgj")); //true
+    console.log(/\d{3,4}/.test("1234748747475abckdjkgjkgj")); //true
+
+
+
+    console.log("特殊符号----------------------》");
+    //关键部分,特殊符号
+
+    console.log(/./.test("helloworld"));
+    console.log(/./.test("123"));
+    console.log(/./.test("~&#"));
+
+
+    //  '\' 转义字符，不是本身含义， 拥有了特殊含义
+
+    console.log(/\d/.test("abckgk")); //false
+    console.log(/\D/.test("35364657")); //false
+    console.log(/\D/.test("35364657a")); //true
+
+
+    console.log(/\s/g.test("      kdjigjdkjh 165r6275 ")); //true
+    console.log(/\s/g.test("kdjigjdkjh165r6275")); //false
+
+    console.log(/\S/g.test("kd\t\r\n14")); //true
+    console.log(/\S/g.test("\t\r\n")); //false
+
+
+    console.log(/\w/.test("jdhjhjk15r647765")); //true
+    console.log(/\w/.test("@#~==")); //false
+    console.log(/\W/.test("@#~==")); //true
+
+
+    console.log("----------[]----------");
+    //[xyz] 用于匹配中括号中的任意一个字符即可
+    console.log(/[02468]/.test("13579"));//false
+    console.log(/[02468]/.test("135792"));//true
+
+    // [a-z] 此处的 “-”是连续的意思
+    console.log(/[a-zA-Z]/.test("helloworKSJGKJ"));//true
+    console.log(/[a-zA-Z]/.test("027475474837"));//false
+    console.log(/[a-zA-Z0-9]/.test("kjgkjKJGK027475474837"));//true
+    console.log(/人/.test("我是中国人"));//true
+
+
+    //[^] , 只有写在[]中的 ^才是非的意思
+    console.log(/[^abc]/.test("abcabccbaaabc"));//false
+    console.log(/[^abc]/.test("0abcabccbaaabc"));//true
+
+
+    //边界匹配， ^ $
+    console.log(/^helloworld/.test("xxxhelloworldyyy"));
+    console.log(/^helloworld/.test("helloworldyyy"));
+
+    console.log(/helloworld$/.test("xxxxhelloworldyyy"));//false
+    console.log(/helloworld$/.test("xxxxhelloworld"));//true
+
+    //严格匹配
+    console.log(/^helloworld$/.test("helloworld"));//true
+    console.log(/^helloworld$/.test("xxxhelloworld"));//true
+
+
+    console.log("----------元字符----------");
+    // *: *前边的字符出现任意次数
+    console.log(/^a*$/.test("a"));//true
+    console.log(/^a*$/.test(""));//true
+    console.log(/^a*$/.test("aaaaaa"));//true
+    console.log(/^a*$/.test("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa"));//true
+    console.log(/^(ab)*$/.test("abababab"));//
+
+
+    // +: +前边的字符出现 >= 1 次数
+    console.log(/^a+$/.test("a"));//true
+    console.log(/^a+$/.test(""));//false
+
+    // ?: ?前边的字符出现 1 或者 0次数
+    console.log(/helloG?oogle/.test("hellooogle"));//true
+    console.log(/helloG?oogle/.test("helloGoogle"));//true
+
+
+    // {}:
+    //  {m,n} 前边的字符出现 m <=  <= n 指定次数
+    //  {m} 前边的字符出现 m 次数
+
+    console.log(/^a{3,4}$/.test("aaa"));//true
+    console.log(/^a{3,4}$/.test("aaaa"));//true
+    console.log(/^a{3,4}$/.test("aa"));//false
+    console.log(/^a{3,4}$/.test("aaaaaa"));//false
+
+    //  |:  xxx|yyy ,出现xxx或者yyy都可以
+    //  注意 |  或的这左右两部分的整体内容
+    console.log(/^hello|world$/.test("hello"));//true
+    console.log(/^hello|world$/.test("world"));//true
+    console.log(/^hello|world$/.test("helloworld"));//true
+    console.log(/^hello|world$/.test("hellokjgkkj"));//true
+
+
+
+
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

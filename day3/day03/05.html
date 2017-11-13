@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>盒子模型</title>
+    <style>
+      .one {
+
+        /*
+        width,height设置的是内容的宽高
+        */
+        width: 500px;
+        height: 200px;
+
+
+        /*上边框*/
+        /*style样式很多，自己查询*/
+
+        /*
+        border-top-width: 10px;
+        border-top-color: red;
+        border-top-style: solid;
+        */
+
+        /*border-top: 10px solid red;*/
+
+        /*适用于都一样*/
+        /*border: 10px solid red;*/
+
+
+        /*
+        上 右 下 左
+        上下，左右对称
+        注意：style必须设置！！！！！
+        */
+        border-width: 10px 20px 30px 40px;
+        border-style: solid dotted dashed double;
+        border-color: red green blue yellow;
+
+
+        /*
+        padding-top: 10px;
+        padding-bottom: 10px;
+        */
+        /*对称*/
+        padding: 10px 20px 30px 40px;       
+
+      }
+
+      .two {
+        /*去掉边框*/
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one">
+      文字
+    </div>
+
+    <button class="two">按钮</button>
+
+  </body>
+</html>

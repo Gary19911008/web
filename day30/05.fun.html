@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>函数缓存</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    /*
+    函数缓存：如果代码的耗时时间比较长，那么可以使用缓存。如果时间比较短，没有必要了。
+    */
+
+    //判断是否为偶数
+    //充分利用了 函数可以添加自定义属性的特点！！！！
+    function isEven (num){
+
+      //第一次调用该函数，没有result属性，所以添加一个result属性
+      if (!isEven.result){
+        isEven.result = {};
+      }
+
+      //每次都试图从已有的结果进行查找
+      if (isEven.result[num] != undefined) {
+        return isEven.result[num];
+      }
+
+      //如果没有结果，那么需要计算
+      console.log("----需要重新计算------");
+
+      var temp = (num % 2 === 0);
+
+      //计算之后，一定要保存计算结果
+      return isEven.result[num] = temp;
+    }
+
+    console.log(isEven(2));
+    console.log(isEven(3));
+    console.log(isEven(2));
+    console.log(isEven(2));
+
+
+    //测试代码的运行时间
+    console.time("ceshi");
+    for (let i = 0; i < 10000 ; i++) {
+      console.log(i);
+    }
+    console.timeEnd("ceshi");
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

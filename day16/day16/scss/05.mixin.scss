@@ -1,0 +1,35 @@
+//@mixin
+
+//define
+@mixin colorAndFont($color:blue,$size:2){
+  color: $color;
+  font-size: $size * 10px;
+}
+
+@mixin opacity($value){
+  opacity: $value / 100;
+}
+
+
+@mixin shadow($value...){
+  box-shadow: $value;
+}
+
+
+//use
+.one {
+  @include colorAndFont(yellow,2);
+  width: 100px;
+  height: 100px;
+  @include shadow(2px 2px 1px red, 3px 3px 2px yellow, 4px 4px 0px blue);
+}
+
+.two{
+  @include colorAndFont(green, 3);
+  line-height: 50px;
+  text-align: center;
+}
+
+.three {
+  @include colorAndFont;
+}

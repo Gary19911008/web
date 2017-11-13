@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>函数</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    /*
+    函数是实现某个特定的功能的多条语句的有序集合。
+    函数：就是封装代码，实现代码的模块化！！！
+    */
+
+
+   /*
+   功能：打印输出
+   形式参数：
+   @arg1, 任意类型
+   @arg2, 任意类型
+   @arg3, 任意类型
+   返回值：默认没有返回，undefined
+   */
+   function func(arg1,arg2,arg3){
+    //具体代码
+    console.log(arg1,arg2,arg3);
+   }
+
+   //函数调用,需要传入实际参数
+   //如果参数没有传递，那么会有undefined默认值
+   var result = func(1,2,3,4,5,5,1);
+   console.log(result);//当没有显示返回，返回值是undefined
+
+
+  /*
+  功能：求和
+  @arg1, number
+  @arg2, number
+  返回值：计算结果
+  */
+
+   function func2(arg1,arg2){
+
+    //  return 返回之后函数立刻结束，return之后的代码不再运行
+     return arg1 + arg2;
+   }
+
+   //将func2的返回值给result,接收返回值
+    result = func2(10,20);
+    console.log(result);
+
+
+
+    </script>
+
+  </body>
+</html>

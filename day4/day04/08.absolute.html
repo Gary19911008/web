@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>position定位</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .f {
+        width: 800px;
+        height: 500px;
+        background: yellow;
+        margin: 0px auto;
+
+        /*
+        只要祖先元素中有任何一个设置过 relative,absolute,fixed其中一个值的。
+        那么该元素绝对定位时，是相对于最近设置过定位的元素。
+        */
+
+        position: relative;
+
+        /*
+        子绝父相
+        父元素不要移动位置，relative
+        */
+      }
+
+      .s {
+        width: 500px;
+        height: 300px;
+        background: green;
+
+        /*
+        此时虽然有父元素 f,但是f并没有设置过任何定位的属性，仍然相对于body定位
+        */
+        position: absolute;
+        top: 100px;
+        left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+
+    <div class="f">
+      <div class="s"></div>
+    </div>
+
+    <p>思考就赶快就看过就多看厉害就考虑到你好看大家看见端口号龙宽九段很凉快发动机号看房间号离开房间号客服回来</p>
+
+
+    <!--
+    需要掌握绝对定位的三种情况！！！！！！
+    -->
+
+
+  </body>
+</html>

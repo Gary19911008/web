@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>apply and call</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    function fun () {
+      console.log(this);
+      console.log(arguments);
+
+      // console.log(arguments.slice(0,3)); //伪数组没有slice方法，调用失败
+
+
+      // 只要使用call或者apply就可以在伪数组上使用真数组的方法
+      console.log(Array.prototype.slice.call(arguments, 0, 3));
+    }
+
+
+    var obj = {
+      name: 'lisi',
+      age: 10
+    };
+
+    var obj2 = {
+      name: 'lisi',
+      age: 10
+    };
+
+    /*
+    var obj3 = obj2;
+    console.log(obj === obj2);//false
+    console.log(obj == obj2);//false
+    console.log(obj3 === obj2);//true
+    */
+
+    // fun.call(obj,1,2,3,4,5,6);
+    //  fun.call(obj,[1,2,3,4,5,6]);//可以传递数组，但是和apply是不一样的！！！！！
+
+
+    //apply的第二个参数必须是数组(伪数组)
+    fun.apply(obj,[1,2,3,4,5,6]);
+
+
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

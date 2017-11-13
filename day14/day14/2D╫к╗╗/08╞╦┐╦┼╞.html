@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>扑克牌</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 155px;
+        height: 219px;
+        position: relative;
+        margin: 200px auto;
+      }
+      .box img {
+        position: absolute;
+        width: 100%;/*让图片等比例缩放，直到宽度占满*/
+        top: 0;
+        left: 0;
+        transition:  all 2s;
+        /*设置旋转的中心点，默认为center*/
+        transform-origin: left top;
+      }
+
+      .box:hover img:nth-child(1) {
+        transform: rotate(60deg);
+      }
+
+      .box:hover img:nth-child(2) {
+        transform: rotate(120deg);
+      }
+
+      .box:hover img:nth-child(3) {
+        transform: rotate(180deg);
+      }
+
+      .box:hover img:nth-child(4) {
+        transform: rotate(240deg);
+      }
+      .box:hover img:nth-child(5) {
+        transform: rotate(300deg);
+      }
+
+      .box:hover img:nth-child(6) {
+        transform: rotate(360deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img src="image/pk1.png" alt="" />
+      <img src="image/pk1.png" alt="" />
+      <img src="image/pk1.png" alt="" />
+      <img src="image/pk1.png" alt="" />
+      <img src="image/pk1.png" alt="" />
+      <img src="image/pk1.png" alt="" />
+    </div>
+
+  </body>
+</html>

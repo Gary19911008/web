@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>圆饼加文字</title>
+</head>
+<body>
+  <canvas id="can"></canvas>
+
+  <script type="text/javascript">
+
+  var can = document.getElementById("can");
+  can.width = 500;
+  can.height = 500;
+  var ctx = can.getContext("2d");
+
+  ctx.beginPath();
+  ctx.moveTo(250,250);
+  ctx.arc(250,250,200,0,Math.PI * 0.75,false);
+  ctx.font = "20px 宋体";
+  ctx.fillStyle = "red";
+  ctx.fillText("40%",300,470);
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(250,250);
+  ctx.arc(250,250,200,Math.PI * 0.75,Math.PI * 1.4,false);
+  ctx.fillStyle = "blue";
+  ctx.fillText("30%",0,200);
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(250,250);
+  ctx.arc(250,250,200,Math.PI * 1.4,Math.PI * 1.75,false);
+  ctx.fillStyle = "yellow";
+  ctx.fillText("20%",280,40);
+  ctx.fill();
+
+  ctx.beginPath();
+  ctx.moveTo(250,250);
+  ctx.arc(250,250,200,Math.PI * 1.75,0,false);
+  ctx.fillStyle = "pink";
+  ctx.fillText("10%",450,170);
+  ctx.fill();
+  </script>
+
+</body>
+</html>

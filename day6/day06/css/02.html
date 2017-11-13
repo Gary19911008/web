@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery的链式调用！！！！！</title>
+    <style>
+      .back {
+        width: 200px;
+        height: 200px;
+        background: pink;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one">111</div>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    /*
+    链式调用实现：jQuery中的方法每次都返回选择的符合条件的jQuery对象本身。
+    */
+    // console.log($(".one").addClass("back").css("color", "red").css(["width", "height", "background-color"]));
+
+
+    //等价于以上代码
+    console.log($(".one"));
+    console.log($(".one").addClass("back"));
+    console.log($(".one").css("color", "red"));
+    console.log($(".one").css(["width", "height", "background-color"]));
+
+    </script>
+
+  </body>
+</html>

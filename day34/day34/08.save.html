@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>画布状态save, restore</title>
+</head>
+
+<body>
+
+  <canvas id="canvas">浏览器不支持canvas</canvas>
+  <script>
+    var can = document.getElementById("canvas");
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red";
+
+    var cxt = can.getContext("2d");
+
+
+    cxt.lineWidth = 5;
+    cxt.strokeRect(0, 0, 100, 100);
+    cxt.save();
+
+    cxt.scale(2, 2);
+    cxt.strokeRect(0, 0, 100, 100);
+    cxt.save();
+
+    cxt.scale(3, 3);
+    cxt.strokeRect(0, 0, 10, 10);
+    cxt.save();
+
+    cxt.scale(0.3, 0.3);
+    cxt.strokeRect(10, 10, 50, 50);
+    cxt.save();
+
+    //开始恢复(倒序恢复，类似于栈，最先恢复是最后一次的save)
+    cxt.restore();
+    cxt.restore();
+    cxt.restore();
+    cxt.restore();
+    cxt.strokeStyle = "red"
+    cxt.strokeRect(0, 0, 50, 50);
+
+  </script>
+
+</body>
+
+</html>

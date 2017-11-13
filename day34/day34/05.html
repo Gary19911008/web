@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>画布渲染画布</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #draw {
+        width: 600px;
+        padding: 20px;
+        margin: 10px auto;
+        border-radius: 10px;
+        text-align: center;
+        font-size: 25px;
+        background: lightgreen;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="draw">将画布1上的部分区域显示到画布2上</div>
+
+    <canvas id="canvas-1">浏览器不支持canvas</canvas>
+    <canvas id="canvas-2">浏览器不支持canvas</canvas>
+    <script>
+
+    var draw = document.getElementById("draw");
+    var can1 = document.getElementById("canvas-1");
+    var can2 = document.getElementById("canvas-2");
+
+    can1.width = 234;
+    can1.height = 300;
+    can1.style.border = "1px solid red";
+
+    can2.width = 468;
+    can2.height = 600;
+    can2.style.border = "1px solid red";
+
+    var cxt1 = can1.getContext("2d");
+    var cxt2 = can2.getContext("2d");
+
+    //绘制图片
+    var img = new Image();
+    img.onload = function(){
+      //图片加载成功之后，绘制到cxt1上
+      cxt1.drawImage(img, 0, 0, 234, 300);
+    }
+    img.src = "./mi.jpg";
+
+
+    //将画布1上的部分区域显示到画布2上
+    draw.onclick = function(){
+      cxt2.drawImage(can1, 67, 71, 110, 50, 67 *2, 71 *2, 110*2, 50*2);//从已有的画布中抠图
+      // cxt2.drawImage(img, 0, 0);//直接从图片上抠图
+    }
+
+
+    </script>
+
+  </body>
+</html>

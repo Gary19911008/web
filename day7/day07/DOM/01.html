@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery DOM操作</title>
+  </head>
+  <body>
+
+    <!--
+    DOM操作 === 节点操作  === 标签操作  === 元素操作
+    -->
+
+    <div class="one">
+      <h2>我是第一个one</h2>
+    </div>
+    <div class="one"></div>
+
+    <div class="two"></div>
+
+    <div class="three">
+      <h2>three元素</h2>
+    </div>
+
+    <script src="../jquery.min.js"></script>
+    <script type="text/javascript">
+
+    /**********************append ****************************************/
+    //在选中元素的里边的最后边！！！！！
+    $("body").append("<h1>通过append方法追加到了body的尾部</h1>");
+    $(".one").append("<p>追加的内容</p>");
+
+    //appendTo()
+    $("<h2>appendTo追加</h2>").appendTo(".two");
+
+    //$("<p></p>") 叫做创建一个，可以理解为创建一个元素，jQuery对象(其实就是在原有标签的基础上做了一些改造)
+    var newElement = $("<a href='https://www.baidu.com'>链接</a>");
+    newElement.appendTo(".two");
+
+
+
+    /**********************prepend ****************************************/
+
+     $(".three").prepend("<p>hello three!!</p>");//字符串类型
+     $(".three").prepend($("<p>three hello</p>"));// jQuery对象类型
+
+     // prependTo 自学？？？？
+
+
+
+
+    </script>
+
+  </body>
+</html>

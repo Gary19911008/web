@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <button id="btn">btn</button>
+
+    <script type="text/javascript">
+
+    /*
+    功能：兼容浏览器的事件注册函数
+    @elem, 指定要注册的DOM对象
+    @type, 指定要注册的事件名称
+    @handler, 指定的事件处理函数
+    */
+
+    function addEvent(elem,type,handler){
+
+      //判断是否支持该方法，支持就为true，不支持就为false
+      if (elem.addEventListener){
+        elem.addEventListener(type, handler,false);
+      } else if (elem.attachEvent){
+        elem.attachEvent('on' + type, handler);
+      } else {
+        elem['on' + type] = handler;
+      }
+    }
+
+    var btn = document.getElementById("btn");
+    addEvent(btn,'click', function(){
+      console.log("btn 点击。。。。。");
+    });
+
+    addEvent(btn,'dblclick', function(){
+      console.log("btn 双击。。。。。");
+    });
+
+
+    // 编写 removeEvent来移除事件！！！！！
+
+
+
+    </script>
+
+  </body>
+</html>

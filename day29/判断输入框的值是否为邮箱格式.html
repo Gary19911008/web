@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>判断输入框的值是不是邮箱格式</title>
+</head>
+
+<body>
+
+  <input type="text" id="em" placeholder="请输入邮箱">
+  <button type="button" name="button" id="btn">验证</button>
+
+  <script type="text/javascript">
+    var em = document.getElementById("em");
+    var btn = document.getElementById("btn");
+
+    function isEmail(str) {
+      var myReg = /^[-_A-Za-z0-9]+@([_A-Za-z0-9]+\.)+[A-Za-z0-9]{2,3}$/;
+      if (myReg.test(str)) return true;
+      return false;
+    }
+
+    btn.onclick = function(){
+      alert(isEmail(em.value));
+    };
+
+
+
+  </script>
+
+</body>
+
+</html>

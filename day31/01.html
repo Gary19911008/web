@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>高阶函数</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+     function sum (a, b){
+       return a + b;
+     }
+
+     function pow2 (num) {
+       return num * num;
+     }
+
+     //高阶函数，用于加工sum，pow2
+     function createFun(fun1, fun2){
+       return function(arg1,arg2){
+         return fun2(fun1(arg1, arg2));
+       };
+     }
+
+
+    var sumAndPow2 = createFun(sum, pow2);
+    console.log(sumAndPow2(10,20));
+
+    </script>
+
+  </body>
+</html>

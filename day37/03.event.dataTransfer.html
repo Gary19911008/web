@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>event.dataTransfer 通过拖拽传递数据</title>
+    <style media="screen">
+      .move {
+        width: 100px;
+        height: 100px;
+        background: green;
+        margin: 20px 0px;
+      }
+
+      .move:nth-child(2){
+        background: yellow;
+      }
+
+      .target {
+        margin: 50px 0;
+        height: 300px;
+        border: 3px solid red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="move" draggable="true"></div>
+    <div class="move" draggable="true"></div>
+
+    <div class="target"></div>
+
+    <script type="text/javascript">
+    var moves = document.querySelectorAll('.move');
+    var target = document.querySelector('.target');
+
+    moves[0].addEventListener('dragstart', function(event){
+      event.dataTransfer.setData("index", 0);
+    },false);
+
+    moves[1].addEventListener('dragstart', function(event){
+      event.dataTransfer.setData("index", 1);
+    },false);
+
+    target.addEventListener('dragover', function(event){
+      event.stopPropagation();
+      event.preventDefault();
+    },false);
+
+
+    target.addEventListener('drop', function(event){
+      // console.log("%c编号为 %s 的元素被拖拽", "color:red;font-size:20px", event.dataTransfer.getData("index"));
+
+      var index = event.dataTransfer.getData("index");
+      this.appendChild(moves[index]);
+    }, false);
+
+
+    </script>
+
+  </body>
+</html>

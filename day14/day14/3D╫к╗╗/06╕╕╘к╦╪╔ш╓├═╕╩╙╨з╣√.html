@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .per {
+        /*当没有任何效果时，注意可能是类名使用不恰当*/
+        /*给父元素设置透视效果*/
+        perspective: 1000px;
+      }
+      .f {
+        width: 300px;
+        height: 300px;
+        margin: 100px auto;
+        background: blue;
+        transition: all 1s linear;
+      }
+
+      .f:hover {
+        transform: rotateY(90deg) translateZ(300px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="per">
+      <div class="f"></div>
+    </div>
+
+  </body>
+</html>

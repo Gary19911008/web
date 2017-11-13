@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>盒子模型</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one,
+      .two {
+        width: 200px;
+        height: 200px;
+        padding: 10px;
+      }
+
+      .one {
+        border: 10px solid red;
+
+        /*
+        width, height设置的盒子的总体大小，总体大小不在变化
+        */
+        box-sizing: border-box;
+      }
+
+      .two {
+        border: 10px solid green;
+
+        /*width, height设置的盒子的内容大小*/
+        box-sizing: content-box;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one"></div>
+    <div class="two"></div>
+  </body>
+</html>

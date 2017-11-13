@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>跟随放大</title>
+    <style media="screen">
+
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #box {
+        width: 900px;
+        height: 600px;
+        margin: 100px auto;
+      }
+
+      #box .left {
+        float: left;
+        width: 350px;
+        height: 350px;
+        background: url("./images/jd-1.jpg");
+        border: 1px solid gray;
+        position: relative;
+        cursor: move;
+      }
+
+      #box .left .look {
+        width: 200px;
+        height: 200px;
+        background: rgba(241, 190, 147, 0.5);
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        display:  none;
+      }
+
+      #box .right {
+        float: right;
+        width: 500px;
+        height: 500px;
+        border: 1px solid gray;
+        overflow: hidden;
+        position: relative;
+        display:  none;
+      }
+
+      #box .right .big {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="box">
+      <div class="left">
+        <div class="look"></div>
+      </div>
+      <div class="right">
+        <div class="big">
+          <img src="./images/jd-2.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+
+    <script src="./jquery-3.0.0.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+     var $box = $("#box");
+     var $left= $("#box .left").eq(0);
+     var $look = $("#box .left .look").eq(0);
+     var $right = $("#box .right").eq(0);
+     var $big = $("#box .right .big").eq(0);
+
+     //.offset()方法返回一个元素相对于整个文档左上角的坐标,返回的是 {left: xx, top: yy}
+     var offsetLeft = $box.offset().left;
+     var offsetTop = $box.offset().top;
+
+     //比例系数, 如果是隐藏导致无法获得尺寸时，临时显示
+     $right.show();
+     var bili = ($big.width() - $right.width()) / ($left.width() - $look.width());
+     $right.hide();
+
+
+     $("#box .left").on('mouseover', function(){
+       $look.show();
+       $right.show();
+     }).on("mousemove", function (event){
+
+       //得到look的左上角相对于 left的坐标
+       var lookX = event.pageX - offsetLeft - $look.width() / 2  ;
+       var lookY = event.pageY - offsetTop - $look.height() / 2 ;
+
+
+       //判断边界条件
+       if (lookX < 0) {
+         lookX = 0;
+       } else if (lookX >= $left.width() - $look.width()) {
+         lookX = $left.width() - $look.width();
+       }
+
+       if (lookY < 0) {
+         lookY = 0;
+       } else if (lookY >= $left.height() - $look.height()) {
+         lookY = $left.height() - $look.height();
+       }
+
+       //设置look的位置
+       $look.css({left: lookX + "px", top: lookY + "px"});
+
+       //设置big的位置
+       $big.css({left: -lookX*bili + "px", top: -lookY*bili + "px"});
+
+     }).on("mouseout", function(){
+
+       $look.hide();
+       $right.hide();
+     });
+
+
+    </script>
+
+  </body>
+</html>

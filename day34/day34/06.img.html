@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>将画布导出为图片</title>
+</head>
+
+<body>
+
+  <canvas id="canvas">浏览器不支持canvas</canvas>
+
+  <script>
+    var can = document.getElementById("canvas");
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red";
+
+    var cxt = can.getContext("2d");
+
+    cxt.fillStyle = "green";
+    cxt.fillRect(200, 200, 100, 100);
+
+    //将画布导出为图片
+    var str = can.toDataURL("image/png", 1);
+    console.log(str);//base64编码格式的图片
+
+    var img = new Image();
+    img.src = str;
+    document.body.appendChild(img);
+
+
+    /*
+    base64格式图片的优缺点
+    优点：将图片转换成字符串，不用发送http请求，减少请求数量，减轻服务端压力
+    缺点： 转换之后体积变大
+    应用场景： 当图片体积很小时，可以使用
+    */
+
+  </script>
+
+
+</body>
+
+</html>

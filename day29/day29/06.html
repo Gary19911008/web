@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>多行匹配</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+     var str1 = "helloworldhelloworldhelloworldhelloworldhelloworldhelloworld";
+     var str2 = "helloworld\nhelloworld\nhelloworld\nhelloworld\nhelloworld\nhelloworld";
+
+     var result = str1.match(/^helloworld$/g);
+     console.log(result);//null
+
+     //m 标志位，用于进行多行匹配
+     result = str2.match(/^helloworld$/gm);
+     console.log(result);//6个
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>array数组</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    //数组定义
+    var  one = [];
+    console.log(typeof one);//object
+    console.log(one);
+
+
+    var two = [1,2,3,4, true,false ,'hello', undefined];
+    console.log(two);
+
+   //使用Array构造函数实例化一个数组
+   var three = new Array(1,2,3,4,4,5,5,true, false, 'hello');
+   console.log(three);
+
+   //直接给数组长度
+   var four = new Array(10);
+   console.log(four);
+
+
+  //数组的遍历(读)
+   for (var i = 0; i < three.length; i++) {
+     console.log(three[i]);//下标
+   }
+
+
+   var five = [1,2,3];
+  //写
+   five[1] = 200;
+   console.log(five[1]);
+
+
+  // 稀疏数组, 稠密
+   var six = [1,,,,,,,,,,2];
+   console.log(six.length);
+
+
+
+
+   var a1 = [1,2,3];
+   console.log(a1.length);//3
+
+   a1[999] = 0;
+   console.log(a1.length);//1000
+   console.log(a1);
+
+
+   //可读可写
+   a1.length = 10000;
+   console.log(a1);
+
+
+    </script>
+
+  </body>
+</html>

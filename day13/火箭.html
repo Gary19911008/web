@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>火箭</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #afb4db;
+    }
+
+    .box{
+      width: 1860px;
+      height: 980px;
+      background-color: #afb4db;
+      position: relative;
+    }
+
+    .sun {
+      float: right;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-image: radial-gradient(20px at center, red, #f62522 100%, #d93a49 100%, yellow 275%, #d64f44 100%, #faa755 100%, #fcaf17 100%);
+      box-shadow: -10px -10px 100px yellow;
+    }
+
+    .cloud {
+      margin-top: 50px;
+      margin-left: 100px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 50px 50px 1px #fff, 100px 0px 1px #fff, 150px 50px 1px #fff, 200px 0px 1px #fff, 250px 50px 1px #fff, 300px 0px 1px #fff, 350px 50px 1px #fff;
+      position: relative;
+      transition: all 10s;
+    }
+
+    .cloud::before {
+      content: "";
+      margin-top: 50px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 50px 50px 1px #fff, 100px 0px 1px #fff, 150px 50px 1px #fff, 200px 0px 1px #fff, 250px 50px 1px #fff, 300px 0px 1px #fff, 350px 50px 1px #fff;
+      position: absolute;
+      left: 470px;
+      top:-20px;
+      transition: all 10s;
+    }
+
+    .cloud::after {
+      content: "";
+      margin-top: 50px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 50px 50px 1px #fff, 100px 0px 1px #fff, 150px 50px 1px #fff, 200px 0px 1px #fff, 250px 50px 1px #fff, 300px 0px 1px #fff, 350px 50px 1px #fff;
+      position: absolute;
+      left: 1150px;
+      top: -50px;
+      transition: all 10s;
+    }
+
+    .cloud2 {
+      margin-top: 50px;
+      margin-left: 100px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 50px 50px 1px #fff, 100px 0px 1px #fff, 150px 50px 1px #fff, 200px 0px 1px #fff, 250px 50px 1px #fff, 300px 0px 1px #fff, 350px 50px 1px #fff;
+      position: relative;
+      transition: all 10s;
+      right: 100px;
+      top: 0;
+    }
+
+    .cloud2::before {
+      content: "";
+      margin-top: 50px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 50px 50px 1px #fff, 100px 0px 1px #fff, 150px 50px 1px #fff, 200px 0px 1px #fff, 250px 50px 1px #fff, 300px 0px 1px #fff, 350px 50px 1px #fff;
+      position: absolute;
+      left: 570px;
+      top: 0px;
+      transition: all 10s;
+    }
+
+    .cloud2::after {
+      content: "";
+      margin-top: 50px;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 50px 50px 1px #fff, 100px 0px 1px #fff, 150px 50px 1px #fff, 200px 0px 1px #fff, 250px 50px 1px #fff, 300px 0px 1px #fff, 350px 50px 1px #fff;
+      position: absolute;
+      left: 1150px;
+      top: -50px;
+      transition: all 10s;
+    }
+
+    .rocket {
+      width: 101px;
+      height: 190px;
+      background: url("./day13/image1/rocket.png") no-repeat;
+      position: absolute;
+      left: 0;
+      top: 750px;
+      transform: rotate(65deg);
+      transition: all 2s;
+    }
+
+    .box:hover .rocket {
+      position: absolute;
+      left: 1800px;
+      top: 0;
+    }
+
+    .box:hover .cloud{
+      position: absolute;
+      top: 50px;
+      left:150px;
+    }
+
+    .box:hover .cloud::before{
+      position: absolute;
+      top: 30px;
+      left:-20px;
+    }
+
+    .box:hover .cloud::after{
+      position: absolute;
+      top: -50px;
+      left:50px;
+    }
+
+    .box:hover .cloud2{
+      position: absolute;
+      top: 50px;
+      left:150px;
+    }
+
+    .box:hover .cloud2::before{
+      position: absolute;
+      top: 30px;
+      left:-20px;
+    }
+
+    .box:hover .cloud2::after{
+      position: absolute;
+      top: -50px;
+      left:50px;
+    }
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="sun"></div>
+    <div class="cloud"></div>
+    <div class="cloud2"></div>
+    <div class="rocket"></div>
+  </div>
+  <script src="../JQuery/jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+  </script>
+</body>
+
+</html>

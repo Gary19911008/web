@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>url解析</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var url = "http://www.domain.com/?user=anonymous&id=123&id=456&id=789&city=BeiJing&city=GuangZhou";
+    var str  = url.slice(url.indexOf("?")+1);
+
+    var data = {};//用于存储对象
+
+    //用于对象填充
+    str.replace(/([^=&]+)=([^=&]+)/g, function(match,p1,p2){
+      // console.log("%s = %s", p1, p2);// "%s用于输出字符串"
+      data[p1] = data[p1] ? data[p1] + "@" + p2 : p2; // id: "123@789@456"
+    });
+
+    //字符串的切割和转换
+    for (var key in data) {
+      if ((data[key].indexOf("@")) !== -1){
+        var temp = data[key].split('@');
+        temp = temp.map(function(elem){
+          return isNaN(elem) ? elem : Number(elem);
+        });
+
+        data[key] = temp;
+      }
+    }
+    console.log(data);
+
+    </script>
+
+  </body>
+</html>

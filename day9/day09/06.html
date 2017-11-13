@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>京东注册</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .item {
+      width: 360px;
+      height: 25px;
+      padding: 20px 15px;
+      border: 1px solid gray;
+      font-size: 16px;
+      position: relative;
+
+      margin: 50px auto;
+    }
+
+    .item>div {
+      float: left;
+      height: 25px;
+      line-height: 25px;
+    }
+
+    .item>input {
+      float: right;
+      width: 290px;
+      height: 25px;
+      font-size: 16px;
+      border: none;
+      outline: none;
+    }
+
+    .item>p {
+      position: absolute;
+      top: 65px;
+      left: 0;
+      font-size: 12px;
+      display: none;
+    }
+
+    .item>span {
+      position: absolute;
+      top: 23px;
+      left: 115px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="item">
+    <div>用户名</div>
+    <input type="text">
+    <span>您的邮箱/手机号</span>
+    <p>支持中文、字母、数字、“-”“_”的组合，4-20个字</p>
+  </div> 
+
+
+
+  <script src="./jquery.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+
+      $(".item span").click(function(){
+        // 直接写focus表示直接触发该事件
+        $(".item > input").focus();
+      });
+
+      $(".item > input").focus(function() {
+        $(".item span").hide();
+        $(".item p").show();
+      }).blur(function() {
+        $(".item span").show();
+        $(".item p").hide();
+      });
+
+    });
+  </script>
+
+</body>
+
+</html>

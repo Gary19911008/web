@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 600px;
+            height: 80px;
+            background: lightsalmon;
+            margin: 100px auto;
+            text-align: center;
+            font-size: 30px;
+            line-height: 80px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box" id="box-id"></div>
+
+<script>
+    var box =  document.getElementById("box-id");
+    var end = new Date("2017-11-11 11:11:11");
+    var timer = null;
+
+
+    function flag(arg){
+        return arg > 9 ? arg  : "0" +　arg;
+    }
+
+    function getTime(){
+        var now = new Date();
+
+        //总的时间差，秒为单位
+        var secs = parseInt((end.getTime() - now.getTime()) / 1000);
+        if (secs == 0){
+            clearInterval(timer);
+            return;
+        }
+
+        //利用秒获得对应的时间,搞清楚由秒如何得到天，小时，分钟
+        var days = parseInt(secs / 3600 / 24);
+        var hours = parseInt(secs / 3600  % 24 );
+        var mins = parseInt(secs / 60 % 60 );
+        var sec = parseInt(secs % 60);
+
+
+        box.innerHTML = "距离抢购时间还剩" + flag(days) + "天" + flag(hours) + "时" + flag(mins)
+                + "分" + flag(sec) + "秒";
+
+    }
+
+    timer = setInterval(getTime, 1000);
+
+
+</script>
+
+</body>
+</html>

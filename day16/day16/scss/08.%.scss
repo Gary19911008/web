@@ -1,0 +1,15 @@
+
+// %
+%hehe{
+  letter-spacing: 20px;
+}
+
+.one {
+  width: 100px;
+  height: 100px;
+  @extend %hehe;
+}
+
+.two {
+  @extend %hehe;
+}

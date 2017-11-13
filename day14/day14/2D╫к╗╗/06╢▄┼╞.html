@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>盾牌</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html, body {
+        height: 100%;
+      }
+      section {
+        height: 100%;
+        background: #2AB561;
+      }
+      .shield {
+        width: 440px;
+        margin: 0 auto;
+      }
+      .shield img {
+        transition: all 1s;
+      }
+      
+      .shield img:nth-child(1) {
+        transform: rotate(30deg) translate(10px, 20px);
+      }
+
+      .shield img:nth-child(2) {
+        transform: rotate(30deg) translate(-10px, 50px);
+      }
+
+      .shield img:nth-child(3) {
+        transform: rotate(70deg) translate(300px, -50px);
+      }
+
+      .shield img:nth-child(4) {
+        transform: rotate(90deg) translate(-200px, 50px);
+      }
+
+      .shield img:nth-child(5) {
+        transform: rotate(-90deg) translate(-100px, 100px);
+      }
+
+      .shield img:nth-child(6) {
+        transform: rotate(-110deg) translate(-150px, 200px);
+      }
+
+      .shield img:nth-child(7) {
+        transform: rotate(-180deg) translate(-250px, 300px);
+      }
+
+      .shield img:nth-child(8) {
+        transform: rotate(-270deg) translate(-250px, 100px);
+      }
+
+      .shield img:nth-child(9) {
+        transform: rotate(-200deg) translate(250px, 100px);
+      }
+
+      .shield:hover img {
+        transform: rotate(0deg) translate(0px, 0px);
+      }
+
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="shield">
+        <img src="image/shield_1_01.png" alt="" />
+        <img src="image/shield_1_02.png" alt="" />
+        <img src="image/shield_1_03.png" alt="" />
+        <img src="image/shield_1_04.png" alt="" />
+        <img src="image/shield_1_05.png" alt="" />
+        <img src="image/shield_1_06.png" alt="" />
+        <img src="image/shield_1_07.png" alt="" />
+        <img src="image/shield_1_08.png" alt="" />
+        <img src="image/shield_1_09.png" alt="" />
+      </div>
+    </section>
+
+  </body>
+</html>

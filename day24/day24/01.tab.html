@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .box {
+      width: 1000px;
+      margin: 100px auto;
+    }
+
+    .tabs {
+      height: 80px;
+    }
+
+    .tabs li {
+      height: 80px;
+      line-height: 80px;
+      width: 80px;
+      text-align: center;
+      margin: 0px 30px;
+      float: left;
+    }
+
+    .tabs li.active {
+      color: red;
+      text-decoration: underline;
+    }
+
+    .show {
+      height: 300px;
+      border: 1px solid red;
+    }
+
+    .show>ul {
+      display: none;
+    }
+
+    .show>ul.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <ul class="tabs">
+      <li class="active">热门</li>
+      <li>电视影音</li>
+      <li>电脑</li>
+      <li>家居</li>
+    </ul>
+
+    <div class="show">
+      <ul class="active">
+        <li>热门一</li>
+        <li>热门二</li>
+      </ul>
+      <ul>
+        <li>电视一</li>
+        <li>影音二</li>
+      </ul>
+      <ul>
+        <li>电脑一</li>
+        <li>电脑二</li>
+      </ul>
+      <ul>
+        <li>家居一</li>
+        <li>家居二</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <script>
+    var tabs = document.getElementsByClassName('tabs')[0].children;
+    var contents = document.getElementsByClassName("show")[0].children;
+
+
+    for (var  i = 0; i < tabs.length; i++) {
+
+      //立即函数(可以隔离作用域，做到避免全局变量冲突问题):定义并且立刻调用，并且只调用一次
+      // (function(){})()
+      //通过每次调用立即函数，来达到让内部的处理函数拥有自己的 i
+      //第一种方法，使用立即函数解决闭包导致的问题
+      /*
+      (function(i) {
+        tabs[i].onmouseover = function(event) {
+
+          for (var j = 0; j < tabs.length; j++) {
+            tabs[j].className = "";
+            contents[j].className = "";
+          }
+
+          this.className = "active";
+           contents[i].className = "active";
+          // 此处的i 是 4,是由于闭包导致的！！！
+          // console.log("对应的内容索引为 : ", i);
+        };
+      })(i);
+      */
+
+
+      //第二种方法，定义自己的 index属性(只要是对象，就可以添加属性)
+      tabs[i].index = i;
+      tabs[i].onmouseover = function(event) {
+        for (var j = 0; j < tabs.length; j++) {
+          tabs[j].className = "";
+          contents[j].className = "";
+        }
+        this.className = "active";
+        contents[this.index].className = "active";
+      };
+    }
+
+  </script>
+
+</body>
+
+</html>

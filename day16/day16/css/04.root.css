@@ -1,0 +1,11 @@
+.one {
+  height: 100px;
+  line-height: 100px; }
+  .one .one_1 {
+    color: yellow; }
+    .two {
+      font-size: 100px; }
+      .two .two_1 {
+        height: 200px; }
+
+/*# sourceMappingURL=04.root.css.map */

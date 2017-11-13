@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>drawImage绘制图片</title>
+</head>
+
+<body>
+
+  <img id="img" src="./monkey.jpg" alt="">
+
+  <canvas id="canvas">你的浏览器不支持canvas</canvas>
+
+  <script type="text/javascript">
+    //1. 获得canvas画布dom对象
+    var can = document.getElementById("canvas");
+
+    //canvas元素是具有width, height的属性
+    can.width = 500;
+    can.height = 500;
+
+    can.style.border = "1px solid red";
+
+    //2. 获得画布的上下文对象
+    var cxt = can.getContext("2d");
+
+
+    //drawImage绘制图片
+
+    var img = document.getElementById("img");
+
+    //等待图片加载完毕
+    img.onload = function () {
+
+      //绘制图片时，一定要保证图片加载完毕
+      cxt.drawImage(img, 100, 100);
+
+      cxt.drawImage(img, 0, 0, 100, 100);
+
+
+      cxt.drawImage(img, 57, 96, 97, 97, 350, 350, 45, 45);
+    }
+
+  </script>
+
+
+</body>
+
+</html>

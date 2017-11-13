@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas放大镜</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #can1 {
+      margin: 100px auto;
+      display: block;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <canvas id="can1"></canvas>
+  <canvas id="can2" style="display:none"></canvas>
+
+  <script type="text/javascript">
+    var can1 = document.querySelector('#can1');
+    var can2 = document.querySelector('#can2');
+
+    var w = 1226,
+      h = 460;
+
+    can1.width = w / 2;
+    can1.height = h / 2;
+
+    var can1OffsetLeft = can1.offsetLeft;
+    var can1OffsetTop = can1.offsetTop;
+
+    window.onresize = function() {
+
+      can1OffsetLeft = can1.offsetLeft;
+      can1OffsetTop = can1.offsetTop;
+      console.log(can1OffsetLeft, can1OffsetTop);
+    }
+
+
+    can2.width = w;
+    can2.height = h;
+
+    var ctx1 = can1.getContext("2d");
+    var ctx2 = can2.getContext("2d");
+
+    var img = new Image();
+
+    img.onload = function() {
+      ctx1.drawImage(img, 0, 0, can2.width, can2.height, 0, 0, can1.width, can1.height);
+      ctx2.drawImage(img, 0, 0, can2.width, can2.height, 0, 0, can2.width, can2.height);
+
+
+
+      can1.onmousemove = function(event) {
+
+        can1.width = can1.width;
+        ctx1.drawImage(img, 0, 0, can2.width, can2.height, 0, 0, can1.width, can1.height);
+
+        var can1X = event.pageX - can1OffsetLeft;
+        var can1Y = event.pageY - can1OffsetTop;
+
+        if (can1X < 50) {
+          can1X = 50;
+        } else if (can1X > can1.width - 50) {
+          can1X = can1.width - 50;
+        }
+
+        if (can1Y < 50) {
+          can1Y = 50;
+
+        } else if (can1Y > can1.height - 50) {
+          can1Y = can1.height - 50;
+
+        }
+
+        ctx1.strokeStyle = "yellow";
+        ctx1.lineWidth = 5;
+        ctx1.arc(can1X, can1Y, 50, 0, Math.PI * 2, false);
+        ctx1.stroke();
+
+        ctx1.clip();
+
+        var can2X = can1X * 2;
+        var can2Y = can1Y * 2;
+
+        ctx1.drawImage(can2, can2X, can2Y, 100, 100, can1X - 50, can1Y - 50, 100, 100);
+
+        can1.onmouseleave = function() {
+          can1.width = can1.width;
+          ctx1.drawImage(img, 0, 0, can2.width, can2.height, 0, 0, can1.width, can1.height);
+
+        }
+
+      }
+    }
+
+    img.src = "./mi.jpg";
+  </script>
+
+</body>
+
+</html>

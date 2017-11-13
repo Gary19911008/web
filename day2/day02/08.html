@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>层叠(效果叠加)</title>
+    <style>
+    /*
+    对一个元素不同样式的多次设置会进行效果叠加，
+    同一样式会覆盖
+    */
+
+    .one {
+      color: green;
+    }
+
+    .one,.two {
+      font-size: 50px;
+    }
+
+
+
+    </style>
+  </head>
+  <body>
+
+    <div class="one">
+      div元素
+    </div>
+
+    <p class="two">p元素</p>
+
+  </body>
+</html>

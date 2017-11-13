@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+
+  <h1>我是current</h1>
+  <a href="./before.html">before.html</a>
+  <a href="./after.html">after.html</a>
+
+  <button id="go">前进</button>
+
+
+  <script type="text/javascript">
+    var go = document.querySelector('#go');
+
+    go.onclick = function () {
+
+      //go(n), n决定了跳转到那个页面
+      history.go(1);
+    }
+
+
+
+
+
+  </script>
+</body>
+
+</html>

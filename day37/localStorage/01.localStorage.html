@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>localStorage</title>
+  </head>
+  <body>
+
+    <h1> 01.localStorage.html</h1>
+
+    <script type="text/javascript">
+
+    /*
+    localStorage
+    存储生命周期很长：手动清除
+    可以在同一个网站下实现页面之间的数据交互（页面之间是共享的，可以相互修改的）
+    同一个网站的不同页面之间的通信，也可以使用 location.search
+    */
+
+    localStorage.setItem("key0", 0);
+    localStorage.setItem("key1", 1);
+    localStorage.setItem("key2", 2);
+
+
+    /*
+    代码必须在服务器上测试，本地测试是不会触发的
+    当localStorage的值被其他页面修改时，当前页面的该事件会触发
+    如果是自己修改的，那么自己的事件不会触发
+    */
+    window.onstorage = function(event){
+      // 01页面
+      console.log("event.key ", event.key);
+      console.log("event.oldValue", event.oldValue);
+      console.log("event.newValue", event.newValue);
+    }
+
+    </script>
+
+  </body>
+</html>

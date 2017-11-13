@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .one {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: relative;
+        top: 20px;
+      }
+
+      .f {
+        height: 300px;
+        border: 1px solid red;
+        position: relative;
+        /*
+        无论f是relative，absolute，后代的绝对定位都是相对于f的
+        */
+      }
+
+      .two {
+        width: 100px;
+        height: 100px;
+        background: green;
+
+        /*
+        默认跟着body定位
+        */
+        position: absolute;
+        top: 10px;
+        left: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one"></div>
+    <p>看就赶快课件看见好看就快点回家看到建行卡的就看见好看看得见很看好空间打开 </p>
+
+    <div class="f">
+      <div class="two"></div>
+    </div>
+
+  </body>
+</html>

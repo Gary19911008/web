@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>location对象</title>
+  </head>
+  <body>
+
+    <img src="./1.png" alt="">
+    <button id='login'>登录</button>
+
+    <script type="text/javascript">
+
+    console.log(window.location.protocol);
+    console.log(location.hostname);
+    console.log(location.pathname);
+    console.log(location.port);
+
+    //将location.search中的键值对字符串转换成对象{key:value, key1:value1...}
+    console.log(location.search);//?name=lisi&age=20&gender=male
+    console.log(location.hash);
+
+    document.querySelector('#login').onclick = function () {
+      //页面跳转, 有记录
+      // location.assign("https://www.jd.com");
+      // window.location = "https://www.baidu.com";
+      // location.href = "https://www.tmall.com";
+
+      //替换，没有历史记录
+      // location.replace("https://www.mi.com");
+
+      //页面重载
+       location.reload(true);
+    };
+
+    // setInterval(function(){
+    //   location.reload();
+    // }, 5000);
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

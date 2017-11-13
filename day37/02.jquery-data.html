@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="box" data-one="0"  data-two="1"  data-two-a="10"></div>
+
+    <script src="./jquery-3.0.0.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    var $box = $("#box");//jquery对象
+    var box = $box.get(0);//dom对象
+
+    //读取自定义属性(和H5的标准是一致的)
+    console.log($box.data());
+    $box.data("four", 30);
+
+    //使用原生dom对象，在标签上添加自定义属性
+    box.dataset.three = 20;
+
+
+
+
+
+
+    </script>
+  </body>
+</html>

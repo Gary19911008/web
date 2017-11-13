@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>盾牌粉碎重组</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .clearfix::before,
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    .box {
+      width: 600px;
+      height: 550px;
+      margin: 150px auto;
+      background-color: #7fb80e;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .item {
+      width: 200px;
+      height: 180px;
+      float: left;
+      box-sizing: border-box;
+      transition: all 0.5s 0s linear;
+      position: absolute;
+    }
+
+    .top .item:nth-child(1) {
+      background: url("./day13/image1/shield_1_01.png") no-repeat center right;
+      transform: skew(20deg, 20deg);
+      left: -75px;
+      top: -70px;
+    }
+
+    .top .item:nth-child(2) {
+      background: url("./day13/image1/shield_1_02.png") no-repeat center center;
+      transform: skew(-25deg, 55deg);
+      left: 200px;
+      top: -100px;
+    }
+
+    .top .item:nth-child(3) {
+      background: url("./day13/image1/shield_1_03.png") no-repeat center left;
+      transform: rotate(90deg);
+      top: -20px;
+      right: -50px;
+    }
+
+    .middle .item:nth-child(1) {
+      background: url("./day13/image1/shield_1_04.png") no-repeat center right;
+      transform: scale(2, 0.5);
+      top: 200px;
+      left: -20px;
+    }
+
+    .middle .item:nth-child(2) {
+      background: url("./day13/image1/shield_1_05.png") no-repeat center center;
+      transform: skew(180deg, 50deg);
+      left: 200px;
+      top: 200px;
+    }
+
+    .middle .item:nth-child(3) {
+      background: url("./day13/image1/shield_1_06.png") no-repeat center left;
+      transform: rotate(90deg);
+      top: 300px;
+      right: -50px;
+    }
+
+    .bottom .item:nth-child(1) {
+      background: url("./day13/image1/shield_1_07.png") no-repeat center right;
+      transform: skew(100deg, 50deg);
+      left: 0px;
+      top: 470px;
+    }
+
+    .bottom .item:nth-child(2) {
+      background: url("./day13/image1/shield_1_08.png") no-repeat center center;
+      transform: rotate(30deg);
+      left: 460px;
+      top: 100px;
+    }
+
+    .bottom .item:nth-child(3) {
+      background: url("./day13/image1/shield_1_09.png") no-repeat center left;
+      transform: skew(50deg, 100deg);
+      left: 185px;
+      top: 0px;
+    }
+
+    .box:hover .top>.item:nth-child(1) {
+      transform: translate(75px, 70px);
+    }
+
+    .box:hover .top>.item:nth-child(2) {
+      transform: translate(0px, 100px);
+    }
+
+    .box:hover .top>.item:nth-child(3) {
+      transform: translate(-50px, 20px);
+    }
+
+    .box:hover .middle>.item:nth-child(1) {
+      transform: translate(20px, -25px);
+    }
+
+    .box:hover .middle>.item:nth-child(2) {
+      transform: translate(0px, -25px);
+    }
+
+    .box:hover .middle>.item:nth-child(3) {
+      transform: translate(-50px, -125px);
+    }
+
+    .box:hover .bottom>.item:nth-child(1) {
+      transform: translate(0px, -120px);
+    }
+
+    .box:hover .bottom>.item:nth-child(2) {
+      transform: translate(-260px, 250px);
+    }
+
+    .box:hover .bottom>.item:nth-child(3) {
+      transform: translate(215px,350px)
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="box .clearfix">
+    <div class="top .clearfix">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <div class="middle .clearfix">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <div class="bottom .clearfix">
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+  </div>
+</body>
+
+</html>

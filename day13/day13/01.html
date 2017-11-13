@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .rainbow {
+      margin: 100px auto;
+      width: 800px;
+      height: 400px;
+      box-sizing: border-box;
+      position: relative;
+
+      border-top: 50px solid red;
+      border-radius: 400px 400px  0  0;
+    }
+
+    .rainbow>div {
+      position: absolute;
+      box-sizing: border-box;
+
+    }
+
+    .rainbow>div:nth-child(1) {
+      width: 700px;
+      height: 350px;
+      border-top: 50px solid green;
+      border-radius: 350px 350px  0  0;
+
+
+      /*百分比是相对于设置过定位的最近的祖先元素*/
+      top: 50%;
+      left: 50%;
+
+      /*继续偏移自身的一半*/
+      margin-left: -350px;
+      margin-top: -175px;
+    }
+
+    .rainbow>div:nth-child(2) {
+      width: 600px;
+      height: 300px;
+      border-top: 50px solid yellow;
+      border-radius: 300px 300px  0  0;
+
+
+      /*百分比是相对于设置过定位的最近的祖先元素*/
+      top: 50%;
+      left: 50%;
+
+      /*继续偏移自身的一半*/
+      margin-left: -300px;
+      margin-top: -150px;
+    }
+
+    .rainbow>div:nth-child(3) {
+      width: 500px;
+      height: 250px;
+      border-top: 50px solid blue;
+      border-radius: 250px 250px  0  0;
+
+
+      /*百分比是相对于设置过定位的最近的祖先元素*/
+      top: 50%;
+      left: 50%;
+
+      /*继续偏移自身的一半*/
+      margin-left: -250px;
+      margin-top: -125px;
+    }
+
+    .rainbow>div:nth-child(4) {
+      width: 400px;
+      height: 200px;
+
+      border-top: 50px solid pink;
+      border-radius: 200px 200px  0  0;
+
+      /*百分比是相对于设置过定位的最近的祖先元素*/
+      top: 50%;
+      left: 50%;
+
+      /*继续偏移自身的一半*/
+      margin-left: -200px;
+      margin-top: -100px;
+    }
+
+    .rainbow>div:nth-child(5) {
+      width: 300px;
+      height: 150px;
+
+      border-top: 50px solid purple;
+      border-radius: 150px 150px  0  0;
+
+      /*百分比是相对于设置过定位的最近的祖先元素*/
+      top: 50%;
+      left: 50%;
+
+      /*继续偏移自身的一半*/
+      margin-left: -150px;
+      margin-top: -75px;
+    }
+
+    .rainbow>div:nth-child(6) {
+      width: 200px;
+      height: 100px;
+      border-top: 50px solid  gray;
+      border-radius: 100px 100px  0  0;
+
+
+      /*百分比是相对于设置过定位的最近的祖先元素*/
+      top: 50%;
+      left: 50%;
+
+      /*继续偏移自身的一半*/
+      margin-left: -100px;
+      margin-top: -50px;
+    }
+
+    .rainbow>div:nth-child(7) {
+      width: 100px;
+      height: 50px;
+
+      border-top: 50px solid  orange;
+      border-radius: 50px 50px  0  0;
+
+      /*百分比是相对于设置过定位的最近的祖先元素*/
+      top: 50%;
+      left: 50%;
+
+      /*继续偏移自身的一半*/
+      margin-left: -50px;
+      margin-top: -25px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="rainbow">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+</body>
+
+</html>

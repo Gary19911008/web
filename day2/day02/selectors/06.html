@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>交集选择器</title>
+    <style>
+
+    /* 既满足是p, 又满足包含color_red的类
+       交集选择器中间是连续写，没有空格
+    */
+      div p.color_red.one {
+        color: red;
+      }
+
+      h1 p#p1 span {
+        color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div>
+
+      <!--添加了2个类  -->
+      <p class="color_red  one">111</p>
+      <p>222</p>
+      <p>333</p>
+    </div>
+
+    <div>
+      <h1 class="color_red">sjgkjkjhk</h1>
+    </div>
+
+    <p class="color_red">pppppp</p>
+
+
+    <h1>
+      <p id="p1"><span>ksjgkdjhkjhkhj</span></p>
+    </h1>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>实现跨行，跨列</title>
+    <style>
+        table {
+          /*取消表格之间的间隙*/
+          border-collapse: collapse;
+          border: 1px solid gray;
+        }
+
+        td,th{
+          border: 1px solid gray;
+        }
+    </style>
+  </head>
+  <body>
+
+
+    <table>
+       <tr>
+         <th>name</th>
+         <th>age</th>
+         <th colspan="3">phone</th>
+       </tr>
+
+       <tr>
+         <td>lisi</td>
+         <td>male</td>
+         <td colspan="2">983787386</td>
+        <td rowspan="3">海淀区</td>
+       </tr>
+
+       <tr>
+         <td>zhangsan</td>
+         <td>female</td>
+         <td colspan="2">28758278768</td>
+       </tr>
+
+       <tr>
+         <td>zhangsan</td>
+         <td>female</td>
+         <td colspan="2">28758278768</td>
+       </tr>
+
+    </table>
+
+  </body>
+</html>

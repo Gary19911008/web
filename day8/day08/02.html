@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>表格</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .btn {
+      text-align: center;
+    }
+
+    #add {
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      border: none;
+      background: #00a6ac;
+    }
+
+    .stu {
+      width: 400px;
+      margin: 20px auto;
+      border: 1px solid gray;
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    .stu td,
+    .stu th {
+      border: 1px solid gray;
+      height: 30px;
+    }
+
+    .stu tr td:last-child {
+      text-decoration: underline;
+      color: red;
+
+      /*鼠标为小手样式*/
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="btn">
+    <button id="add">添加一行</button>
+  </div>
+
+  <table class="stu">
+    <caption>
+      <h1>学员信息</h1></caption>
+    <thead>
+      <th>name</th>
+      <th>age</th>
+      <th>gender</th>
+      <th>delete</th>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script src="./jquery.min.js"></script>
+  <script type="text/javascript">
+
+    var start = 18;
+
+
+    $("#add").click(function() {
+      $(".stu tbody").append("<tr><td>张三</td><td>" + start + "</td><td>女</td><td>删除</td></tr>");
+      start = start + 1;
+
+      //  添加删除事件
+      //last是获得所有td中的最后一个！！！！！
+      console.log($(".stu tr td:last").length);//得到选中的个数 1
+
+      $(".stu tr td:last").click(function() {
+        // $(this)就是当前注册事件的元素
+
+        //找到父元素
+        $(this).parent().remove();
+      });
+    });
+
+
+
+  </script>
+
+</body>
+
+</html>

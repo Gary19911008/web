@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>定时器节流</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+
+      table {
+        text-align: center;
+        border: 1px solid gray;
+        border-collapse: collapse;
+      }
+
+      tr,td,th {
+        border: 1px solid gray;
+      }
+
+      td,th {
+        width: 100px;
+        height: 80px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <button id="start">点我开始生成表格</button>
+    <table id="stus">
+      <tbody></tbody>
+    </table>
+
+    <script>
+
+
+    /*
+    函数节流：就是不让一个函数连续重复的执行，要打断它的执行
+    */
+      var start = document.getElementById("start");
+      var stus = document.getElementById("stus");
+      var tb = stus.firstElementChild;
+
+
+      var count = 0, timer;
+      function createTable(){
+        count++;
+
+        if (count >= 1000){
+          clearTimeout(timer);
+          return;
+        }
+
+        for (var i = 0; i < 10; i++) {
+          var content = "<tr><td>lisi</td><td>22</td><td>男</td></tr>";
+          tb.innerHTML += content;
+        }
+
+        timer = setTimeout(createTable, 10);
+      }
+
+
+      document.onclick = function (){
+        alert("终于到我了。。。。");
+      }
+
+      start.onclick = function (event){
+        event.stopPropagation();
+
+        //使用定时器实现了节流
+        createTable();
+
+        /*
+        如果连续生成，那么会导致在生成完毕之前，无法响应任何事件，浏览器暂时卡死
+        for (var i = 0; i < 1000; i++) {
+          var content = "<tr><td>lisi</td><td>22</td><td>男</td></tr>";
+          tb.innerHTML += content;
+        }
+        */
+      };
+
+
+
+
+    </script>
+
+  </body>
+</html>

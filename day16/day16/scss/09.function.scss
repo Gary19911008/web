@@ -1,0 +1,19 @@
+//function
+
+
+//define
+@function toPx($value){
+  @return $value * 10px;
+}
+
+
+@function opacity($value){
+  @return $value / 100;
+}
+
+.one {
+  font-size: toPx(10);
+  opacity: opacity(30);
+
+  color: lighten(red, 0%);//color
+}

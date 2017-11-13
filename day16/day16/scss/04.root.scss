@@ -1,0 +1,18 @@
+//@at-root
+
+.one {
+  height: 100px;
+  line-height: 100px;
+
+  .one_1 {
+    color: yellow;
+
+    @at-root .two {
+      font-size: 100px;
+
+      .two_1 {
+        height: 200px;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>浮动float</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .f {
+        width: 1000px;
+        height: 500px;
+        border: 1px solid gray;
+      }
+
+      .s {
+        width: 200px;
+        height: 200px;
+        background: red;
+        float: left;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!--
+    标准流：按照标签的顺序和默认的行为进行显示，占据页面位置
+    非标准流（脱离标准流）：不一定按照顺序排列，不占页面位置
+   -->
+
+   <div class="f">
+     <div class="s">1</div>
+     <div class="s">2</div>
+     <div class="s">3</div>
+     <p>的空间好看放大镜看好就粪坑黄金开发了就好了非净利润就会立刻节日快乐还加入了会计利润空间</p>
+   </div>
+
+
+  </body>
+</html>

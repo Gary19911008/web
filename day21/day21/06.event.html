@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM2级的event事件处理</title>
+    <style media="screen">
+        * {
+          margin: 0;
+          padding: 0;
+        }
+
+        #box {
+          width: 200px;
+          height: 200px;
+          background: blue;
+        }
+    </style>
+  </head>
+  <body>
+
+
+    <div id="box">
+      <button id="btn1">按钮1</button>
+    </div>
+
+
+    <script type="text/javascript">
+
+    var btn1 = document.getElementById("btn1");
+    var box = document.getElementById("box");
+
+
+
+    //DOM2级
+    /*
+    一个事件可以注册多个处理函数，按照注册顺序执行函数
+    */
+    btn1.addEventListener('click', function(){
+      console.log("%cbtn1被单击xxxx", "color:red;font-size: 40px");
+    },false);
+
+
+    btn1.addEventListener('click', function(){
+      console.log("%cbtn1被单击yyyy", "color:red;font-size: 40px");
+    },false);
+
+    box.addEventListener('click', function(){
+      console.log("%cbox 不知道被谁单击", "color:red;font-size: 40px");
+    },false);
+
+
+    // document就是整个页面
+    document.addEventListener('click', function(){
+      console.log("%c document 不知道被谁单击", "color:red;font-size: 40px");
+    },false);
+
+    /*
+    事件处理的三个阶段：
+    1. 捕获阶段
+    2. 目标阶段
+    3. 冒泡阶段(默认)
+
+    addEventListener最后一个参数：
+    false, 事件到冒泡阶段，事件会向外传递
+    true, 事件到捕获阶段，事件由外向里传递
+    */
+
+
+
+    </script>
+
+  </body>
+</html>

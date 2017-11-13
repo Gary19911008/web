@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+    <script type="text/javascript">
+
+    /*
+    功能：数组去重
+    @arr, 需要去重的数组
+    返回: 去重之后的数组
+    */
+    function uniqueArr(arr){
+      var temp = [];
+
+      for (var i = 0, len = arr.length; i < len ; i++) {
+        if (temp.indexOf(arr[i]) == -1){
+          temp.push(arr[i]);
+        }
+      }
+
+      return temp;
+    }
+
+    var result = uniqueArr([1,1,1,1,2,2,2,3,3,3,2,3,1]);
+    console.log(result);
+
+
+    /*
+    功能：10进制转换为2进制
+    @num, 10进制的数
+    return: 2进制
+    */
+
+    function bToO(num){
+      var temp, arr = [];
+      while (true){
+        temp = num % 2;
+        arr.push(temp);
+        num = parseInt(num / 2);
+        if (num == 0){
+          break;
+        }
+      }
+
+      return arr.reverse().join('');
+    }
+
+    result = bToO(10);
+    console.log(result);
+
+
+    /*toString(radix), 可以按照进制直接转换
+    */
+    var a = 10;
+    console.log(a.toString(2));
+
+
+
+    /*
+    功能：回文数组
+    @arr, 数组
+    return : true, false
+    */
+
+    // ["hello", "world", "hehe","eheh", "dlrow", "olleh"]
+    function isPlalindrome(arr){}
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

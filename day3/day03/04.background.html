@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>background</title>
+    <style>
+
+       body{
+         height: 2000px;
+       }
+      .one {
+        width: 500px;
+        height: 500px;
+
+        background-color: red;
+        background-image: url("./images/zhaosi.jpg");
+        background-repeat: no-repeat;
+
+        /*background-position: center top;*/
+        /*x轴，y轴 正负*/
+        background-position:  10px 20px;
+
+        /*background-image: url("back.jpg");*/
+
+
+        /*简单方法*/
+        /*background: red url("./images/zhaosi.jpg") no-repeat 10px 20px;*/
+      }
+
+      .two {
+        width: 1000px;
+        height: 120px;
+        background-image: url("./back.jpg");
+        background-position: center center;
+      }
+
+      .three {
+        width: 130px;
+        height: 125px;
+        background-image: url("./images/3.jpg");
+        background-position: -242px -90px;
+      }
+
+      .four {
+        height: 300px;
+        background-image: url("./images/3.jpg");
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one">
+      我是div
+    </div>
+
+    <div class="two"></div>
+
+    <div class="three"></div>
+
+    <div class="four"></div>
+
+  </body>
+</html>

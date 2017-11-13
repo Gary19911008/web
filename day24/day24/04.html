@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>字符串</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+     var str1 = 'helloworld中国人';
+     var str2 = new String("worldhello");
+
+     console.log(str1);
+     console.log(str2);
+
+    //charAt()
+    console.log(str1.charAt(0));//h
+    console.log(str1[0]);//h
+
+    str1[0] = 'H'; //无效，字符串不可变
+    console.log("str1.length", str1.length);
+    console.log("str1 = ", str1);
+
+    //可遍历
+    for (var i = 0; i < str1.length; i++) {
+      console.log(str1[i]);
+    }
+
+    //charCodeAt,得到字符的编码
+    console.log(str1.charCodeAt(10));//
+    console.log(str1.charCodeAt(0));//
+
+    // fromCharCode()将编码转为字符
+    /*
+    封装2个函数：将一个字符串中变为小写，将一个字符串中变为大写，
+    */
+    console.log(String.fromCharCode(97,98,99,100,101,102));
+
+
+
+    //indexOf 子串查找,严格区分大小写
+    var str2 = "android apple Iphone mac iphone";
+    console.log(str2.indexOf("iphone",20));//返回出现的位置！！！
+
+    //slice切片，参数和数组一样
+    var str3 = "sdkjgkdjk kdjkdkhjkjhkdj6285uyu";
+    console.log(str3.slice(0,10));
+    console.log(str3.slice(-20,20));
+
+
+    //substr, 按照指定长度去切片
+    console.log(str3.substr(10,20));
+
+
+    //substring start > end的情况下，它会调换参数顺序
+    console.log(str3.slice(10,0));
+    console.log(str3.substring(10,0));
+
+
+    //大小写转换
+    console.log("HELLOWORLkjgkjgk".toLowerCase());
+    console.log("skjgkjkjhkhjHJEKJGKJGKJG".toUpperCase());
+
+
+    //split 字符串切割
+    var str4 = "hello  world  google  apple";
+    console.log(str4.split('  ',2));
+
+    /*
+    封装函数：判断一个字符串是否是回文？？？
+    helloworlddlrowolleh
+    */
+    </script>
+
+
+
+  </body>
+</html>

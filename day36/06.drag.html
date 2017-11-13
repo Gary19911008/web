@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>drag</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #move {
+        width: 100px;
+        height: 100px;
+        background: red;
+        border-radius: 50%;
+      }
+
+      #dropzone{
+        margin-top: 100px;
+        height: 500px;
+        border: 5px solid red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- <a href="#">链接</a>
+    <img src="1.png" alt=""> -->
+
+
+    <!--  添加 draggable=true,保证元素可拖拽  -->
+    <div id="move" draggable="true"></div>
+    <div id="dropzone"></div>
+
+
+    <script type="text/javascript">
+    var move = document.querySelector('#move');
+    var dropzone = document.querySelector('#dropzone');
+
+    /*
+    //某个元素开始被拖拽
+    move.addEventListener('dragstart', function(){
+      console.log("%cdragstart", "color: green;font-size:20px;");
+    }, false);
+
+
+    //某个元素正在被拖拽
+    move.addEventListener('drag', function(){
+      console.log("%cdrag", "color: blue;font-size:20px;");
+    }, false);
+
+    //某个元素拖拽结束
+    move.addEventListener('dragend', function(){
+      console.log("%cdragend", "color: red;font-size:20px;");
+    }, false);
+    */
+
+
+    //某个元素进入目标区域
+    // dropzone.addEventListener('dragenter', function(){
+    //   console.log("%cdragenter", "color: red;font-size:40px;");
+    // }, false);
+
+    //某个元素在目标区域悬停
+    dropzone.addEventListener('dragover', function(event){
+      console.log("%cdragover", "color: red;font-size:40px;");
+      //dragover的代码中必须停止冒泡，阻止默认行为
+      event.stopPropagation();
+      event.preventDefault();
+    }, false);
+
+    //元素掉落在目标区域
+    dropzone.addEventListener('drop', function(){
+      //当触发drop时，将拖拽的元素插入当前目标区域即可
+      event.target.appendChild(move);
+    }, false);
+
+
+    //某个元素离开目标区域
+    // dropzone.addEventListener('dragleave', function(){
+    //   console.log("%cdragleave", "color: red;font-size:40px;");
+    // }, false);
+
+
+    /*
+    作业：
+    1. 5个节点任意拖拽
+    2. 实现文件拖拽
+    */
+    </script>
+
+
+  </body>
+</html>

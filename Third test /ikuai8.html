@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ikuai8</title>
+  <link rel="stylesheet" href="strap/dist/css/bootstrap.min.css">
+</head>
+<style media="screen">
+  ul li {
+    list-style: none;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.42857;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-fixed-top {
+    left: 0;
+    right: 0;
+  }
+
+  .nav-right {
+    float: right;
+    margin-top: 5px;
+  }
+
+  .nav-div {
+    width: 200px;
+    float: left;
+  }
+
+  .nav-div>.nav-img {
+    width: 213px;
+    height: 34px;
+    padding-top: 3px;
+    display: block;
+    float: left;
+    padding: 0;
+    margin-left: 0;
+
+  }
+
+  .nav-div>.nav-img>img {
+    width: 100%;
+    height: auto;
+  }
+
+  .container>.collapse>.nav a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+  }
+
+  .collapse>.nav>.active>a,
+  .collapse>.nav>.item>a:hover {
+    color: #fff;
+    background-color: #0088cc;
+    border-radius: 4px;
+  }
+
+  .collapse>.nav>.item.open>a:focus {
+    border-radius: 4px;
+  }
+
+  .navbar-nav>li>.dropdown-menu {
+    border-radius: 10px;
+    margin-top: 10px;
+    right: 0;
+    left: auto;
+  }
+
+  .navbar .nav>li>.dropdown-menu:before {
+    position: absolute;
+    top: -7px;
+    left: 130px;
+    display: inline-block;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #ccc;
+    border-left: 7px solid transparent;
+    border-bottom-color: rgba(0, 0, 0, 0.2);
+    content: '';
+  }
+
+  .container>.collapse>.nav .dropdown-menu a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 0;
+  }
+
+  .container .navbar-header {
+    margin-left: 30px;
+  }
+
+  @media (max-width: 979px) {
+    .navbar-collapse {
+      clear: both;
+      float: none;
+    }
+  }
+
+  .container .nav-p a {
+    border: 1px solid #9b9b9b;
+    color: #9b9b9b;
+    border-radius: 4px;
+    background-color: transparent;
+    opacity: 0.8;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+
+  .indexB-img {
+    width: 100%;
+    max-width: 783px;
+  }
+
+  .fc {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  .indexB-tit h3 {
+    font-size: 36px;
+    font-weight: normal;
+    color: #0088cc;
+    margin-top: 55px;
+  }
+
+  .indexB-tit p {
+    color: #5f5f5f;
+    font-size: 20px;
+    line-height: 180%;
+    padding: 10px;
+  }
+
+  .row-bg {
+    background-color: #eeeeee;
+  }
+
+  .indexC {
+    height: 660px;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    background-image: url("images/indexB-img03.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .tc {
+    text-align: center;
+    margin-top: 150px;
+  }
+
+  .indexLsit {
+    margin-top: 50px;
+  }
+
+  .indexLsit .fc {
+    margin: 15px auto;
+  }
+
+  .indexLsit-img {
+    width: 100%;
+    min-width: 90px;
+    height: 90px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+  }
+
+  .indexLsit .indexLsit-tit {
+    color: #0088cc;
+    font-size: 16px;
+    padding-top: 30px;
+  }
+
+  .indexLsit-img01 {
+    background-image: url("images/indexLsit01.png");
+  }
+
+  .indexLsit-img02 {
+    background-image: url("images/indexLsit02.png");
+  }
+
+  .indexLsit-img03 {
+    background-image: url("images/indexLsit03.png");
+  }
+
+  .indexLsit-img04 {
+    background-image: url("images/indexLsit04.png");
+  }
+
+  .indexLsit-img05 {
+    background-image: url("images/indexLsit05.png");
+  }
+
+  .indexLsit-img06 {
+    background-image: url("images/indexLsit06.png");
+  }
+
+  .indexLsit-img07 {
+    background-image: url("images/indexLsit07.png");
+  }
+
+  .footer,
+  .footer-guild p {
+    font-size: 14px;
+    line-height: 30px;
+  }
+
+  .footer {
+    background-color: #333;
+    color: #bac1c8;
+    font-size: 15px;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    .footer-guild {
+      text-align: left;
+    }
+  }
+
+  .footer-guild,
+  .footer-service,
+  .footer-copyright {
+    padding-top: 0;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
+
+  .footer a {
+    color: #bac1c8;
+    white-space: nowrap;
+  }
+
+  .footer h6 {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 20px;
+    color: inherit;
+    text-rendering: optimizelegibility;
+  }
+
+  @media (min-width: 992px) {
+    .footer-servie {
+      text-align: right;
+      padding-right: 20px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .footer-servie {
+      text-align: right;
+    }
+  }
+
+  .H25 {
+    height: 25px;
+    display: block;
+    overflow: hidden;
+    clear: both;
+    width: 100px;
+  }
+
+  .H10 {
+    height: 10px;
+    display: block;
+    overflow: hidden;
+    clear: both;
+  }
+
+  .footer-copyright {
+    padding-top: 30px;
+    padding-bottom: 15px;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+</style>
+
+<body>
+
+  <nav class="navbar navbar-default navbar-fixed-top" style="position:fixed;">
+    <div class="container">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      <div class="nav-div nav-right">
+        <a class="nav-img" href="#"><img src="./images/logo-big.png"></a>
+      </div>
+
+      <ul class="nav nav-pills nav-right">
+        <li class="nav-p"><a href="#"> 爱快云 </a></li>
+        <li class="nav-p"><a href="#"> 爱快论坛 </a></li>
+      </ul>
+
+      <div class="collapse navbar-collapse nav-right" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="item active"><a href="#"> 首页 </a></li>
+          <li class="item"><a href="#">固件下载</a></li>
+          <li class="item"><a href="#">爱快硬件</a></li>
+          <li class="item"><a href="#">技术支持</a></li>
+          <li class="item"><a href="#">渠道合作</a></li>
+          <li class="item"><a href="#">场景案例</a></li>
+          <li class="item"><a href="#">OEM定制</a></li>
+          <li class="item dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">简体中文</a></li>
+              <li><a href="#">English</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row">
+    <div class="container">
+      <div class="fc col-md-6"><img class="indexB-img" src="./images/indexB-img04.png"></div>
+      <div class="fc indexB-tit col-md-6">
+        <h3>超赞的云系统</h3>
+        <p>云平台集中管理<br>智能云AC<br>Portal认证配置<br>图形化数据体现<br>自定义JS通知插入<br>第三方认证接口<br></p>
+        <p style="font-size:18px; color:#0088cc;">更多,待你发现 ...</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row row-bg">
+    <div class="container">
+      <div class="fc indexB-tit col-md-6">
+        <h3>七层DPI流量管理</h3>
+        <p>看网页、看电影、玩游戏互不干扰<br>多台终端同时上网不卡<br>带宽利用最大化，绝不浪费带宽<br>永远告别延迟卡顿<br>3000款+应用识别</p>
+      </div>
+      <div class="fc col-md-6"><img class="indexB-img" src="./images/indexB-img01.png"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="container">
+      <div class="fc col-md-6"><img class="indexB-img" src="./images/indexB-img02.png"></div>
+      <div class="fc indexB-tit col-md-6">
+        <h3>五大功能</h3>
+        <p>多线路由<br>一键流控<br>免费AC管理<br>自定义微信认证<br>集中云管理</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="indexC">
+    <div class="container">
+      <div class="fc tc indexB-tit">
+        <h3>七层DPI流量管理</h3>
+        <p>看网页、看电影、玩游戏互不干扰<br>多台终端同时上网不卡<br>带宽利用最大化，绝不浪费带宽<br>永远告别延迟卡顿<br>3000款+应用识别</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row indexLsit">
+    <div class="container">
+      <div class="col-md-6">
+        <div class="col-md-3">
+          <div class="fc indexLsit-img indexLsit-img01"></div>
+        </div>
+        <div class="col-md-9">
+          <p class="indexLsit-tit">云系统</p>
+          <p>在线管理您所拥有的所有路由器</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-3">
+          <div class="fc indexLsit-img indexLsit-img02"></div>
+        </div>
+        <div class="col-md-9">
+          <p class="indexLsit-tit">数据可视化</p>
+          <p>从终端到流量，所有数据通过图表一眼尽观</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-3">
+          <div class="fc indexLsit-img indexLsit-img03"></div>
+        </div>
+        <div class="col-md-9">
+          <p class="indexLsit-tit">卓越的优先级</p>
+          <p>保障关键应用无论何时，都可优先通过</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-3">
+          <div class="fc indexLsit-img indexLsit-img04"></div>
+        </div>
+        <div class="col-md-9">
+          <p class="indexLsit-tit">应用行为管理</p>
+          <p>基于DPI的应用行为管理</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-3">
+          <div class="fc indexLsit-img indexLsit-img05"></div>
+        </div>
+        <div class="col-md-9">
+          <p class="indexLsit-tit">网址跳转</p>
+          <p>精准跳转、参数替换在最底层轻松搞定</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-3">
+          <div class="fc indexLsit-img indexLsit-img06"></div>
+        </div>
+        <div class="col-md-9">
+          <p class="indexLsit-tit">插入JS通知</p>
+          <p>无论插入通知还是JS代码，总让您轻松完成</p>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="col-md-3">
+          <div class="fc indexLsit-img indexLsit-img07"></div>
+        </div>
+        <div class="col-md-9">
+          <p class="indexLsit-tit">更多惊喜，待您体验</p>
+          <p>尊崇用户需求导向，做最接地气的路由企业</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <div class="col-sm-8 col-md-7 col-lg-8">
+        <div class="col-xs-4 col-md-4">
+          <div class="footer-guild">
+            <h6>技术服务</h6>
+            <p><a href="#">技术论坛</a></p>
+            <p><a href="#">技术教程</a></p>
+            <p><a href="#">技术咨询</a></p>
+            <p><a href="#">售后服务</a></p>
+          </div>
+        </div>
+        <div class="col-xs-4 col-md-4">
+          <div class="footer-guild">
+            <h6>渠道合作</h6>
+            <p><a href="#">合作方式</a></p>
+            <p><a href="#">投诉邮箱</a></p>
+            <p><a href="#">各区域负责人</a></p>
+          </div>
+        </div>
+        <div class="col-xs-4 col-md-4">
+          <div class="footer-guild">
+            <h6>关于爱快</h6>
+            <p><a href="#">爱快介绍</a></p>
+            <p><a href="#">公司动态</a></p>
+            <p><a href="#">联系我们</a></p>
+            <p><a href="#">爱快官方技术博客</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3">
+        <div class="footer-servie">
+          <h2 class="line-height:30px; font-weight:normal;">400-877-3227</h2>
+          <p>技术支持电话</p>
+          <p>周一至周五 9:00 - 20:30</p>
+          <div class="H10">&nbsp;&nbsp;</div>
+          <p><a href="#">QQ交流群：108636278</a></p>
+        </div>
+      </div>
+
+      <div class="col-sm-12 col-md-2 col-lg-1" style="padding-right:0;padding-left:0;">
+        <div class="footer-wecha">
+          <div class="H25">&nbsp;&nbsp;</div>
+          <img style="width:98px;" src="./images/qrCode.png">
+          <p style=" font-size:15px; line-height:30px;">关注官方微信</p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="footer-copyright">
+          <span>Copyright © 2012 - 2017 iKuai. All Rights Reserved. </span>
+          <span> 京ICP备13042604号</span>
+          <br>
+          <span>版权所有 全讯汇聚网络科技（北京）有限公司</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./jQuery/jquery.min.js" charset="utf-8"></script>
+  <script src="./strap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  </script>
+
+
+</body>
+
+</html>

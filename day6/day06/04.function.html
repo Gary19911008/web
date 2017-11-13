@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>作用域</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    /*
+        全局作用域
+        局部作用域
+        (javascript只有函数是用于区分作用域的！！！！！,并不是{})
+        */
+    var a = 10; //全局变量
+
+    function fun() {
+      var b = 20;
+      //局部变量
+      //局部变量只能在指定的作用内访问
+      console.log("b = ", b);
+    }
+
+    //全局变量在任意位置都可以访问
+    console.log("a = ", a);
+
+    fun();
+
+
+
+    /*****************************************************/
+    function fun2() {
+      var c = 30;
+
+      //fun22函数是个局部函数，默认只在能当前作用域内调用
+      function fun22() {
+        var d = 40;
+      }
+
+      fun22();
+    }
+  </script>
+
+</body>
+
+</html>

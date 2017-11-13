@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>倒计时</title>
+</head>
+<style media="screen">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  .box {
+    width: 1200px;
+    height: 150px;
+    margin: 200px auto;
+    background-color: red;
+    text-align: center;
+    line-height: 150px;
+  }
+
+  h1 {
+    height: 100px;
+    color: #fff;
+    font-size: 50px;
+    display: inline-block;
+  }
+
+  #day,
+  #hour,
+  #minute,
+  #second{
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    font-size: 50px;
+    color: #fff;
+  }
+</style>
+
+<body>
+
+  <div class="box">
+    <h1>距双11还有</h1>
+    <div id="day"></div>
+    <h1>天</h1>
+    <div id="hour"></div>
+    <h1>小时</h1>
+    <div id="minute"></div>
+    <h1>分钟</h1>
+    <div id="second"></div>
+    <h1>秒</h1>
+
+    <script type="text/javascript">
+
+    function ShowCountDown(year, month, day) {
+      var now = new Date();
+      var endDate = new Date(year, month - 1, day);
+      var leftTime = endDate.getTime() - now.getTime();
+      var leftsecond = parseInt(leftTime / 1000);
+      var day1 = Math.floor(leftsecond / (60 * 60 * 24));
+      var hour = Math.floor((leftsecond - day1 * 24 * 60 * 60) / 3600);
+      var minute = Math.floor((leftsecond - day1 * 24 * 60 * 60 - hour * 3600) / 60);
+      var second = Math.floor(leftsecond - day1 * 24 * 60 * 60 - hour * 3600 - minute * 60);
+      var day2 = document.getElementById("day");
+      var hour1 = document.getElementById("hour");
+      var minute1 = document.getElementById("minute");
+      var second1 = document.getElementById("second");
+      day2.innerHTML = day1;
+      hour1.innerHTML = hour ;
+      minute1.innerHTML = minute;
+      second1.innerHTML = second;
+    }
+    window.setInterval(function() {
+      ShowCountDown(2017, 11, 11);
+    }, 1000);
+
+    </script>
+  </div>
+
+</body>
+
+</html>

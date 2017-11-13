@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>表格</title>
+</head>
+
+<body>
+
+
+  <table border="1"  cellpadding="20" cellspacing="0">
+    <caption>
+      <h1>学生信息</h1>
+    </caption>
+
+    <thead>
+      <tr>
+        <th>name</th>
+        <th>age</th>
+        <th>gender</th>
+      </tr>
+
+    </thead>
+    <!-- tr只能嵌套td，th，不能嵌套其他！！！！  -->
+
+    <tbody>
+      <tr align="center">
+        <td>zhangsan</td>
+        <td>20</td>
+        <td>male</td>
+      </tr>
+
+
+      <tr align="center">
+        <td>zhangsan</td>
+        <td>20</td>
+        <td>male</td>
+      </tr>
+
+
+      <!--td就是容器，什么标签都可嵌套  -->
+      <tr align="center">
+        <td>zhangsan</td>
+        <td>20</td>
+        <td>
+          <p>jdskjkhjkhjkhjkhjk</p>
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>zhangsan</td>
+        <td>20</td>
+        <td>
+          <p>jdskjkhjkhjkhjkhjk</p>
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>zhangsan</td>
+        <td>20</td>
+        <td>
+          <p>jdskjkhjkhjkhjkhjk</p>
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>zhangsan</td>
+        <td>20</td>
+        <td>
+          <p>jdskjkhjkhjkhjkhjk</p>
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td>foot1</td>
+        <td>foot1</td>
+        <td>
+          <table>
+            <tr><td>1111</td></tr>
+            <tr><td>2222</td></tr>
+          </table>
+        </td>
+      </tr>
+    </tfoot>
+
+  </table>
+
+  <!--
+  1. 查手册，编写跨行，跨列的表格，提示：td属性colspan rowspan
+  -->
+</body>
+
+</html>

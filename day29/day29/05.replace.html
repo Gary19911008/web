@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>replace</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    //String.prototype.replace()
+
+
+    //第一个参数，是一个字符串，那么只会替换第一个
+    var result = "helloworldhelloworld".replace("hello", "HELLO");
+    console.log(result);
+
+    //第一个参数，正则表达式，那么根据根据来
+    result = "helloworldhelloworld".replace(/hello/g, "HELLO");
+    console.log(result);
+
+
+    result = "helloworldhelloworldhelloworldhelloworld"
+    .replace(/(hello)(world)/g, function(match, p1, p2, offset, str) {
+      console.log("match = ", match);
+      console.log("p1 = ", p1);
+      // console.log("p2 = ", p2);
+      console.log("offset = ", offset);
+      console.log("str = ", str);
+
+      //函数的每次的返回值都是用于替换 match
+      return "HELLOWORLD";
+    });
+    console.log(result);
+
+
+    // border-left-width   =====>   borderLeftWidth
+    //连字符 转换为驼峰法命名
+    function toTuoFen(str) {
+      var result = str.replace(/-([a-z])/g, function (match, p1){
+        return p1.toUpperCase();
+      });
+      return result;
+    }
+
+    console.log(toTuoFen("background-color"));
+    console.log(toTuoFen("background-clip"));
+
+
+    /*
+    // 作业：
+      1. borderLeftWidth     =====>    border-left-width
+      2."name=lisi&age=10&hobby=eat&score=88&hobby=read&hobby=drink"  解析为：
+         name=lisi&age=10&score=88&hobby=eat,read,drink  
+      3.  获得input的值，判断用户输入的是否是邮箱格式，如果不是，那么就提示！！！
+     */
+
+    </script>
+
+</body>
+
+</html>

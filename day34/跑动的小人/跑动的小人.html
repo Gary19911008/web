@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>跑动的小人</title>
+</head>
+
+<body>
+  <canvas id="can">您的浏览器不支持canvas</canvas>
+  <button id="font" type="button">font</button>
+  <button id="left" type="button">left</button>
+  <button id="right" type="button">right</button>
+  <button id="back" type="button">back</button>
+  <script type="text/javascript">
+    var can = document.getElementById("can");
+    var font = document.getElementById("font");
+    var left = document.getElementById("left");
+    var right = document.getElementById("right");
+    var back = document.getElementById("back");
+
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red"
+
+    var ctx = can.getContext("2d");
+
+    var img = new Image();
+    var flag = 0;
+
+    img.onload = function() {
+      var i = 0;
+      var width = img.width/4, height = img.height/4;
+      setInterval(function() {
+        can.width = can.width;
+        // ctx.clearRect(0, 0, can.width, can.height);
+        ctx.drawImage(img, width* i, height * flag, width, height, 130, 130, 4*width, 4*height);
+        i++;
+        i %= 4;
+      }, 150);
+    }
+    img.src = "./1.png";
+    font.onclick = function() {
+      flag = 0;
+    }
+    left.onclick = function() {
+      flag = 1;
+    }
+    right.onclick = function() {
+      flag = 2;
+    }
+    back.onclick = function() {
+      flag = 3;
+    }
+  </script>
+
+</body>
+
+</html>

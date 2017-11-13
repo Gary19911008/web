@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>break </title>
+</head>
+
+<body>
+
+  <script>
+
+
+  out: for (var j = 0; j < 10; j++) {
+
+      console.log("j = " + j);
+
+      for (var i = 0; i < 10; i++) {
+        console.log("i = " + i);
+        if (i == 5) {
+          //跳出当前循环，继续运行循环后边的代码
+          // break;
+
+          //跳出指定循环，继续运行循环后边的代码
+          break out;
+        }
+      }
+    }
+
+
+    console.log("after for.....");
+  </script>
+
+</body>
+
+</html>

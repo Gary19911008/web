@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>3D转换</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+
+      /*
+      给有3d效果的父元素设置perspective
+       perspective是为了看到z轴的立体效果
+       z> 0 元素有放大效果
+       z< 0 元素有缩小效果
+      */
+      perspective: 400px;
+
+
+      /*
+      让子元素位于三维空间内，便于查看立体效果
+      */
+      transform-style: preserve-3d;
+    }
+
+    .one,
+    .two {
+      width: 200px;
+      height: 200px;
+      background: yellow;
+      transition: all 2s;
+
+      margin: 50px auto;
+    }
+
+    .one:hover {
+      /*transform: translate3d(0,0,100px);*/
+      transform: translateZ(100px);
+    }
+
+
+    .two:hover {
+
+      /*z轴缩放没有什么效果*/
+      transform: scale3d(2, 2, 1);
+    }
+
+    .x {
+      width: 300px;
+      height: 226px;
+      background: url("./image/x.jpg");
+      transition: all 2s;
+    }
+
+    .x:hover {
+      transform: rotateX(180deg);
+    }
+
+    .y {
+      width: 273px;
+      height: 300px;
+      background: url("./image/y.jpg");
+      transition: all 2s;
+    }
+
+    .y:hover {
+      transform: rotateY(180deg);
+    }
+
+
+
+    .z {
+      width: 330px;
+      height: 227px;
+      background: url("./image/z.jpg");
+      transition: all 2s;
+    }
+
+    .z:hover {
+      transform: rotateZ(180deg);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <div class="one"></div>
+    <div class="two"></div>
+
+    <div class="x"></div>
+    <div class="y"></div>
+    <div class="z"></div>
+
+  </div>
+
+</body>
+
+</html>

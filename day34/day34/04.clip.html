@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>画布裁剪</title>
+  </head>
+  <body>
+
+    <canvas id="canvas">浏览器不支持canvas</canvas>
+    <script>
+
+    var can = document.getElementById("canvas");
+    can.width = 500;
+    can.height = 500;
+    can.style.border = "1px solid red";
+
+    var cxt = can.getContext("2d");
+
+    cxt.beginPath();
+    cxt.strokeStyle = "lightblue";
+    cxt.lineWidth = 5;
+    cxt.arc(100, 100, 100, 0, Math.PI * 2, false);
+    cxt.stroke();
+
+
+    //按照以上形状进行裁剪,裁剪之后只有该区域可以绘制图形
+    cxt.clip();
+    cxt.fillRect(10, 10, 100, 100);//不一定能看得到
+
+
+
+
+    </script>
+
+  </body>
+</html>

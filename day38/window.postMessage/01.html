@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>第一个页面</title>
+  </head>
+  <body>
+
+    <h1>第一个页面</h1>
+    <button id="btn">点击通信</button>
+
+    <script type="text/javascript">
+    var btn = document.querySelector('#btn');
+    var timer;
+
+    window.onmessage = function(event){
+      //发过来的数据
+      console.log("event.data: ", event.data);
+
+      //发送方的url
+      console.log("event.origin : ", event.origin);
+
+      //发送方的window
+      console.log("event.source : ", event.source);
+
+    }
+
+    btn.onclick = function () {
+      clearInterval(timer);
+
+      //返回打开的页面的window
+      // var newWindow = window.open("./02.html", "otherpage");
+      var newWindow = window.open("http://127.0.0.1:80/xxx/02.html", "otherpage");
+      // console.log(newWindow);
+
+      setInterval(function(){
+        newWindow.postMessage({value: 100}, "*");
+      }, 2000);
+    };
+
+    </script>
+
+  </body>
+</html>

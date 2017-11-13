@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>json 数据的处理</title>
+  </head>
+  <body>
+
+    <script>
+
+    var stu = {
+      "name": "lisi",
+      "age": 10,
+      "hobby": ["read", "drink", "eat"],
+      "score": 88
+    };
+
+    //json 序列化
+    //将 json对象转换成字符串
+    var str = JSON.stringify(stu, function (key, value) {
+      // console.log("key = ", key);
+      // console.log("value = ", value);
+
+      if ( key === "age") {
+        return value + 100;
+      }
+
+      if (key === "score"){
+        return value  - 10;
+      }
+
+      return value;
+    });
+    console.log(str);
+
+
+
+    str = JSON.stringify(stu, ['name', 'age', 'score']);
+    console.log(str);
+
+
+
+    str = JSON.stringify(stu, null, '\t');
+    console.log(str);
+
+
+    console.log("---------------------------");
+
+    //json的解析
+    //json反序列化
+
+    var result = '{"name":"lisi","age":10,"score":88}';
+
+    //将字符串变成JSON对象
+    console.log(JSON.parse(result));
+
+
+    //JSON.parse转换的是json格式的字符串，不是任意的字符串！！！！！
+    // console.log(JSON.parse("hello"));
+
+    var obj = JSON.parse(result, function (key, value) {
+        if (key === 'name'){
+          return "我是" + value;
+        }
+        if (key === 'score') {
+          return value - 10;
+        }
+
+        return value;
+    });
+
+    console.log(obj);
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

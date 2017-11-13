@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    /*
+    间隔定时器无法保证代码的运行时间。
+    如果代码的运行时间要大于间隔时间，那么在事件队列中就不断的有该任务去排队，
+    导致事件队列中会有很多该任务！！！！！
+    */
+    setInterval(function(){
+        for (var i = 0; i < 10000; i++){
+          console.log(i);
+        }
+    }, 1000);
+
+    </script>
+
+  </body>
+</html>

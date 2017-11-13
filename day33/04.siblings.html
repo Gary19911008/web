@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>siblings</title>
+    <style media="screen">
+        * {
+          margin: 0;
+          padding: 0;
+        }
+
+        ul {
+          list-style: none;
+        }
+
+        #points {
+          height: 100px;
+          text-align: center;
+        }
+
+        #points li {
+          display: inline-block;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: gray;
+          cursor: pointer;
+        }
+
+        #points li.current {
+          background: orange;
+        }
+    </style>
+  </head>
+  <body>
+
+
+    <ul id="points">
+      <li class="current"></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <p>快睡觉看后感看见好看</p>
+    </ul>
+
+    <script src="./jquery-3.0.0.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    //siblings找到所有符合条件的兄弟
+    // console.log($("#points .current").siblings("span"));
+
+    var lis = $("#points li");
+
+    for (var i = 0; i < lis.length; i++) {
+      lis.eq(i).on('click', i, function (event){
+        $(this).addClass("current").siblings("li").removeClass("current");
+      });
+    }
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h1>页面的加载</h1>
+    <img src="./1.png" alt="">
+    <h2>页面加载</h2>
+
+    <script type="text/javascript">
+
+    //必须所有资源加载完毕
+    window.onload = function(){
+      console.log("所有资源加载完毕");
+    }
+
+    // DOMContentLoaded事件仅仅保证dom节点加载完毕，资源不一定加载完毕
+    document.addEventListener("DOMContentLoaded", function(){
+      console.log("节点加载完毕");
+    }, false);
+
+
+    </script>
+
+
+
+  </body>
+</html>

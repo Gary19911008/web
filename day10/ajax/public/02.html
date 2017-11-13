@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ajax使用的基本步骤</title>
+  </head>
+  <body>
+
+
+    <button id="start">ajax</button>
+
+    <script src="./js/jquery.min.js" charset="utf-8"></script>
+    <script>
+
+    // 兼容低版本ie浏览器的代码,对于现代浏览器可以省略部分代码
+    function createXHR(){
+      if (typeof XMLHttpRequest != "undefined"){
+        return new XMLHttpRequest();
+      } else if (typeof ActiveXObject != "undefined"){
+        if (typeof arguments.callee.activeXString != "string"){
+          var versions = [ "MSXML2.XMLHttp.6.0", "MSXML2.XMLHttp.3.0",
+          "MSXML2.XMLHttp"], i, len;
+          for (i=0,len=versions.length; i < len; i++){
+            try {
+              new ActiveXObject(versions[i]);
+              arguments.callee.activeXString = versions[i];
+              break;
+            } catch (ex){
+              //跳过
+            }
+          }
+        }
+        return new ActiveXObject(arguments.callee.activeXString);
+      } else {
+        throw new Error("No XHR object available.");
+      }
+    }
+
+
+
+    $("#start").click(function(){
+
+      //1. 想要使用ajax，必须要先创建xhr对象
+      //此处的xhr用于ajax通信
+      var xhr = createXHR();
+
+      //高版本浏览器
+      // var xhr = new XMLHttpRequest();
+
+
+      //2. 准备向服务器发送一次http请求(get, post)
+      /*
+      true表示是异步请求
+      异步：客户端发送请求之后，不用死等服务端的响应，可以继续先做自己的事。
+      服务端什么时候响应，那客户端就什么时候接收响应。
+      */
+
+      xhr.open("post", "http://127.0.0.1:8000/index", true);
+
+
+      //4. 用于时刻准备接受服务端的响应
+      xhr.onreadystatechange = function () {
+        // console.log("当前状态： " + xhr.readyState);
+
+        //当状态为4时，表示响应完成， 失败？成功？
+        if (xhr.readyState === 4){
+          if ((xhr.status >= 200) && (xhr.status < 400)){
+            $("<h1>success</h1>").appendTo("body");
+          } else {
+            $("<h1>fail</h1>").appendTo("body");
+          }
+        }
+      };
+
+
+      //3. 真正发送一次请求
+      //post请求，数据应该在send中发送！！！！！
+
+      //发送post数据时，按照form表单的数据格式进行发送
+      //需要设置http的头部来指定要发送的数据格式
+      xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+      xhr.send("name=lisi&age=22&score=88");
+
+      $("<h1>send完毕!</h1>").appendTo("body");
+    });
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+  </body>
+</html>

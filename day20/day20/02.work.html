@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    //质数
+    //封装一个函数，判断一个数是否是质数
+    for (var  i = 2; i < 101; i++) {
+      //找1 ~ i
+      for (var j = 2 ; j < i ; j++) {
+        //i能被j整除
+        if ( i % j == 0 ){
+          break;
+        }
+      }
+
+      if (j == i){
+        console.log(i);
+      }
+    }
+
+
+    function isPrime(num){
+    }
+
+    </script>
+
+  </body>
+</html>

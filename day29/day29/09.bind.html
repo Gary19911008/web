@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+      function handler(arg1, arg2){
+        console.log(arg1, arg2);
+        console.log(arguments);
+      }
+
+
+      /*
+      其中的参数， 10,20相当于提前给fun1传递参数了.
+      在调用fun1时传入的参数会紧跟 10,20后边，作为额外的参数
+      */
+      var fun1 = handler.bind(null, 95, 100);
+      fun1();
+      fun1(1000, 10001);
+
+
+      /*
+      bind功能：一个函数可以bind任意次数，你想bind到那个this中，都行
+      1. 绑定this
+      2. 提前传入参数
+      */
+
+
+    var fun2 = handler.bind(null, 195, 200);
+    fun2();
+    fun2(222, 333);
+
+
+
+    </script>
+
+  </body>
+</html>

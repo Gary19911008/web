@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>鼠标事件</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one {
+        width: 300px;
+        height: 200px;
+        background: purple;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one"></div>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    //click是添加单击事件的方法
+    //匿名函数就是没有名字
+
+
+    function handlerClick(){
+      console.log("单击。。。。");
+    }
+
+    //函数作为参数时，通常称该函数为回调函数(在将来的某个时刻会被执行)
+    /*
+    click内部的函数作为回调函数使用，又称为事件处理函数
+    此处只是注册了一个事件处理函数，并没有执行该函数。
+    */
+
+
+    /*
+    事件可以添加多个处理函数。
+    当触发事件的时候，处理函数的执行顺序是按照注册顺序来的
+    */
+    $(".one").click(function(){
+      $(".one").css("background-color", "red");
+    });
+
+    $(".one").click(handlerClick);
+
+
+    console.log("事件处理");
+
+
+
+    </script>
+
+  </body>
+</html>

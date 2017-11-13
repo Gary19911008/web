@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>检测手势上下左右</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    var startX, startY;
+
+    document.addEventListener("touchstart", function(event) {
+      startX = event.touches[0].clientX;
+      startY = event.touches[0].clientY;
+    }, false);
+
+
+    document.addEventListener("touchend", function(event) {
+      var endX, endY;
+      endX = event.changedTouches[0].clientX;
+      endY = event.changedTouches[0].clientY;
+      var tempX = endX - startX;
+      var tempY = endY - startY;
+
+      if (Math.abs(tempX) >= Math.abs(tempY)) {
+        if (tempX > 0) {
+          alert("手势为右滑");
+        }else if (tempX < 0) {
+          alert("手势为左滑");
+        }else {
+          alert("只单击没有滑动");
+        }
+      }else {
+        if (tempY > 0) {
+          alert("手势为下滑");
+        }else if (tempY < 0) {
+          alert("手势为上滑");
+        }else {
+          alert("只单击没有滑动");
+        }
+      }
+    }, false);
+  </script>
+
+</body>
+
+</html>

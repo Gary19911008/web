@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    var year = 2017, mon = 10, day = 10;
+    var leap = 0, sum = 0;
+
+    if ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0))){
+      leap = 1;
+    }
+
+    switch (mon){
+      case  12:
+      sum += 30;
+      case  11:
+      sum += 31;
+      case  10:
+      sum += 30;
+      case  9:
+      sum += 31;
+      case  8:
+      sum += 31;
+      case  7:
+      sum += 30;
+      case  6:
+      sum += 31;
+      case  5:
+      sum += 30;
+      case  4:
+      sum += 31;
+      case  3:
+      sum += 28 + leap;
+      case  2:
+      sum += 31;
+      case  1:
+      sum += day;
+    }
+
+    console.log(sum);
+    </script>
+
+  </body>
+</html>

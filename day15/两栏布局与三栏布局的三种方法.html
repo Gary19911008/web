@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Page-Enter" content="revealTrans(duration=5.0,transition=20)">
+  <title>两栏布局与三栏布局</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    /*两栏布局的第二种方法*/
+
+    .one {
+      width: 300px;
+      height: 200px;
+      background: blue;
+      float: left;
+    }
+
+    .two {
+      height: 200px;
+      background: red;
+      margin-left: 300px;
+    }
+    /*两栏布局的第一中方法*/
+
+    .three {
+      width: 300px;
+      height: 200px;
+      background: blue;
+      position: absolute;
+      top: 300px;
+    }
+
+    .four {
+      height: 200px;
+      position: absolute;
+      left: 300px;
+      right: 0;
+      background: red;
+      top: 300px;
+    }
+    /*两栏布局的第三种方法*/
+
+    .five{
+      width: 100%;
+      height: 200px;
+      display: flex;
+      margin-top: 400px;
+    }
+
+    .five>div:nth-child(1) {
+      width: 300px;
+      height: 200px;
+      background: blue;
+      /*设置子盒子的伸缩为0让其不动*/
+      flex-grow: 0;
+      flex-shrink: 0;
+
+    }
+
+    .five>div:nth-child(2) {
+      height: 200px;
+      background: red;
+      flex-grow: 1;
+      flex-shrink: 1;
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 两栏布局的三种方法 -->
+  <div class="one"></div>
+  <div class="two"></div>
+
+  <!-- 第二种方法 -->
+  <div class="three"></div>
+  <div class="four"></div>
+
+  <!-- 第三种方法 -->
+  <div class="five">
+    <div></div>
+    <div></div>
+  </div>
+
+</body>
+
+</html>

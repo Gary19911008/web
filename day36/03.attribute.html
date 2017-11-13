@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>自定义属性</title>
+  </head>
+  <body>
+
+
+    <!--
+    如果data后边有多个 “-”， 那么会被转换成小驼峰法命名
+    -->
+    <div id="box" name='lisi'  data-name="lisi" data-age="10"  data-gender="male"  data-abc-ef="hello"></div>
+
+    <script type="text/javascript">
+
+    var box = document.querySelector('#box');
+
+    //古老的特性操作方法
+    //setAttribute, getAttribute, removeAttribute
+    // box.innerHTML = box.getAttribute('name');
+
+
+    //新增的操作方法
+    //如果按照 data- 来自定义属性，那么需要使用dom对象上的dataset来对自定义属性进行操作
+
+    //访问 dataset
+    console.log(box.dataset);
+
+    console.log(box.dataset.name);
+    console.log(box.dataset.age);
+    console.log(box.dataset.gender);
+    //按照驼峰访问
+    console.log(box.dataset.abcEf);
+
+    //修改自定义属性, 直接赋值
+    box.dataset.name = "李四";
+    box.dataset.gender = "男";
+
+
+    //自学： jQuery中的data   http://www.css88.com/jqapi-1.9/data/
+
+
+
+    </script>
+
+
+  </body>
+</html>

@@ -1,0 +1,17 @@
+
+//@if
+$type: 3;
+
+.one {
+  @if $type == 1 {
+    color: yellow;
+    font-size: 20px;
+  } @else if $type == 2 {
+    color: blue;
+    background: yellow;
+  } @else if $type == 3 {
+    color: green;
+  } @else {
+    color: #000;
+  }
+}

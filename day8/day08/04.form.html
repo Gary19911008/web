@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>不用form，只用控件！！！！</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .message > p {
+        color: red;
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+
+   <div class="message">
+     <p>用户名或者密码不能为空！</p>
+
+     用户名：<input type="text" name="username"> <br><br>
+     密  码： <input type="password" name="passwd"> <br><br>
+
+     <button id="login">登录</button>
+   </div>
+
+   <script src="./jquery.min.js" charset="utf-8"></script>
+   <script type="text/javascript">
+
+   $(".message input").focus(function(){
+     $(".message p").css("visibility", "hidden");
+   });
+
+   $("#login").click(function(){
+
+     //val方法是用于获得表单控件的值
+     var username = $(".message input[name=username]").val();
+     var passwd = $(".message input[name=passwd]").val();
+
+    //  console.log(username, passwd);
+    /*
+    username  或者 passwd 只要有1个为空，那么就会执行if中的语句。
+    */
+    if ((!username) || (!passwd)){
+
+      //显示提示
+      $(".message p").css("visibility", "visible");
+    }
+
+
+    //如果数据正确，需要将数据提交给后台！！！！
+    //??????
+
+   });
+
+
+   </script>
+
+  </body>
+</html>

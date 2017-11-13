@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>navigator对象</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    console.log(window.navigator);
+
+    //页面适配器
+    console.log(navigator.userAgent);//用户代理（系统，设备，浏览器）
+
+    var pattern = /android|iphone|ipad/gi;
+
+    if (pattern.test(navigator.userAgent)){
+      alert("移动设备");
+    } else {
+      alert("pc设备")
+    }
+
+
+    for (var i = 0; i < navigator.plugins.length; i++) {
+      //插件名字
+      console.log(navigator.plugins[i].name);
+    }
+
+    
+
+    </script>
+
+  </body>
+</html>

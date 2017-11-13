@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    /*
+    obj:常见数据类型
+    return:返回一个克隆完毕的数据
+    */
+    function clone(obj){
+      var o;//用于返回的
+
+      if(typeof obj === 'object'){
+        if (Array.isArray(obj)){
+          o = [];
+
+          for (var i = 0; i < obj.length; i++) {
+            o[i] = clone(obj[i]);
+          }
+          return o;
+        }else {
+          o = {};
+          for (var prop in obj) {
+            o[prop] = clone(obj[prop]);
+          }
+          return o;
+        }
+      }
+
+      return obj;
+    }
+
+    /*
+    var obj = [1,2,3,[4,5,6]];
+    var ret = clone(obj);
+
+    console.log("obj = ", obj);
+    console.log("ret = ", ret);
+
+    ret[3][0] = 40;
+
+    console.log("obj = ", obj);
+    console.log("ret = ", ret);
+    */
+
+    var obj = {"name":"lisi", "age": 10, "hobby":["hello","world"]};
+    var ret = clone(obj);
+
+    console.log("obj = ", obj);
+    console.log("ret = ", ret);
+
+    ret.hobby[0] = "HELLO";
+
+    console.log("obj = ", obj);
+    console.log("ret = ", ret);
+
+
+
+    /*
+    递归典型案例：求一个数字的阶乘 ?????
+    */
+
+
+
+
+    </script>
+
+  </body>
+</html>

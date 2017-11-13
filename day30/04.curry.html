@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>函数柯里化: 就是提前给函数传入固定的参数</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    function count(rate, price){
+      console.log(price * rate);
+    }
+
+    var newCount = count.bind(null, 0.95);
+    newCount(1000);
+    newCount(10);
+    newCount(20);
+
+    var newCount2 = count.bind(null, 0.5);
+    newCount2(1000);
+
+
+
+    </script>
+
+  </body>
+</html>

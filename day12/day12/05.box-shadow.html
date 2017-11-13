@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>盒子阴影</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: #fff;
+
+        box-shadow: 50px 0px 0px gold;
+      }
+
+      .two {
+        width: 100px;
+        height: 100px;
+        background: blue;
+        border-radius: 50%;
+
+        /*
+        以逗号作为分隔符填写多个阴影
+        阴影外延，内阴影
+        */
+        box-shadow: 50px -29px 0px blue, 114px -5px 0 blue;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one"></div>
+
+
+    <div class="two"></div>
+
+  </body>
+</html>

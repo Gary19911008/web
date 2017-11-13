@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jsonp发送跨域请求</title>
+  </head>
+  <body>
+
+    <button id="btn">发送jsonp</button>
+
+
+    <script type="text/javascript">
+    /*
+    jsonp的实现原理：
+    1. 利用了script 的src属性本身就是可跨域的特点实现的
+    只需要在src中指定  ？callback=handler即可， 其中handler是当前页面上一个
+    已经存在的函数(必须存在).
+    2. 当后端收到请求之后，会解析url，将其中 ？callback=handler提取出来
+    然后返回一个字符串： "hanlder(data)"给前端页面。
+    3. 前端页面收到之后，会立刻执行 handler(data)
+
+
+    json的优缺点：
+    优点：浏览器兼容性好
+    缺点：只能发送get请求
+    */
+
+    //回调函数
+    function handler(data){
+      console.log("收到数据为： ", data);
+    }
+
+    document.querySelector('#btn').onclick = function () {
+      var s = document.createElement("script");
+      s.src = "http://127.0.0.1:8000/?callback=handler";
+      document.body.insertBefore(s, this);
+    }
+
+    </script>
+
+  </body>
+</html>

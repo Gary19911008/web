@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Math</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    console.log(Math.min(1,2,3,5,10,-1,88));//-1
+    console.log(Math.max(1,2,3,5,10,-1,88));//88
+
+
+    //不能直接传递数组
+    // console.log(Math.max([1,2,3,5,10,-1,88]));
+
+    //使用apply对Math.max进行改造，然后可以传数组
+    console.log(Math.max.apply(null, [1,2,3,4,4,88]));
+
+
+    //取舍
+    //round
+    console.log(Math.round(20.1));//20
+    console.log(Math.round(20.6));//21
+    console.log(Math.round(-20.1));//-20
+    console.log(Math.round(-20.6));//-21
+
+    //ceil 向上取
+    console.log(Math.ceil(20.1));//21
+    console.log(Math.ceil(20.6));//21
+    console.log(Math.ceil(-20.1));//-20
+    console.log(Math.ceil(-20.6));//-20
+
+
+    //floor 向下取
+    console.log(Math.floor(20.1));//20
+    console.log(Math.floor(20.6));//20
+    console.log(Math.floor(-20.1));//-21
+    console.log(Math.floor(-20.6));//-21
+
+
+
+
+    //随机数, [0,1)
+    //Math.random()属于伪随机
+    console.log("----------random----------");
+    console.log(Math.random());
+
+    //[start,end] 随机数, 比如 [10,21]
+    // Math.floor(Math.random() * (end - start + 1)  +  start);
+
+    for (var i = 0; i < 20; i++) {
+     console.log(Math.floor(Math.random() * (21 - 10 + 1)  +  10));
+    }
+
+    /*
+    封装函数：
+    1. 产生一个 字母加数字 的 6位验证码
+    2. 产生一个随机的颜色
+    */
+
+    console.log(Math.pow(12,30));//12^30
+
+    //角度单位是弧度 30deg  ===> Math.PI / 180 * 30
+    console.log(Math.tan(Math.PI/180*30));
+
+    console.log(Math.sqrt(9));
+    console.log(Math.sqrt(8));
+
+    //科学计数法  2.13x10^31
+    console.log(2.13e31);
+    console.log(2.13e-31);
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

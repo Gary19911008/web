@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>原型链继承</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    //继承：少些代码(本质)
+
+    function Person(name,age){
+      this.name = name;
+      this.age = age;
+    }
+
+
+    Person.prototype.sayHello = function () {
+      console.log("你好，我是。。。");
+    };
+
+    Person.prototype.drink = function () {
+      console.log("drink milk。。。");
+    };
+
+
+    //Student要继承Person的属性和方法
+    function Student(name,age,score){
+      this.name  = name;
+      this.age = age;
+      this.score = score;
+    }
+
+    //原型链继承
+
+  /*
+  只要new 产生一个对象，那么该对象都会有一个属性叫做 __proto__,
+  并且该属性指向的是该构造函数的原型，代码如下
+  */
+    // var temp = new Person();
+    // console.log(temp.__proto__   === Person.prototype);
+
+
+    // new Person()产生的对象有什么，那么Student.prototype就有什么
+    // 继承别的方法
+    Student.prototype = new Person();
+    Student.prototype.constructor = Student;
+    // console.log(Student.prototype);
+
+
+    //添加自己的原型方法
+    Student.prototype.exam = function(){
+      console.log("exam ......");
+    }
+
+
+    var stu1 = new Student('zhansan', 20,78);
+
+    /*
+    当构造函数中的属性和原型上的属性冲突时，构造函数中的有效. !!!!!
+    只有当构造函数上没有指定的属性和方法时，才会从原型上寻找  !!!!!!
+    */
+    console.log(stu1);
+    console.log(stu1.name);
+    console.log(stu1.age);
+    stu1.sayHello();
+    stu1.drink();
+    stu1.exam();
+
+
+
+
+    /*
+    原型链继承的缺点：
+    1. 构造函数中的属性没有实现继承
+    2. 通过 new Person()来实现原型方法的继承，但是携带了无用的数据
+    */
+
+
+    </script>
+
+  </body>
+</html>

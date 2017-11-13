@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>新型选择器</title>
+  </head>
+  <body>
+
+    <ul class="list">
+      <li>1111</li>
+      <li>2222</li>
+      <li>3333</li>
+    </ul>
+
+    <ul class="list">
+      <li>444</li>
+      <li>555</li>
+      <li>666</li>
+    </ul>
+
+    <input type="text" name="text">
+    <input type="number" name="number">
+
+    <script type="text/javascript">
+
+    //querySelector只能选中第一个符合条件的
+    var list = document.querySelector("ul.list");
+    console.log(document.querySelectorAll("ul.list > li:nth-child(2)"));
+    console.log(document.querySelector("input[type=text]"));
+    </script>
+
+  </body>
+
+</html>

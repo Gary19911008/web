@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>处理子线程的错误</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var worker = new Worker("worker.js");
+    worker.onmessage = function(event){
+      console.log("接收到子线程的数据：", event.data);
+    }
+
+    //捕获子线程的错误，做处理
+    worker.onerror = function(errEvent){
+      console.log(errEvent.message, errEvent.filename, errEvent.lineno);
+      worker.terminate();
+    }
+
+    </script>
+
+  </body>
+</html>

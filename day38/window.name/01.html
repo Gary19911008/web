@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>第一个文件</title>
+  </head>
+  <body>
+    <h1>第一个文件</h1>
+
+    <script type="text/javascript">
+    var data = {
+      value: "第一个文件"
+    };
+
+    window.name = JSON.stringify(data);
+    </script>
+
+
+    <!--
+    测试同源：按照相对路径引入02.html
+    测试不同源： 将02.html放到一个其他的主机下
+   -->
+    <!-- <iframe id="frame" src="./02.html" width="600" height="300" frameborder="1"></iframe> -->
+    <iframe id="frame" src="http://127.0.0.1:80/xxx/02.html" width="600" height="300" frameborder="1"></iframe>
+
+
+
+    <script type="text/javascript">
+    window.onload = function(){
+
+      var frame = document.querySelector('#frame');
+
+      //02.html页面的window对象
+      // console.log(frame.contentWindow);
+
+      //iframe页面的window在不同源的页面之间无法获得！！！！！！！！
+      // iframe 允许跨域加载页面，但是不允许跨域修改
+      var subWindow = frame.contentWindow;
+      subWindow.document.querySelector("h1").innerHTML = "我被主页面修改了";
+      subWindow.document.querySelector("h1").style.color = "red";
+
+    }
+    </script>
+
+  </body>
+</html>

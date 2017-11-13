@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      input {
+        width: 50px;
+        height: 50px;
+      }
+
+      input:checked + span {
+        background: pink;
+      }
+
+      input:checked + span::before {
+        content: "我被选中了";
+      }
+
+      /*被锚点中之后，的样式*/
+      p:target {
+        font-size: 50px;
+        color: red;
+      }
+
+      /* 内容为空的元素会被 选中 empty*/
+      .one:empty::before {
+        content: "我是空的";
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <input type="checkbox">
+    <span></span>
+
+    <br><br>
+
+
+    <a href="#p1">锚点</a>
+    <p id="p1">闪光灯看见到很快就会</p>
+
+
+    <div class="one">空间商客户开始角度好看见好看</div>
+    <div class="one"></div>
+    <div class="one"></div>
+
+  </body>
+</html>

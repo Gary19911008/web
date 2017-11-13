@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>scale</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        width: 400px;
+        height: 400px;
+        margin: 100px auto;
+        transition: all 2s;
+      }
+      .box img {
+        width: 100%;
+      }
+
+      .box:hover {
+        transform: rotate(720deg) scale(0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <img src="image/dfc.gif" alt="">
+    </div>
+
+  </body>
+</html>

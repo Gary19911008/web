@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+
+  <script>
+    /*
+        面向对象：所有的操作都是以对象为中心，对象上拥有属性和方法，属性和方法属于对象的附属.
+        特点： 封装，继承，多态
+
+        javascript: 封装，继承
+        */
+
+    //对象的创建
+    //1. 使用已有的构造函数
+    var d = new Date();
+    var s = new String("hehe");
+    var a = new Array(10);
+
+    //Object构造函数是所有构造函数的祖先，其他都继承了Object的属性和方法
+    var obj = new Object(); //创建一个空对象
+
+    console.log(typeof d, typeof s, typeof a, typeof obj); //object
+    console.log(obj);
+
+
+
+    //2. 直接使用字面量来创建对象
+    var obj1 = {};
+    //添加属性和方法
+    obj1.name = 'lisi';
+    obj1.age = 20;
+    obj1.getName = function() {
+      // 在对象的方法内部，this是对象本身
+      console.log(this.name);
+    };
+    obj1.getName();
+
+    console.log(obj1);
+
+    //使用对象去访问属性时,可以使用. ,也可以使用[]
+    console.log(obj1.name);
+    console.log(obj1.age);
+    console.log(obj1["name"]);
+    console.log(obj1["age"]);
+
+
+    //key:value
+    var obj2 = {
+      name: "zhangsan",
+      age: 5,
+      getName: function() {
+        console.log(this.name);
+      },
+      getAge: function(){
+        console.log(this.age);
+      }
+    };
+
+    obj2.score = 99;
+    console.log(obj2);
+
+    //只要是对象，就可以任意添加属性和方法！！！！！
+
+
+  </script>
+
+</body>
+
+</html>

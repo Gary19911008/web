@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <h2 class="one">one</h2>
+    <h2 class="one">one</h2>
+
+    <div class="two">two</div>
+    <div class="two">two</div>
+
+
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+
+    <div class="four">
+      <h2>1</h2>
+      <h2>2</h2>
+      <h2>3</h2>
+    </div>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    /*********************wrap *******************/
+
+    //给符合条件的元素都包裹,在元素的外部包裹
+    $(".one").wrap("<div></div>");
+
+
+    //给符合条件的元素都包裹,在元素的内部包裹
+    $(".two").wrapInner("<h2></h2>");
+
+
+    //整体包裹
+    $("li").wrapAll("<ul class='lists'></ul>");
+
+
+    /*********************替换*******************/
+    $("<div>son</div>").replaceAll(".four>h2");
+
+
+    </script>
+  </body>
+</html>

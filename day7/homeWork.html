@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>homeWork</title>
+    <script src="../jQuery/jquery.min.js" charset="utf-8"></script>
+    <style media="screen">
+
+      *{
+        margin:0;
+        padding:0;
+      }
+
+      .w{
+        width: 500px;
+        margin: 0 auto;
+      }
+
+      .a{
+        display: block;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="w">
+      <button class="a" >添加</button>
+      <table class="b">
+        <caption><h2>学员信息</h2></caption>
+        <tr>
+          <td>name</td>
+          <td>gender</td>
+          <td>age</td>
+          <td>操作</td>
+        </tr>
+      </table>
+    </div>
+
+    <script type="text/javascript">
+
+    $(".b td").css("border","1px solid black").css("text-align","center");
+    $(".b").css("border-collapse","collapse").css("width","400px").css("height","20px");
+
+    $(".a").click(function(){
+      $(".b").append("<tr><td></td><td></td><td></td><td><button class='c'>删除</button></td></tr>");
+      $(".b td").css("border","1px solid black").css("text-align","center");
+      $(".b").css("border-collapse","collapse").css("width","400px").css("height","20px");
+      $(".c").click(function(){$(this).parent().parent().remove();});
+    });
+
+    </script>
+
+  </body>
+</html>

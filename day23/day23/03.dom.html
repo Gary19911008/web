@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <ul class="lists">
+      <li>0</li>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+
+    <script type="text/javascript">
+
+    //返回的是一个HTMLCollection,它会根据当前的文档结构进行即时自动更新!!!!!!
+    var ls = document.getElementsByClassName("lists");
+    console.log(ls);
+
+    ls[0].onclick = function (event) {
+      console.log("点击了 ", event.target.innerHTML);
+    };
+
+    //深度克隆,克隆了所有的节点(但是并没有克隆事件)
+    var ls2 = ls[0].cloneNode(true);
+
+    //将克隆的节点添加到body中
+    document.body.appendChild(ls2);
+    console.log(ls);
+
+
+    /*
+    jQuery中clone？？？？
+    */
+
+
+
+    </script>
+
+  </body>
+</html>

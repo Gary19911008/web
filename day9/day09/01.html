@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>$(function(){})</h1>
+  <img src="./images/zhaosi.jpg" alt="">
+
+  <!--
+  脚本文件尽量放到body的最后执行！！
+  -->
+  <script src="./jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    /*
+    DOM节点加载完毕指的的是页面上所有的标签都已经加载就绪(但不是所有的资源，比如图片，音频，视频等等)
+    */
+    $(function() {
+      console.log("所有的DOM节点加载完毕之后再执行！！！！");
+    });
+
+    console.log("script .....");
+  </script>
+
+
+</body>
+
+</html>

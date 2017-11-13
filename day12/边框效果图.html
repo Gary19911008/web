@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>边框效果图</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .clearfix::before,
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+
+    body>div {
+      width: 300px;
+      height: 300px;
+      float: left;
+      margin: 50px 86px;
+      box-shadow: -2px -2px 3px #e0e0e0, 2px 2px 3px gray;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .w {
+      width: 250px;
+      height: 250px;
+      box-sizing: border-box;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .one {
+      border-radius: 50%;
+      border: 1px solid blue;
+      position: relative;
+    }
+
+
+    .two {
+      border-radius: 50% 50% 0 0;
+      border: 1px solid blue;
+    }
+
+    .three {
+      height: 125px;
+      border-radius: 125px 125px 0 0;
+      border: 1px solid blue;
+    }
+
+    .four {
+      border-radius: 50% 0 0 0;
+      border: 1px solid blue;
+    }
+
+    .five {
+      height: 125px;
+      width: 125px;
+      border-radius: 125px 0 0 0;
+      border: 1px solid blue;
+    }
+
+    .six {
+      height: 125px;
+      border-radius: 50% 50%;
+      border: 1px solid blue;
+    }
+
+    .seven {
+      width: 125px;
+      border-radius: 50% 50%;
+      border: 1px solid blue;
+    }
+
+    .eight {
+      height: 62px;
+      border-radius: 50% 50% 0 0/100% 100% 0 0;
+      border: 1px solid blue;
+    }
+
+    .nine {
+      width: 62px;
+      border-radius: 100% 0 0 100% / 50% 0 0 50%;
+      border: 1px solid blue;
+    }
+
+    .ten {
+      width: 62px;
+      height: 125px;
+      border-radius: 100% 0 0 0;
+      border: 1px solid blue;
+    }
+
+    .eleven {
+      border-radius: 50%;
+      border: 100px solid blue;
+    }
+
+    .twelve {
+      border-radius: 25%;
+      border: 100px solid blue;
+    }
+
+    .thirteen {
+      border-radius: 50% 0 0 0;
+      border: 100px solid blue;
+    }
+
+    .fourteen {
+      border-radius: 50% 0 50% 0;
+      border: 100px solid blue;
+    }
+
+    .fifteen {
+      border-left: 125px solid yellow;
+      border-right: 125px solid blue;
+      border-top: 125px solid red;
+      border-bottom: 125px solid green;
+    }
+
+    .sixteen {
+      border-left: 125px solid yellow;
+      border-right: 125px solid transparent;
+      border-top: 125px solid red;
+      border-bottom: 125px solid green;
+    }
+
+    .seveteen {
+      border-radius: 50%;
+      border-left: 125px solid red;
+      border-right: 125px solid transparent;
+      border-top: 125px solid red;
+      border-bottom: 125px solid red;
+    }
+
+    .eighteen {
+      border-radius: 50%;
+      border-left: 125px solid transparent;
+      border-right: 125px solid red;
+      border-top: 125px solid transparent;
+      border-bottom: 125px solid transparent;
+    }
+
+    .nineteen {
+      border-radius: 50%;
+      border-left: transparent;
+      border-right: transparent;
+      border-top: 125px solid red;
+      border-bottom: 125px solid green;
+    }
+
+    .twenty {
+      border-radius: 50%;
+      background: red;
+      border-bottom: 125px solid green;
+    }
+
+    .twenty-one {
+      border-radius: 50%;
+      background: red;
+      border-bottom: 125px solid green;
+      position: relative;
+    }
+
+    .twenty-one:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      background: red;
+      border: 50px solid green;
+      border-radius: 100%;
+      width: 125px;
+      height: 125px;
+      box-sizing: border-box;
+    }
+
+    .twenty-one:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: green;
+      border: 50px solid red;
+      border-radius: 100%;
+      width: 125px;
+      height: 125px;
+      box-sizing: border-box;
+    }
+
+    .twenty-two {
+      height: 125px;
+      width: 200px;
+      background: red;
+      position: relative;
+      border-radius: 20px;
+    }
+
+    .twenty-two:before {
+      content: "";
+      position: absolute;
+      right: 100%;
+      top: 26px;
+      border-top: 20px solid transparent;
+      border-right: 20px solid red;
+      border-bottom: 20px solid transparent;
+    }
+
+    .twenty-three {
+      border-radius: 0 0 50% 0;
+      border: 125px solid red;
+      position: relative;
+    }
+
+    .twenty-three:before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      top: -45px;
+      border-radius: 0 0 100% 0;
+      border: 55px solid #fff;
+    }
+
+    .twenty-four {
+      height: 125px;
+      border-radius: 25% / 25% 50% 50% 25%;
+      border-left: 100px solid red;
+      border-top: 50px solid red;
+      border-bottom: 50px solid red;
+      border-right: 20px solid red;
+    }
+
+    .twenty-five {
+      width: 200px;
+      height: 125px;
+      border-radius: 25px;
+      border: 63px solid red;
+      position: relative;
+    }
+
+    .twenty-five:before {
+      content: "";
+      height: 50px;
+      width: 50px;
+      position: absolute;
+      top: -60px;
+      right: -86px;
+      border-radius: 0 0 50% 0;
+      border-bottom: 19px solid red;
+      box-sizing: border-box;
+    }
+
+    .clearfix::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      line-height: 300px; /*让文字居中显示*/
+      text-align: center;
+      content: attr(data-brief);/*内容为属性的值*/
+      color: #FFF;
+      transition: all 0.5s ease-in;
+      z-index: -1;/*先不显示，当hover时在显示文字*/
+    }
+
+    .clearfix:hover::before {
+      background-color: gray;
+      opacity: 0.5;
+      z-index: 100;
+    }
+
+  </style>
+</head>
+
+<body class="box">
+  <div class="clearfix" data-brief="正圆">
+    <div class="one w" ></div>
+  </div>
+  <div class="clearfix" data-brief="拱形">
+    <div class="two w" ></div>
+  </div>
+  <div class="clearfix" data-brief="半圆">
+    <div class="three w " ></div>
+  </div>
+  <div class="clearfix" data-brief="左上角">
+    <div class="four w " ></div>
+  </div>
+  <div class="clearfix" data-brief="四分之一">
+    <div class="five w" ></div>
+  </div>
+  <div class="clearfix" data-brief="椭圆一">
+    <div class="six w" ></div>
+  </div>
+  <div class="clearfix" data-brief="椭圆二">
+    <div class="seven w" ></div>
+  </div>
+  <div class="clearfix" data-brief="半个椭圆一">
+    <div class="eight w" ></div>
+  </div>
+  <div class="clearfix" data-brief="半个椭圆二">
+    <div class="nine w" ></div>
+  </div>
+  <div class="clearfix" data-brief="四分之一椭圆">
+    <div class="ten w" ></div>
+  </div>
+  <div class="clearfix" data-brief="圆环">
+    <div class="eleven w" ></div>
+  </div>
+  <div class="clearfix" data-brief="方环">
+    <div class="twelve w" ></div>
+  </div>
+  <div class="clearfix" data-brief="左上角圆饼">
+    <div class="thirteen w" ></div>
+  </div>
+  <div class="clearfix" data-brief="对角圆饼">
+    <div class="fourteen w" ></div>
+  </div>
+  <div class="clearfix" data-brief="四边颜色">
+    <div class="fifteen w"  ></div>
+  </div>
+  <div class="clearfix" data-brief="三边颜色">
+    <div class="sixteen w" ></div>
+  </div>
+  <div class="clearfix" data-brief="四分之三圆饼">
+    <div class="seveteen w" ></div>
+  </div>
+  <div class="clearfix" data-brief="四分之一圆饼">
+    <div class="eighteen w" ></div>
+  </div>
+  <div class="clearfix" data-brief="阴阳一">
+    <div class="nineteen w" ></div>
+  </div>
+  <div class="clearfix" data-brief="阴阳二">
+    <div class="twenty w" ></div>
+  </div>
+  <div class="clearfix" data-brief="八卦一">
+    <div class="twenty-one w" ></div>
+  </div>
+  <div class="clearfix" data-brief="消息">
+    <div class="twenty-two w" ></div>
+  </div>
+  <div class="clearfix" data-brief="乱七八糟形状">
+    <div class="twenty-three w" ></div>
+  </div>
+  <div class="clearfix" data-brief="乱七八糟形状二">
+    <div class="twenty-four w" ></div>
+  </div>
+  <div class="clearfix" data-brief="对话">
+    <div class="twenty-five w" ></div>
+  </div>
+
+
+
+<script src="../jQuery/jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  $("box>div").each(function(index){
+    $("box>div").eq(index).hover(function(){
+      $()
+    });
+  });
+
+
+  </script>
+</body>
+
+</html>

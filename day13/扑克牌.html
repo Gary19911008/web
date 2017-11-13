@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>扑克牌旋转</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .cards {
+      width: 150px;
+      height: 250px;
+      position: relative;
+      margin: 300px auto;
+    }
+
+    .item {
+      transform-origin: top left;
+      width: 150px;
+      height: 250px;
+      background: url("./day13/image1/pk1.png") no-repeat;
+      background-size: 150px 250px;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      transition: all 1s 0s linear;
+    }
+
+    .cards:hover .item:nth-child(1) {
+      transform: rotate(0deg);
+    }
+
+    .cards:hover .item:nth-child(2) {
+      transform: rotate(60deg);
+    }
+
+
+    .cards:hover .item:nth-child(3) {
+      transform: rotate(120deg);
+    }
+
+    .cards:hover .item:nth-child(4) {
+      transform: rotate(180deg);
+    }
+
+    .cards:hover .item:nth-child(5) {
+      transform: rotate(240deg);
+    }
+
+    .cards:hover .item:nth-child(6) {
+      transform: rotate(300deg);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="cards">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </div>
+
+</body>
+
+</html>

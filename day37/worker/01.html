@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    //Worker需要在服务器上测试
+
+    //创建一个后台worker
+    var worker1 = new Worker("./worker.js");
+    var worker2 = new Worker("./worker.js");
+    var worker3 = new Worker("./worker.js");
+    var worker4 = new Worker("./worker.js");
+
+    //如果后台线程为死循环，那么会导致浏览器假死
+    // var worker5 = new Worker("./while.js");
+
+    //专门用于接收后台worker发过来的消息
+    worker1.onmessage = function(event){
+      console.log("后台线程发过来的数据为： ", event.data);
+
+      //给后台worker发送消息
+      // setTimeout(function(){
+      //   worker1.postMessage({count: 10});
+      // }, 3600000)
+
+      //结束一个后台worker
+      worker1.terminate();
+      console.log("辞退worker1");
+    }
+
+    worker2.onmessage = function(event){
+      console.log("后台线程发过来的数据为： ", event.data);
+      worker2.terminate();
+      console.log("辞退worker2");
+    }
+
+    worker3.onmessage = function(event){
+      console.log("后台线程发过来的数据为： ", event.data);
+      worker3.terminate();
+      console.log("辞退worker3");
+    }
+
+    worker4.onmessage = function(event){
+      console.log("后台线程发过来的数据为： ", event.data);
+      worker4.terminate();
+      console.log("辞退worker4");
+    }
+
+
+    //给后台worker发送消息
+    worker1.postMessage({role: "worker1", count: 10});
+    worker2.postMessage({role: "worker2", count: 0});
+    worker3.postMessage({role: "worker3", count: -6});
+    worker4.postMessage({role: "worker4", count: 16});
+
+
+    </script>
+  </body>
+</html>

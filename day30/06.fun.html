@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>高阶函数：函数加工厂</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    //判断偶数
+     function isEven(num){
+       return  num % 2 === 0;
+     }
+
+     //判断奇数？？？
+
+     /*
+     功能： 高阶函数，用于对函数进行取反加工
+     @func, 要加工的函数
+     return, 返回加工完成的新函数
+     */
+     function not(func){
+      return function(arg){
+        return !func(arg);
+      };
+     }
+
+
+     //isOdd就是一个判断奇数的函数
+     var isOdd = not(isEven);
+
+     console.log(isOdd(1));
+     console.log(isOdd(2));
+     console.log(isOdd(3));
+
+
+     /*
+     作业：高阶函数
+     1. 已知两个函数， 分别为 求和函数：sum(a,b), 求平方函数 pow2(x)
+        实现一个求 (和的平方的)函数？？？
+     */
+
+    </script>
+
+  </body>
+</html>

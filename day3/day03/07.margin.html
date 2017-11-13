@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>margin</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .three{
+        width: 500px;
+        height: 300px;
+        background: blue;
+
+        /*border: 1px solid gray;*/
+        padding-top: 1px;
+      }
+
+      .three_son {
+        width: 200px;
+        height: 100px;
+        background: green;
+        margin-top: 50px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!--
+    嵌套上外边距合并问题
+
+    解决方法：
+    1. 给父元素添加边框 border
+    2. 给父元素添加padding
+    -->
+      <div class="three">
+        <div class="three_son"></div>
+      </div>
+  </body>
+</html>

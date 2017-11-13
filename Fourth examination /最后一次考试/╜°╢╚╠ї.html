@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>页面加载 进度条</title>
+  <script type="text/javascript">
+    window.loadStartTime = new Date();
+  </script>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .loading {
+      display: table;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fff;
+      z-index: 5;
+    }
+
+    .loading .progress {
+      vertical-align: middle;
+      text-align: center;
+      height: 20px;
+      width: 0%;
+      background: blue;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="loading" id="loading">
+    <div class="progress" id="progress">0%</div>
+  </div>
+
+  <script src="./jquery-3.0.0.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var $loading = $('#loading')
+    var $progress = $('#progress')
+    var prg = 0 // 初始化进度;
+    var timer;
+    var now = new Date();
+
+    /*
+    @n,传递数值，或者数组
+    */
+    function random(n) {
+      if (Array.isArray(n)) {
+        var nums = n[1] - n[0] + 1;
+        return Math.floor(Math.random() * nums + n[0]);
+      } else {
+        return n;
+      }
+    }
+
+
+
+    /*
+    @dist 最终的值,传递number，Array
+    @speed 增量,传递number，Array
+    @inter 时间间隔， number
+    */
+    function progress(dist, speed, inter, callback) {
+      var _dist = random(dist);
+      var _speed = random(speed);
+
+      clearInterval(timer);
+      timer = setInterval(function() {
+        if (prg >= _dist) {
+          clearInterval(timer);
+          prg = _dist;
+          callback && callback();
+        } else {
+          prg += _speed;
+        }
+        $progress.html(prg + '%');
+        $progress.css("width", prg + "%");
+      }, inter);
+    }
+
+
+
+
+
+
+    /*
+    功能：一步到位！！！
+    */
+    function complete() {
+      progress(100, [1, 3], 10, function() {
+        setTimeout(function() {
+          $("#loading").hide();
+        }, 1000);
+      });
+    }
+
+
+    //进度条的第一次设置(大概加载到80~90之间)
+    progress([40, 50], [1, 3], 300);
+
+    /*
+    页面所有的资源都(图片，js,css等)加载完毕，才会执行
+    */
+    window.onload = function() {
+      complete();
+    }
+
+    /*
+    页面从head开始，到开始加载js中间的间隔时间,是否超过5s
+    */
+
+    if (now - loadStartTime > 5000) {
+      complete();
+    } else {
+      setTimeout(function() {
+        complete();
+      }, 5000 - (now - loadStartTime));
+    }
+  </script>
+
+
+</body>
+
+</html>

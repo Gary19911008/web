@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>生成表格</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      table {
+        border: 1px solid gray;
+        border-collapse: collapse;
+        text-align: center;
+      }
+
+      tr,td,th {
+        border: 1px solid gray;
+        height: 30px;
+        line-height: 30px;
+      }
+
+      td,th {
+        width: 120px;
+      }
+
+      td span {
+        color: red;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+
+    </style>
+  </head>
+  <body>
+
+    <table id="stus">
+      <caption><h1>学生信息</h1></caption>
+      <tbody></tbody>
+    </table>
+
+    <script>
+    var stus = [
+      ["lisi",20,88],["zhangsan",18,59],["zhaosi",40,30],["wangwu",30,66],["zhaoliu",34,67],["wangqi",78,90]
+    ];
+
+    var tb = document.getElementById("stus").children[1];
+
+
+    // 事件委托(事件代理)
+    tb.addEventListener('click', function(event){
+
+      //nodeName是标签名字(大写)
+      if (event.target.nodeName === "SPAN"){
+        var deltr = event.target.parentNode.parentNode;
+        this.removeChild(deltr);
+      }
+    },false);
+
+
+
+    for (var i = 0; i < stus.length; i++) {
+      var trs = document.createElement("tr");
+      trs.innerHTML = "<td>" +  stus[i][0] + "</td><td>" + stus[i][1] + "</td><td>" + stus[i][2] + "</td>" + "<td><span>删除</span></td>";
+      tb.appendChild(trs);
+    }
+
+    /*
+    每一个子元素都去注册事件
+    var spans = tb.getElementsByTagName("span");
+    for (var i = 0; i < spans.length; i++) {
+      spans[i].onclick = function () {
+        tb.removeChild(this.parentNode.parentNode);
+      }
+    }
+    */
+
+
+    /*
+    jQuery的事件委托？？
+    */
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>封装函数，实现自定义的bind函数</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+
+   /*
+   功能：实现类似于内置bind的功能
+   @context, 要bind的对象(this)
+   @handler, 要对handler函数进行绑定
+   return: 返回一个bind成功的新函数
+   */
+    function bind(handler,context) {
+
+      //从bind的第三个参数开始切片
+      var preArg = Array.prototype.slice.call(arguments, 2);
+
+      return function (){
+        var curArg = Array.prototype.slice.call(arguments, 0);
+        var args = preArg.concat(curArg);
+
+        return handler.apply(context, args);
+      };
+    }
+
+    //
+    // function handler(){
+    //   console.log(this);
+    //   console.log("参数： ", arguments);
+    // }
+    //
+    // var obj = {name:'lisi'};
+    //
+    //
+    // //调用自定义的bind进行绑定
+    // var newFun = bind(handler, obj, 10, 20, 30);
+    // newFun(40, 50);
+    //
+
+
+
+
+  </script>
+
+</body>
+
+</html>

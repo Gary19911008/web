@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>translate</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .f {
+        width: 200px;
+        height: 200px;
+        background: yellow;
+        /*margin: 50px auto;*/
+        transition: all 1s;
+        transform: translate(100px, 0);
+      }
+
+      .f:hover {
+        /*translate都是相对于元素原来位置*/
+        transform: translate(200px, 300px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="f"></div>
+
+  </body>
+</html>

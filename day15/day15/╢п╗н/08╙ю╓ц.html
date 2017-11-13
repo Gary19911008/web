@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>universe</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html, body {
+        height: 100%;
+        background: url("image/bg.jpg");
+      }
+
+      ul {
+        width: 600px;
+        height: 600px;
+        list-style: none;
+        margin: 100px auto;
+        position: relative;
+      }
+      ul li {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 2px solid gray;
+        box-sizing: border-box;
+        animation: run 3s linear infinite;
+      }
+
+      li span {
+        display: block;
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        left: 0;
+        border-radius: 50%;
+      }
+
+      li:nth-child(1) {
+        width: 60px;
+        height: 60px;
+        border: none;
+        background-color: yellow;
+        box-shadow: 0 0 50px #c90 ;
+      }
+
+      li:nth-child(2) {
+        width: 120px;
+        height: 120px;
+        animation: run 4s linear infinite;
+      }
+
+      li:nth-child(2) span {
+        background: yellow;
+        left: 80px;
+      }
+
+      li:nth-child(3) {
+        width: 180px;
+        height: 180px;
+        animation: run 10s linear infinite;
+      }
+      li:nth-child(3) span {
+        background: blue;
+        left: 47px;
+      }
+
+      li:nth-child(4)  {
+        width: 240px;
+        height: 240px;
+        animation: run 16s linear infinite;
+      }
+      li:nth-child(4) >span {
+        background: green;
+        left: 150px;
+        animation: run 2s linear infinite;
+      }
+
+      li:nth-child(4) span span {
+        width: 6px;
+        height: 6px;
+        background: yellow;
+        left: 16px;
+      }
+
+      li:nth-child(5) {
+        width: 300px;
+        height: 300px;
+        background-image: url("image/asteroids_meteorids.png");
+        background-size: cover;
+        animation: run 22s linear infinite;
+      }
+      li:nth-child(5) span {
+        width: 18px;
+        height: 18px;
+        background: red;
+        left: 30px;
+        top: 38px;
+      }
+
+      li:nth-child(6) {
+        width: 360px;
+        height: 360px;
+        animation: run 27s linear infinite;
+      }
+
+      li:nth-child(6) span {
+        background: #FFF;
+        top: 120px;
+      }
+
+      li:nth-child(7) {
+        width: 420px;
+        height: 420px;
+        animation: run 30s linear infinite;
+      }
+
+      li:nth-child(7) > span{
+        background: green;
+        left: 258px;
+      }
+
+      li:nth-child(7) > span span{
+        width: 15px;
+        height: 15px;
+        border: 2px solid #FFF;
+        transform: skew(45deg);
+        left: -3px;
+        top: -3px;
+      }
+
+      li:nth-child(8) {
+        width: 480px;
+        height: 480px;
+        animation: run 36s linear infinite;
+      }
+      li:nth-child(8) span {
+        background: pink;
+        top: 169px;
+      }
+
+      li:nth-child(9) {
+        width: 550px;
+        height: 550px;
+        animation: run 40s linear infinite;
+      }
+
+      li:nth-child(9) span {
+        background: blue;
+        top: 100px;
+        left: 48px;
+      }
+      li:nth-child(10) {
+        width: 620px;
+        height: 620px;
+        animation: run 50s linear infinite;
+      }
+
+      li:nth-child(10) span {
+        background: yellow;
+        top: 67px;
+        left: 100px;
+      }
+
+      @keyframes run {
+        0% {
+          /*用于li元素为了保持居中已经使用translate(-50%,-50%)
+          所以translate的值不能变了，否则就不居中了*/
+          transform:  translate(-50%, -50%) rotate(0);
+        }
+
+        100% {
+          transform:  translate(-50%, -50%) rotate(360deg);
+        }
+      }
+
+      ul:hover li{
+        animation-play-state: paused;
+      }
+
+      ul:hover li span{
+        animation-play-state: paused;
+      }
+
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span><span></span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span><span></span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+      <li><span></span></li>
+    </ul>
+
+  </body>
+</html>

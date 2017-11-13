@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div class="one">one</div>
+    <div class="one">one</div>
+
+    <ul class="two">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+
+    <div class="three">
+      <h2>three</h2>
+    </div>
+
+    <div class="four"></div>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    /*after,insertAfter都是添加的兄弟*/
+    $(".one").after("<h2>兄弟！</h2>");
+    $(".two li:eq(1)").after("<li>临时添加</li>")
+    $("<h3>three!!!!</h3>").insertAfter(".three > h2");
+
+
+    //h2内容为空
+    $(".four").append("<h2></h2>");
+
+    //修改标签内容
+    $(".four > h2").html("<span>我是h2</span>");
+    $(".four > h2").html("xxxxx");
+
+
+
+
+    </script>
+
+  </body>
+</html>

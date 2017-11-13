@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>通过回车切换全屏</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #box {
+        width: 200px;
+        height: 200px;
+        background: green;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="box"></div>
+
+
+    <script src="./jquery-3.0.0.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    //全屏方法
+    function fullScreen(elem){
+      if (elem.requestFullscreen){
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen){
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen){
+        elem.webkitRequestFullscreen();
+        elem.style.width = "100%";
+        elem.style.height = "100%";
+      }
+
+    }
+
+    //取消全屏
+    function cancelFullScreen(elem){
+      if (document.cancelFullScreen){
+        document.cancelFullScreen();
+      } else if (document.mozCancelFullScreen){
+        document.mozCancelFullScreen();
+      } else if (document.webkitCancelFullScreen){
+        document.webkitCancelFullScreen();
+        elem.style.width = elem.originProp.width + "px";
+        elem.style.height = elem.originProp.height + "px";
+      }
+    }
+
+
+    var box = document.querySelector('#box');
+
+    // 将元素之前的宽高，保存，便于将来还原
+    box.originProp = {width: $(box).width() , height: $(box).height() };
+
+    var flag = false;
+
+    document.onkeyup = function(event){
+      if (13 === event.keyCode) {
+        if (!flag){
+          fullScreen(box);
+          flag = true;
+        } else {
+          cancelFullScreen(box);
+          flag = false;
+        }
+      }
+    }
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>transform-origin</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      transform-style: preserve-3d;
+      perspective: 300px;
+    }
+
+    .one,.two {
+      width: 200px;
+      height: 200px;
+      background: blue;
+      margin: 200px auto;
+      transition: all 2s;
+    }
+
+    .one {
+      transform-origin: left top;
+    }
+
+    .one:hover {
+      transform: rotate(45deg);
+    }
+
+    .two {
+      transform-origin: top center;
+    }
+
+    .two:hover {
+      transform: rotateX(180deg);
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <div class="one"></div>
+    <div class="two"></div>
+  </div>
+
+
+  <!--
+  作业：
+  1. 火箭，盾牌，扑克牌，立方体，旋转导航
+ -->
+
+</body>
+
+</html>

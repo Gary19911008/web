@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>提升</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var a = 10;
+
+    function fun(){
+      console.log(a);//undefined
+      var a = 100;
+
+      /*等价代码*/
+      /*
+      var a;
+      console.log(a);//undefined
+      a = 100;
+      */
+    }
+
+    fun();//
+
+    </script>
+
+  </body>
+</html>

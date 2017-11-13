@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>小米商城-小米6、红米Note 5A、小米5X、小米笔记本官方网站</title>
+  <link rel="stylesheet" href="./font/iconfont.css">
+  <link rel="shortcut icon" href="./mi/images/选区_030.png" />
+  <link rel="stylesheet" href="./bootstrap/dist/css/bootstrap.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul li {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .top_bg {
+      background: url("./mi/images/cms_15036338347649_FzwgO.jpg") no-repeat;
+      height: 120px;
+      width: 100%;
+      background-position: center 0;
+    }
+
+    .top_list {
+      background: #333;
+      height: 40px;
+      width: 100%;
+      position: relative;
+    }
+
+    .left_list {
+      float: left;
+    }
+
+    .left_list span,
+    .login span {
+      float: left;
+      line-height: 40px;
+      padding: 0 5px;
+      color: #424242;
+      font-size: 12px;
+    }
+
+    .top_list li {
+      float: left;
+      height: 40px;
+    }
+
+    .left_list a,
+    .login a,
+    .middle_list a {
+      font-size: 12px;
+      line-height: 40px;
+      color: #b0b0b0;
+    }
+
+    .left_list a:hover,
+    .login a:hover,
+    .middle_btleft a:hover {
+      color: #fff;
+    }
+
+    .car {
+      float: right;
+      width: 120px;
+      height: 40px;
+      font-size: 12px;
+      background: #424242;
+      margin-left: 10px;
+      position: relative;
+      line-height: 40px;
+      color: #b0b0b0;
+      text-align: center;
+    }
+
+    .car:hover {
+      color: #ff6700 !important;
+      background-color: #fff;
+    }
+
+    .car_msg {
+      height: 100px;
+      width: 316px;
+      text-align: center;
+      line-height: 100px;
+      position: absolute;
+      right: 0px;
+      top: 40px;
+      z-index: 2;
+      background-color: #fff;
+      color: #424242;
+      display: none;
+    }
+
+    .car_button {
+      float: left;
+      font-weight: bold;
+      margin-left: 25px;
+    }
+
+    .login {
+      float: right;
+    }
+
+    .top_bottom {
+      margin-top: 20px;
+      position: relative;
+    }
+
+    .w img {
+      width: 55px;
+      height: 55px;
+      float: left;
+    }
+
+    .search {
+      width: 272px;
+      float: right;
+      margin-top: 5px;
+      position: relative;
+    }
+
+    .search_button {
+      float: right;
+      width: 50px;
+      height: 50px;
+      border: 1px solid #e0e0e0;
+    }
+
+    .botton {
+      font-size: 24px;
+      line-height: 50px;
+      color: #616161;
+      padding: 14px;
+    }
+
+    .botton:hover {
+      background: #ff6700;
+      color: #fff;
+    }
+
+    .search_text {
+      height: 50px;
+      width: 223px;
+      border: 1px solid #e0e0e0;
+      float: left;
+      position: relative;
+      padding: 0 10px;
+      margin-right: -1px;
+    }
+
+    .input_tags {
+      height: 21px;
+      position: absolute;
+      top: 14px;
+      right: 62px;
+      z-index: 1;
+      font-size: 12px;
+    }
+
+    .input_tags a {
+      background-color: #eee;
+      line-height: 25px;
+      color: #757575;
+    }
+
+    .input_tags a:hover {
+      color: #fff;
+      background-color: #ff6700;
+    }
+
+    .search_lists {
+      width: 243px;
+      height: 330px;
+      background-color: #fff;
+      position: absolute;
+      left: 0;
+      top: 51px;
+      z-index: 10;
+      display: none;
+      border: 1px solid #ff6700;
+    }
+
+    .search_lists a {
+      display: inline-block;
+      color: #333;
+      font-size: 12px;
+      line-height: 26px;
+      width: 203px;
+      padding: 0 20px;
+    }
+
+    .search_lists li a:hover {
+      background-color: rgb(212, 233, 230);
+      color: #333;
+    }
+
+    .search_lists li a span:nth-child(1) {
+      float: left;
+      display: block;
+    }
+
+    .search_lists li a span:nth-child(2) {
+      float: right;
+      display: block;
+      color: #e0e0e0;
+    }
+
+    .list {
+      height: 88px;
+      width: 660px;
+      float: left;
+      padding-left: 110px;
+      position: relative;
+    }
+
+    .list li {
+      float: left;
+      line-height: 60px;
+      height: 88px;
+    }
+
+    .list a {
+      font-size: 16px;
+      color: #333;
+      padding: 26px 10px 50px;
+    }
+
+    .list a:hover {
+      color: #ff6700;
+    }
+
+    .images {
+      position: relative;
+      overflow: auto;
+      text-align: center;
+    }
+
+    .images img {
+      height: 460px;
+      width: 1226px;
+    }
+
+    .banner {
+      position: relative;
+      overflow: auto;
+      text-align: center;
+    }
+
+    .banner ul li {
+      float: left;
+    }
+
+    .middle_left {
+      width: 234px;
+      height: 427px;
+      float: left;
+      background-color: rgba(1, 7, 8, 0.5);
+      position: absolute;
+      padding: 20px 0;
+      z-index: 1;
+    }
+
+    .carousel-control{
+      left: 235px;
+    }
+
+    .middle_left ul {
+      float: left;
+    }
+
+    .middle_list li {
+      float: left;
+    }
+
+    .middle_list li a {
+      width: 204px;
+      font-size: 14px;
+      padding-left: 30px;
+      color: #fff;
+      display: block;
+    }
+
+    .middle_list li a:hover {
+      background-color: #ff6700;
+    }
+
+    .more {
+      float: right;
+      margin-right: 20px;
+    }
+
+    .imgleft,
+    .imgright {
+      font-size: 35px;
+      width: 41px;
+      height: 69px;
+      line-height: 69px;
+    }
+
+    .imgleft {
+      float: left;
+      position: absolute;
+      left: 240px;
+      top: 185px;
+    }
+
+    .imgright {
+      float: right;
+      position: absolute;
+      right: 0;
+      top: 185px;
+    }
+
+    .middle_bottom {
+      margin-top: 14px;
+    }
+
+    .middle_btleft {
+      width: 210px;
+      height: 170px;
+      font-size: 12px;
+      background: #5f5750;
+      float: left;
+      text-align: center;
+    }
+
+    .middle_btleft li {
+      position: relative;
+      float: left;
+      width: 70px;
+      height: 82px;
+      padding: 0 3px;
+    }
+
+    .middle_btleft li a {
+      color: rgba(255, 255, 255, 0.7);
+      display: block;
+      padding-top: 18px;
+      font-size: 12px;
+    }
+
+    .middle_btleft i {
+      display: block;
+      height: 24px;
+      margin-bottom: 4px;
+      font-size: 30px;
+      line-height: 24px;
+    }
+
+    .xiaotu {
+      float: left;
+    }
+
+    .xiaotu li {
+      float: left;
+      margin-left: 15px;
+    }
+
+    .xiaotu li img {
+      width: 295px;
+      height: 170px;
+    }
+
+    .bottom {
+      height: 340px;
+      margin-top: 20px;
+    }
+
+    .bottom ul {
+      width: 2480px;
+      text-align: center;
+    }
+
+    .bottom li {
+      float: left;
+      height: 300px;
+      width: 215px;
+      border-top-width: 1px;
+      border-top-style: solid;
+      background: #fafafa;
+      margin-right: 15px;
+      margin-top: 30px;
+    }
+
+    .bottom img {
+      width: 160px;
+      height: 160px;
+      padding: 0 35px 35px;
+    }
+
+    .bt_more {
+      float: right;
+      margin-top: 10px;
+    }
+
+    h2 {
+      display: inline;
+    }
+
+    h3 a {
+      color: #212121;
+      font-weight: 400;
+      font-size: 14px;
+    }
+
+    .p1 {
+      font-size: 12px;
+      color: #b0b0b0;
+      height: 18px;
+      margin: 5px 20px 12px;
+    }
+
+    .p2 {
+      color: #ff6709;
+      font-size: 14px;
+    }
+
+    .li1 {
+      border-top-color: #ffac13;
+    }
+
+    .li2 {
+      border-top-color: #83c44e;
+    }
+
+    .li3 {
+      border-top-color: #2196f3;
+    }
+
+    .li4 {
+      border-top-color: #e53935;
+    }
+
+    .li5 {
+      border-top-color: #00c0a5;
+    }
+
+    .more_left,
+    .more_right {
+      color: #757575;
+    }
+
+    .middle_btleft li::before {
+      top: 0px;
+      left: 6px;
+      width: 64px;
+      height: 1px;
+      position: absolute;
+      content: "";
+      background: #665e57;
+    }
+
+    .middle_btleft li::after {
+      top: 6px;
+      left: 0px;
+      width: 1px;
+      height: 70px;
+      position: absolute;
+      content: "";
+      background: #665e57;
+    }
+
+    .menu {
+      width: 100%;
+      height: 235px;
+      background: #fff;
+      position: absolute;
+      left: 0;
+      top: 88px;
+      border-top: 1px solid #e0e0e0;
+      display: none;
+      z-index: 5;
+    }
+
+    .menu li {
+      width: 160px;
+      height: 175px;
+      float: left;
+      padding: 40px 22px 20px;
+      position: relative;
+    }
+
+    .menu ul {
+      width: 1226px;
+      height: 235px;
+      margin: 0 auto;
+      text-align: center;
+      display: none;
+    }
+
+    .menu ul.active {
+      display: block;
+    }
+
+
+    .menu img {
+      width: 160px;
+      height: 110px;
+      margin-bottom: 15px;
+      border-right: 1px solid #e0e0e0;
+      padding-right: 21px;
+    }
+
+    .lastimg {
+      border-right: 0px !important;
+    }
+
+    .menu a {
+      text-align: center;
+      display: block;
+      font-size: 12px;
+      color: #333;
+    }
+
+    .menu p {
+      font-size: 12px;
+      color: #ff6709;
+    }
+
+    .zhineng {
+      color: #333 !important;
+      margin-top: 2px;
+    }
+
+    .flags {
+      position: absolute;
+      top: -1px;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .flag {
+      display: inline-block;
+      height: 18px;
+      padding: 1px 20px;
+      border: 1px solid #ff6700;
+      color: #ff6700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top_bg"></div>
+  <div class="top_list clearfix">
+    <div class="container">
+      <ul class="left_list clearfix">
+        <li><a href="#">小米商城</a></li>
+        <span>丨</span>
+        <li><a href="#">MIUI</a></li>
+        <span>丨</span>
+        <li><a href="#">米聊</a></li>
+        <span>丨</span>
+        <li><a href="#">游戏</a></li>
+        <span>丨</span>
+        <li><a href="#">多看阅读</a></li>
+        <span>丨</span>
+        <li><a href="#">云服务</a></li>
+        <span>丨</span>
+        <li><a href="#">金融</a></li>
+        <span>丨</span>
+        <li><a href="#">小米商城手机版</a></li>
+        <span>丨</span>
+        <li><a href="#">问题反馈</a></li>
+        <span>丨</span>
+        <li><a href="#">Select Region</a></li>
+      </ul>
+      <a class="car clearfix" href="#">
+        <i class="car_button iconfont">&#xe698;</i>购物车(0)
+        <div class="car_msg">
+          购物车中没有商品，赶紧选购吧！
+        </div>
+      </a>
+      <ul class="login">
+        <li><a href="#">登录</a></li>
+        <span>丨</span>
+        <li><a href="#">注册</a></li>
+        <span>丨</span>
+        <li><a href="#">消息通知</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="top_bottom clearfix container">
+    <div class="w clearfix">
+      <a href="#"><img src="./mi/images/选区_030.png" alt=""></a>
+      <div class="search clearfix">
+        <div class="search_button clearfix">
+          <i class="botton iconfont">&#xe8ba;</i>
+        </div>
+        <div class="input_tags clearfix">
+          <a href="">红米Note 5A</a>
+          <a href="">小米Max2</a>
+        </div>
+        <input class="search_text" type="text" value="">
+        <ul class="search_lists">
+          <li><a href="#"><span>小米6</span><span>约有7件</span></a></li>
+          <li><a href="#"><span>红米Note 4x</span><span>约有8件</span></a></li>
+          <li><a href="#"><span>小米Mix</span><span>约有1件</span></a></li>
+          <li><a href="#"><span>小米Max2</span><span>约有3件</span></a></li>
+          <li><a href="#"><span>小米手机5c</span><span>约有3件</span></a></li>
+          <li><a href="#"><span>手环</span><span>约有6件</span></a></li>
+          <li><a href="#"><span>耳机</span><span>约有19件</span></a></li>
+          <li><a href="#"><span>充电宝</span><span>约有19件</span></a></li>
+          <li><a href="#"><span>运动鞋</span><span>约有2件</span></a></li>
+          <li><a href="#"><span>路由器</span><span>约有17件</span></a></li>
+          <li><a href="#"><span>小米盒子</span><span>约有8件</span></a></li>
+        </ul>
+      </div>
+      <div class="menu">
+        <ul class="menu_xiaomi">
+          <li><a href="#"><img src="./mi/images/xiaomi6.png" alt=""></a>
+            <a href="#">小米6</a>
+            <p>2499元起</p>
+          </li>
+          <li><a href="#"><img src="./mi/images/xiaomiMix.png" alt=""></a>
+            <a href="#">小米Mix 2</a>
+            <p>1699元起</p>
+            <div class="flags">
+              <div class="flag">现货</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/xiaomi5x.jpg" alt=""></a>
+            <a href="#">小米5X</a>
+            <p>1299元起</p>
+            <div class="flags">
+              <div class="flag">新品</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/xiaomiNOTE2-320-220!160x110.jpg" alt=""></a>
+            <a href="#">小米Note 2</a>
+            <p>2799元起</p>
+            <div class="flags">
+              <div class="flag">下单立减500</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/MIX-320-220!160x110.jpg" alt=""></a>
+            <a href="#">小米Mix</a>
+            <p>3499元起</p>
+            <div class="flags">
+              <div class="flag">下单立减500</div>
+            </div>
+          </li>
+          <li><a href="#"><img class="lastimg" src="./mi/images/5s-12!160x110.jpg" alt=""></a>
+            <a href="#">小米5s</a>
+            <p>1999元起</p>
+            <div class="flags">
+              <div class="flag">下单立减200</div>
+            </div>
+          </li>
+        </ul>
+        <ul class="menu_hongmi">
+          <li><a href="#"><img src="./mi/images/note5abiao.png" alt=""></a>
+            <a href="#">红米Note 5A 标准版</a>
+            <p>699元</p>
+            <div class="flags">
+              <div class="flag">新品</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/note5agao.jpg" alt=""></a>
+            <a href="#">红米Note 5A 高配版</a>
+            <p>899元起</p>
+            <div class="flags">
+              <div class="flag">新品</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/note4x.jpg" alt=""></a>
+            <a href="#">红米Note 4X</a>
+            <p>999元起</p>
+          </li>
+          <li><a href="#"><img src="./mi/images/hm4x!160x110.jpg" alt=""></a>
+            <a href="#">红米4X</a>
+            <p>699元起</p>
+          </li>
+          <li><a href="#"><img class="lastimg" src="./mi/images/hongmi4.jpg" alt=""></a>
+            <a href="#">红米4</a>
+            <p>799元起</p>
+          </li>
+        </ul>
+        <ul class="menu_pingban">
+          <li><a href="#"><img src="./mi/images/mipad3_320.png" alt=""></a>
+            <a href="#">小米平板3 64GB</a>
+            <p>1499元</p>
+          </li>
+          <li><a href="#"><img src="./mi/images/bijiben32012.5!160x110.jpg" alt=""></a>
+            <a href="#">小米笔记本Air 12.5"</a>
+            <p>3599元</p>
+          </li>
+          <li><a href="#"><img class="lastimg" src="./mi/images/bijiben320!160x110.jpg" alt=""></a>
+            <a href="#">小米笔记本Air 13.3"</a>
+            <p>4799元</p>
+            <div class="flags">
+              <div class="flag">新品</div>
+            </div>
+          </li>
+        </ul>
+        <ul class="menu_dianshi">
+          <li><a href="#"><img src="./mi/images/xmds_49.png" alt=""></a>
+            <a href="#">小米电视4 49英寸</a>
+            <p>3499元</p>
+            <div class="flags">
+              <div class="flag">超薄旗舰</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/xmds_55.png" alt=""></a>
+            <a href="#">小米电视4 55英寸</a>
+            <p>4299元</p>
+            <div class="flags">
+              <div class="flag">超薄旗舰</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/dianshi465.png" alt=""></a>
+            <a href="#">小米电视4 65英寸</a>
+            <p>9999元</p>
+            <div class="flags">
+              <div class="flag">超薄旗舰</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/320_43.png" alt=""></a>
+            <a href="#">小米电视4A 43英寸</a>
+            <p>2099元</p>
+            <div class="flags">
+              <div class="flag">热卖</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/320_49.png" alt=""></a>
+            <a href="#">小米电视4A 49英寸</a>
+            <p>2599元起</p>
+            <div class="flags">
+              <div class="flag">热卖</div>
+            </div>
+          </li>
+          <li><a href="#"><img class="lastimg" src="./mi/images/70dianshi.png" alt=""></a>
+            <a href="#">查看全部</a>
+            <p class="zhineng">小米电视</p>
+          </li>
+        </ul>
+        <ul class="menu_hezi">
+          <li><a href="#"><img src="./mi/images/mihezi.png" alt=""></a>
+            <a href="#">小米盒子3s</a>
+            <p>329元</p>
+          </li>
+          <li><a href="#"><img src="./mi/images/mihezi (1).png" alt=""></a>
+            <a href="#">小米盒子3c</a>
+            <p>229元</p>
+          </li>
+          <li><a href="#"><img src="./mi/images/hezi3s!160x110.jpg" alt=""></a>
+            <a href="#">小米盒子3 增强版</a>
+            <p>399元</p>
+          </li>
+          <li><a href="#"><img class="lastimg" src="./mi/images/320x220.png" alt=""></a>
+            <a href="#">小米家庭影院</a>
+            <p>1999元</p>
+          </li>
+        </ul>
+        <ul class="menu_luyou">
+          <li><a href="#"><img src="./mi/images/HD-Pro.png" alt=""></a>
+            <a href="#">小米路由器 HD/Pro</a>
+            <p>499元起</p>
+            <div class="flags">
+              <div class="flag">大容量</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/3G.png" alt=""></a>
+            <a href="#">小米路由器 3G</a>
+            <p>249元</p>
+            <div class="flags">
+              <div class="flag">双千兆</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/xmlyq3.png" alt=""></a>
+            <a href="#">小米路由器 3</a>
+            <p>129元</p>
+            <div class="flags">
+              <div class="flag">双频</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/3C.png" alt=""></a>
+            <a href="#">小米路由器 3C</a>
+            <p>89元</p>
+            <div class="flags">
+              <div class="flag">包邮</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/dlm01.png" alt=""></a>
+            <a href="#">小米WiFi 电力猫</a>
+            <p>249元</p>
+            <div class="flags">
+              <div class="flag">新品</div>
+            </div>
+          </li>
+          <li><a href="#"><img class="lastimg" src="./mi/images/fdq2!160x110.jpg" alt=""></a>
+            <a href="#">小米WiFi放大器 2</a>
+            <p>49元</p>
+          </li>
+        </ul>
+        <ul class="menu_zhineng">
+          <li><a href="#"><img src="./mi/images/123321!160x110.jpg" alt=""></a>
+            <a href="#">小米无人机</a>
+            <p>2999元</p>
+            <div class="flags">
+              <div class="flag">航拍利器</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/sh2-320-220.png" alt=""></a>
+            <a href="#">小米手环2</a>
+            <p>149元</p>
+            <div class="flags">
+              <div class="flag">包邮</div>
+            </div>
+          </li>
+          <li><a href="#"><img src="./mi/images/jsqcs-320-220.png" alt=""></a>
+            <a href="#">小米净水器</a>
+            <p>1499元起</p>
+          </li>
+          <li><a href="#"><img src="./mi/images/saodijiqiren320-220!160x110.jpg" alt=""></a>
+            <a href="#">米家扫地机器人</a>
+            <p>1699元</p>
+          </li>
+          <li><a href="#"><img src="./mi/images/dfb!160x110.jpg" alt=""></a>
+            <a href="#">米家压力IH电饭煲</a>
+            <p>999元</p>
+          </li>
+          <li><a href="#"><img class="lastimg" src="./mi/images/air2!160x110.jpg" alt=""></a>
+            <a href="#">查看全部</a>
+            <p class="zhineng">智能硬件</p>
+          </li>
+        </ul>
+      </div>
+      <ul class="list clearfix">
+        <li class="xiaomi item"><a href="#">小米手机</a></li>
+        <li class="hongmi item"><a href="#">红米</a></li>
+        <li class="pingban item"><a href="#">平板·笔记本</a></li>
+        <li class="dianshi item"><a href="#">电视</a></li>
+        <li class="hezi item"><a href="#">盒子·影音</a></li>
+        <li class="luyou item"><a href="#">路由器</a></li>
+        <li class="zhineng item"><a href="#">智能硬件</a></li>
+        <li><a href="#">服务</a></li>
+        <li><a href="#">社区</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <div class="middle_left clearfix">
+        <ul class="middle_list clearfix">
+          <li><a href="#">手机 电话卡<i class="more iconfont">&#xe6a7;</i></a></li>
+          <li><a href="#">笔记本 平板<i class="more iconfont">&#xe6a7;</i></a></li>
+          <li><a href="#">电视 盒子<i class="more iconfont">&#xe6a7;</i></a></li>
+          <li><a href="#">路由器 智能硬件<i class="more iconfont">&#xe6a7;</i></a></li>
+          <li><a href="#">移动电源 电池 插线板<i class="more iconfont">&#xe6a7;</i></a></li>
+          <li><a href="#">耳机 音响<i class="more iconfont">&#xe6a7;</i></a></li>
+          <li><a href="#">保护套 贴膜<i class="more iconfont">&#xe6a7;</i></a></li>
+          <li><a href="#">线材 支架 存储卡<i class="more iconfont">&#xe6a7;</i></a></li>
+          <li><a href="#">箱包 服饰 鞋 眼镜<i class="more iconfont">&#xe6a7;</i></a></li>
+          <li><a href="#">米兔 生活周边<i class="more iconfont">&#xe6a7;</i></a></li>
+        </ul>
+      </div>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+
+      <!-- Wrapper for slides -->
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="./mi/images/xmad_1504686766558_dhASO.jpg">
+        </div>
+        <div class="item">
+          <img src="./mi/images/xmad_15046615549848_dyLzc.jpg">
+        </div>
+        <div class="item">
+          <img src="./mi/images/xmad_15032803312913_bjfBI.jpg">
+        </div>
+        <div class="item">
+          <img src="./mi/images/xmad_15032788265864_EBwRg.jpg">
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+  <div class="middle_bottom container">
+    <ul class="middle_btleft clearfix">
+      <li><a href="#"><i class="xuangou iconfont">&#xe601;</i>选购手机</a></li>
+      <li><a href="#"><i class="xuangou iconfont">&#xe603;</i>企业团购</a></li>
+      <li><a href="#"><i class="xuangou iconfont">&#xe60e;</i>F码通道</a></li>
+      <li><a href="#"><i class="xuangou iconfont">&#xe602;</i>米粉卡</a></li>
+      <li><a href="#"><i class="xuangou iconfont">&#xe600;</i>以旧换新</a></li>
+      <li><a href="#"><i class="xuangou iconfont">&#xe610;</i>话费充值</a></li>
+    </ul>
+    <ul class="xiaotu clearfix">
+      <li><a href="#"><img src="./mi/images/cms_15030252556075_PbnWv.jpg" alt=""></a></li>
+      <li> <a href="#"><img src="./mi/images/xmad_15035863419676_OXNRa.jpg" alt=""></a></li>
+      <li><a href="#"><img src="./mi/images/xmad_15036424541227_igcDS.jpg" alt=""></a></li>
+    </ul>
+
+
+  </div>
+  </div>
+
+  <div class="bottom container">
+    <div box-hd>
+      <h2>小米明星单品</h2>
+      <div class="bt_more">
+        <a href="#"><i class="iconfont">&#xe693;</i></a>
+        <a href="#"><i class="iconfont">&#xe694;</i></a>
+      </div>
+    </div>
+    <ul>
+      <li class="li1"><a href="#"><img src="./mi/images/xmad_14966625823457_RclIL.png" alt=""></a>
+        <h3><a href="#">红米4x</a></h3>
+        <p class="p1">4100mAh超长续航,8核处理器</p>
+        <p class="p2">699元起</p>
+      </li>
+      <li class="li2"><a href="#"><img src="./mi/images/xmad_14926862610682_UhkfS.png" alt=""></a>
+        <h3><a href="#">小米Mix</a></h3>
+        <p class="p1">6.4"全面屏,全陶瓷机身</p>
+        <p class="p2">3499元起</p>
+      </li>
+      <li class="li3"><a href="#"><img src="./mi/images/e991f1e2-20d8-40c3-bf1d-012b122c986b.png" alt=""></a>
+        <h3><a href="#">小米5s Plus</a></h3>
+        <p class="p1">5.7"大屏双摄像头,轻薄金属机身</p>
+        <p class="p2">2299元起</p>
+      </li>
+      <li class="li4"><a href="#"><img src="./mi/images/pms_1490077058.71391368!220x220.png" alt=""></a>
+        <h3><a href="#">小米电视4A 43英寸</a></h3>
+        <p class="p1">享小米分期12期免息</p>
+        <p class="p2">2099元</p>
+      </li>
+      <li class="li5"><a href="#"><img src="./mi/images/725a37e3-78b7-4298-8098-c40097bf179d.png" alt=""></a>
+        <h3><a href="#">小米笔记本</a></h3>
+        <p class="p1">更轻更薄,像杂志一样随身携带</p>
+        <p class="p2">3599元起</p>
+      </li>
+    </ul>
+  </div>
+
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <script src="./bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    $(".car").hover(function() {
+      $(".car_msg").show();
+    }, function() {
+      $(".car_msg").hide();
+    });
+
+    $(".search_text").focus(function() {
+      $(".input_tags").hide();
+      $(".search_lists").slideDown(100);
+      $(".search_button").css("border", "1px solid #ff6700");
+      $(".search_text").css("border", "1px solid #ff6700");
+    }).blur(function() {
+      $(".input_tags").show();
+      $(".search_lists").slideUp(100);
+      $(".search_button").css("border", "1px solid #e0e0e0");
+      $(".search_text").css("border", "1px solid #e0e0e0");
+    });
+
+    $(".imgleft").hover(function() {
+      $(".imgleft").css("background-color", "rgba(122, 119, 118, 0.5)");
+    }, function() {
+      $(".imgleft").css("background", "transparent");
+    });
+
+    $(".imgright").hover(function() {
+      $(".imgright").css("background-color", "rgba(122, 119, 118, 0.5)");
+    }, function() {
+      $(".imgright").css("background", "transparent");
+    });
+
+    $(".list li.item").each(function(index) {
+      $(".list li.item").eq(index).mouseenter(function() {
+        $(".menu").css("display", "block");
+        $(".menu ul").eq(index).addClass("active").siblings().removeClass("active")
+      });
+    });
+
+    //  菜单隐藏需要修改
+    $(".menu ul").mouseleave(function() {
+      $(".menu").css("display", "none");
+    });
+
+    $(document).ready(function(e) {
+      var unslider04 = $('#b04').unslider({
+          dots: true
+        }),
+        data04 = unslider04.data('unslider');
+      $('.unslider-arrow04').click(function() {
+        var fn = this.className.split(' ')[1];
+        data04[fn]();
+      });
+    });
+  </script>
+
+</body>
+
+</html>

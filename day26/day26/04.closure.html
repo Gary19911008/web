@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>闭包</title>
+</head>
+
+<body>
+
+
+  <script>
+
+  /*
+  闭包的缺点：
+  1. 闭包变量常驻内存，增加内存消耗
+  */
+    function fun() {
+      var a = [];
+
+      for (var i = 0; i < 5; i++) {
+          a[i] = function() {
+            console.log("我是: ", i);
+          };
+      }
+
+      return a;
+    }
+
+    var result = fun();
+    result[0]();
+    result[1]();
+    result[2]();
+    result[3]();
+    result[4]();
+
+
+    /*
+    经典闭包：
+    function fun(n,o) {
+    console.log(o);
+        return {
+            fun:function(m) {
+                return fun(m,n);
+            }
+        };
+      }
+      var a = fun(0);
+      a.fun(1);
+      a.fun(2);
+      a.fun(3);
+      var b = fun(0).fun(1).fun(2).fun(3);
+      var c = fun(0).fun(1);
+      c.fun(2);
+      c.fun(3);
+    */
+
+    /*
+    闭包：
+    1. 是什么？
+    2. 如何创建？
+    3. 优缺点？
+    4. 应用场景？
+    */
+  </script>
+
+</body>
+
+</html>

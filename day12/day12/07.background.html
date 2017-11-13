@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>背景</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .one {
+      width: 500px;
+      height: 300px;
+      border: 10px solid rgba(255, 0, 0, 0.2);
+      padding: 10px;
+      margin: 50px auto;
+
+      background-image: url("./xm.jpg");
+      background-repeat: no-repeat;
+
+      /*
+        contain: 背景图片 小于等于 元素
+        cover: 背景图片 大于等于 元素
+       */
+      /*background-size: cover;*/
+      background-size: 520px 320px;
+      /*width, height*/
+      /*一步到位，和元素宽高一致*/
+      /*background-size: 100% 100%;*/
+    }
+
+
+    .two {
+      width: 500px;
+      height: 300px;
+      padding: 10px;
+      border: 10px solid rgba(255, 0, 0, 0.2);
+      background-image: url("./xm.jpg");
+      /*background-repeat: no-repeat;*/
+      background-size: 300px 100px;
+
+      /*
+       设置背景图片从哪里开始,和background-position的参考点有关系
+       */
+      background-origin: border-box;
+      /*background-clip:  content-box;*/
+    }
+
+    .three {
+      width: 600px;
+      height: 500px;
+
+      background: url("./images/1.jpg") left top/300px 200px no-repeat,
+      url("./images/2.jpg") top right /300px 200px no-repeat,
+      url("./images/3.jpg") bottom right /300px 200px no-repeat,
+      url("./images/4.jpg") bottom left/300px 200px no-repeat;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="one"></div>
+  <div class="two"></div>
+  <div class="three"></div>
+
+</body>
+
+</html>

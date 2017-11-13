@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>display</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .one {
+      width: 200px;
+      height: 200px;
+      background: blue;
+    }
+
+    .inline_ele {
+      width: 500px;
+      height: 100px;
+      background: red;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <!--
+    display:用于改变行元素，块元素的特点
+    
+    行元素：默认display的值为 inline，普通行元素是不可以设置宽高的，设置无效。
+    input, img属于行元素的个例，可以设置宽高。
+    如果需要对行元素设置宽高，可以把display:inline-block 或者 block;
+
+    块元素：默认display的值为 block.
+    如果需要让块元素用于行元素的特点，可以把display:inline-block 或者 inline;
+    -->
+
+  <div class="one"></div>
+  <div class="one"></div>
+
+  <span class="inline_ele" >sjgjjh</span>
+  <span>kdjgkdjhkjhkjhkhjj</span>
+
+</body>
+
+</html>

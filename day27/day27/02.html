@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>修改原型</title>
+</head>
+
+<body>
+
+  <script>
+    function Person(name, age) {
+
+      // 实例化的每个对象独有的属性(不能共享)
+      this.name = name;
+      this.age = age;
+    }
+
+
+    //将共有的属性和方法添加到构造函数的原型上！！！！！
+    //注意区分，单个属性添加和整体赋值的区别
+    Person.prototype = {
+      constructor: Person,
+      sayHello: function() {
+        console.log("吃了吗？");
+      },
+      blackHair: true
+    };
+
+    console.log(Person.prototype);
+
+    var one = new Person('lisi', 20);
+    var two = new Person('zhangsn', 20);
+
+    console.log("one = ", one);
+    console.log("two = ", two);
+
+    one.sayHello();
+    two.sayHello();
+
+
+    console.log(one.blackHair); //true
+
+
+    //通过 constructor可以得到该对象是由那个构造函数产生的！！！！
+    console.log(one.constructor); //Person
+
+
+    //封装：隐藏实现细节，只对外提供接口即可！！！
+  </script>
+
+</body>
+
+</html>

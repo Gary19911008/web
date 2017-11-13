@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>2栏布局，左侧固定，右侧自适应</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .container-1,
+    .container-2 {
+      height: 200px;
+      margin-top: 50px;
+    }
+
+    .container-1 .left {
+      width: 200px;
+      height: 200px;
+      background: blue;
+      float: left;
+    }
+
+    .container-1 .right{
+      height: 200px;
+      margin-left: 200px;/*左边的宽度*/
+      background: yellow;
+    }
+
+    .container-1 .right-s {
+      width: 50px;
+      height: 50px;
+      background: #000;
+    }
+
+
+
+    /**********************************/
+
+
+    .container-2 {
+      position: relative;
+    }
+
+    .container-2 .left {
+      width: 200px;
+      height: 200px;
+      background: blue;
+      float: left;
+    }
+
+    .container-2 .right{
+      position: absolute;
+      top: 0;
+      left: 200px;
+      right: 0;
+      height: 200px;
+      background: yellow;
+    }
+
+
+  </style>
+</head>
+
+<body>
+
+  <!--第1种方法  -->
+  <div class="container-1">
+    <div class="left"></div>
+    <div class="right">
+      <div class="right-s"></div>
+    </div>
+  </div>
+
+  <!--第2种方法  -->
+  <div class="container-2">
+    <div class="left"></div>
+    <div class="right"></div>
+  </div>
+
+
+
+  <!--三栏布局，左右固定，中间自适应  -->
+
+
+
+
+</body>
+
+</html>

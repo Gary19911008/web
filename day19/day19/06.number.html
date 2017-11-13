@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>number转换</title>
+  </head>
+  <body>
+
+    输入： <input id="one" type="text" >
+    <button id="btn">点击转换为数字</button>
+    <h1>Number转换结果：<span id="show1"></span></h1>
+    <h1>parseInt转换结果：<span id="show2"></span></h1>
+    <h1>parseFloat转换结果：<span id="show3"></span></h1>
+
+
+    <script>
+
+    var input = document.getElementById('one');
+    var btn = document.getElementById('btn');
+    var show1 = document.getElementById('show1');
+    var show2 = document.getElementById('show2');
+    var show3 = document.getElementById('show3');
+
+    btn.onclick = function() {
+      // input输入框中的内容都是字符串形式，
+      // 使用Number转成数字
+      var result = Number(input.value);
+      console.log(result);
+      show1.innerHTML = result;
+
+
+      // input输入框中的内容都是字符串形式，
+      // 使用parseInt转成数字(整数),还可以指定进制去转换
+      result = parseInt(input.value);
+      // result = parseInt(input.value, 2);
+      // result = parseInt(input.value, 8);
+      // result = parseInt(input.value, 16);
+      console.log(result);
+      show2.innerHTML = result;
+
+
+      // input输入框中的内容都是字符串形式，
+      // 使用parseFloat转成 小数点
+      result = parseFloat(input.value);
+      console.log(result);
+      show3.innerHTML = result;
+    }
+
+
+    </script>
+
+
+
+  </body>
+</html>

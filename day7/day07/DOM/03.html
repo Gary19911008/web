@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      .color_red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="one">
+      <div class="one_s">xxx</div>
+      <div class="one_s">xxx</div>
+      <div class="one_s color_red">yyyy</div>
+      <p class="color_red">yyyy</p>
+    </div>
+    <ul class="two">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <div class="three">
+      <h2>three</h2>
+    </div>
+
+    <script src="../jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    /**************移除元素********************/
+    $(".one_s.color_red").remove();
+    // $(".color_red").remove(".one_s");
+
+    //删除所有子节点，但是自己的节点仍然存在
+    $(".two").empty();
+
+    //保存一下已经删除的元素，便于将来继续使用！！！！
+    var temp = $(".three:eq(0)").detach();
+    console.log(temp);//已经删除的元素
+
+    $(".one").before(temp);
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

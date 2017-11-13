@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>图片缩放</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+        width: 80%;
+        height: 150px;
+        margin: 10px auto;
+      }
+
+      h1 {
+        margin-top: 10px;
+        text-align: center;
+        height: 40px;
+        line-height: 40px;
+        background: gray;
+      }
+
+      li {
+        float:left;
+        margin-right: 40px;
+      }
+
+      .one li img,
+      .two li img {
+        transition: all 1s;
+      }
+      .one li:hover img {
+        transform: rotate(360deg) scale(1.2);;
+      }
+
+      .two  li:hover img {
+        transform: rotate(-360deg) scale(0.6);;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>顺时针旋转，放大</h1>
+    <ul class="one">
+      <li><img src="image/share1.png" alt=""></li>
+      <li><img src="image/share2.png" alt=""></li>
+      <li><img src="image/share3.png" alt=""></li>
+      <li><img src="image/share4.png" alt=""></li>
+      <li><img src="image/share5.png" alt=""></li>
+      <li><img src="image/share6.png" alt=""></li>
+    </ul>
+
+    <h1>逆时针旋转，缩小</h1>
+    <ul class="two">
+      <li><img src="image/share7.png" alt=""></li>
+      <li><img src="image/share8.png" alt=""></li>
+      <li><img src="image/share9.png" alt=""></li>
+      <li><img src="image/share10.png" alt=""></li>
+      <li><img src="image/share11.png" alt=""></li>
+      <li><img src="image/share12.png" alt=""></li>
+    </ul>
+  </body>
+</html>

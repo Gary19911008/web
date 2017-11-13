@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title> 封装函数,实现对象的克隆(必须是深度克隆)</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    function isPlainObject(o) {
+      return Object.prototype.toString.call(o) === '[object Object]';
+    }
+    function deepCopy(obj) {
+      var o;
+      if (typeof obj === 'object') {
+
+        if (isPlainObject(obj)) {
+          o = {};
+          for (var key in obj) {
+            o[key] = deepCopy(obj[key]);
+          }
+          return o;
+        } else {
+          o = [];
+          for (var i = 0; i < obj.length; i++) {
+            o[i] = deepCopy(obj[i]);
+          }
+          return o;
+        }
+      } else {
+        return obj;
+      }
+    }
+
+    var stu = {
+      name: 'lisi',
+      age: 22,
+      hobby: ["one", "two", {
+        three: [1, 2, 3]
+      }]
+    };
+    var result = deepCopy(stu);
+
+    result.hobby[2].three.push(4);
+    console.log("result = ", result);
+    console.log("stu = ", stu);
+  </script>
+
+</body>
+
+</html>

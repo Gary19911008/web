@@ -1,0 +1,51 @@
+// line
+/*
+comment
+*/
+
+h1 {
+  color: red;
+}
+
+
+$fontSize: 20px;
+$color:  yellow;
+$colorRgb: rgb(255,200,10);
+$border: 1px solid red;
+$value: item;
+$top: top;
+
+// values, nth($var,$index)
+$px: 20px 30px 40px 50px;
+$px2: 20px yellow, 30px green, 40px blue, 50px orange;
+
+
+//map  key:value
+$sizes: (h1: 50px, h2:40px, h3:30px, h4:20px);
+
+.one {
+  font-size: nth($px,3);
+  color: $colorRgb;
+}
+
+.two {
+  border: $border;
+  font-size: nth(nth($px2,3), 1) ;
+  color: nth(nth($px2,3),2);
+}
+
+
+// #{}
+
+.#{$value}{
+  background: yellow;
+}
+
+.three {
+   border-#{$top}: 1px solid green;
+}
+
+
+.four {
+  font-size: map-get($sizes, "h1");
+}

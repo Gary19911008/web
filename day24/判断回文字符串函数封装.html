@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>判断回文字符串</title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    /*
+    功能：判断字符串是否为回文
+    @arr, 数组
+    return : true, false
+    */
+
+    var str = "helloworldheheehehdlrowolleh"
+
+    function palindrome(str) {
+      return str === str.split("").reverse().join("");
+      }
+
+    console.log(palindrome(str));
+  </script>
+
+</body>
+
+</html>

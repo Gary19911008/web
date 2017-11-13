@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>错误处理</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    /*
+    var a = 10;
+    try {
+      //如果try中的代码出现了异常，异常会传递给catch
+      console.log(a);//语法错误不能捕获
+    } catch (e){
+      //catch的参数就是 捕获的错误对象
+      console.log(e);
+    } finally {
+      //finally在任何时候都执行（有错误，或者没错误）
+      console.log("finally...");
+    }
+    */
+
+
+    /*
+    try {
+      console.log(a);
+      //必须要添加catch，否则仍然会报错
+    } finally {
+      console.log("finally ....");
+    }
+    */
+
+    /*
+    错误处理的嵌套：只要外层有catch就可以捕获内层的错误，因为错误会向外传递.
+    如果没有catch，那就只有报错
+    */
+    try {
+      try {
+        console.log(a);
+      } finally {
+        console.log("嵌套的finally...");
+      }
+    } catch (e){
+      console.log("捕获错误：", e);
+    } finally {
+      console.log("外部的finally...");
+    }
+
+    console.log("正常执行后续的其他代码。。。");
+
+    </script>
+
+  </body>
+</html>

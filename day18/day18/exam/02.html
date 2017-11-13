@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>css hack</title>
+
+    <!--[if lt IE 8 ]>
+    <style>
+    .one {
+      color: red;
+    }
+    </style>
+    <![endif]-->
+
+    <!-- 属性hack  -->
+    <style>
+    .two {
+      font-size: 50px;
+      color: red;
+      _color: green;
+      *color: yellow;
+      color: blue\0;
+      color: purple\9;
+    }
+
+
+    /* For IE6 and earlier */
+    * html .three{ color: red; }
+
+     /* For IE7 */
+    *+ html .three{ color: green; }
+
+
+     /* For IE8+ and not IE */
+    /*.three:lang(zh-cmn-Hans) { color: blue; }*/
+
+    /* For IE9+ and not IE */
+    .three  { color: yellow; }
+    </style>
+  </head>
+  <body>
+
+    <div class="one">one的颜色</div>
+
+    <!-- 条件hack  -->
+    <!--[if lt IE 8 ]>
+    <p>小于 ie8的浏览器 可见</p>
+    <![endif]-->
+
+
+
+    <div class="two">two的颜色</div>
+
+
+
+    <!--选择器hack  -->
+    <div class="three">
+      three的颜色
+    </div>
+
+
+  </body>
+</html>

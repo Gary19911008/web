@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>节点访问</title>
+  </head>
+  <body>
+
+    <div>
+      <div id="one">one</div>xxxx<div>two</div>
+      <p>three</p>
+    </div>
+
+
+    <ul id="two">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
+
+
+    <div id="three">
+      <p>ksjhgdjhjhk</p>
+      <h2>ksjhgdjhjhk</h2>
+    </div>
+
+    <script type="text/javascript">
+    var one = document.getElementById("one");
+
+    //获得父节点
+    console.log(one.parentNode);//div
+    console.log(document.parentNode);
+
+    //兄弟节点
+    /*
+    nextSibling  将文本节点也识别为兄弟
+    nextElementSibling 只将标签识别为兄弟
+    */
+    console.log(one.nextSibling.nodeType);//3
+    console.log(one.nextElementSibling.nextElementSibling);
+
+    console.log(one.previousSibling);
+    console.log(one.previousElementSibling);
+
+
+    //子节点
+    var two = document.getElementById("two");
+    console.log(two.firstChild);
+    console.log(two.firstElementChild);
+    console.log(two.lastElementChild);
+
+
+    //任意子节点
+    console.log(two.childNodes);
+    console.log(two.children[2]);
+    console.log(two.children[4]);
+
+
+    var three = document.getElementById("three");
+    console.log(three.childNodes);
+    console.log(three.children);
+
+    
+    </script>
+  </body>
+</html>

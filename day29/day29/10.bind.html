@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>封装函数，实现自定义的bind函数</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+
+   /*
+   功能：实现类似于内置bind的功能
+   @context, 要bind的对象(this)
+   @handler, 要对handler函数进行绑定
+   return: 返回一个bind成功的新函数
+   */
+    function bind(context, handler) {
+      return function (){
+        return handler.apply(context);
+      };
+    }
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

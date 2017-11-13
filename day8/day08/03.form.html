@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>表单</title>
+  </head>
+  <body>
+
+    <form action="#" method="get"  >
+
+      <!-- value设置默认值
+      maxlength 最大字符个数
+    -->
+    <fieldset>
+
+      <legend>个人信息</legend>
+
+      用户名： <input type="text" name="username" value='hehe'  maxlength="10">  <br> <br>
+      密码： <input type="password" name="passwd"  value="123"> <br> <br>
+
+      <!--实现单选时，name要一样  -->
+      性别： <input type="radio" name="gender"  value="0"> 男
+      <input type="radio" name="gender" value="1">女 <br><br>
+      
+    </fieldset>
+
+      课程： <input type="checkbox"  name="sx"> 数学
+      <input type="checkbox" name="yw">语文   <br><br>
+
+      VIP: <input type="hidden"> <br><br>
+
+      <!-- accept 用于指定图片的类型
+      multiple允许多选
+    -->
+      <input type="file" name="file" multiple accept="image/*"> <br><br>
+
+
+      <!--
+      readonly只读，不能修改
+      checked 默认选中
+      disabled 禁止操作
+      -->
+      <input type="text" value="有本事你改一下" readonly> <br><br>
+
+      <input type="checkbox" checked disabled > 同意  <br><br>
+
+      <!--多行文本输入  设置 width height控制宽高 -->
+      <textarea name="text" cols="80" rows="5"></textarea> <br><br>
+
+
+      <!-- select下拉菜单
+      multiple="multiple" 多选，但是选项都显示
+      size="1"控制显示选项的个数
+    -->
+
+      <select name="food">
+        <option value="0">小葱拌豆腐</option>
+
+        <!--默认选项  -->
+        <option selected value="1">鱼香肉丝</option>
+        <option value="2">老虎菜</option>
+        <option value="3">油条</option>
+      </select>
+
+
+      <input type="reset" value="清空">
+      <input type="submit" value="注册">
+
+      <!--通过点击图片完成数据提交  -->
+      <!-- <input type="image" src="./images/zhaosi.jpg"> -->
+
+
+    </form>
+
+
+
+    <!--
+    1. 改造input type="file" 样式为 file.jpg
+    -->
+
+
+  </body>
+</html>

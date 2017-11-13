@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>运算符</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var a = 10, b = 3;
+    console.log(a + b);//13
+    console.log(a - b);//7
+    console.log(a * b);//30
+    console.log(a / b);//3.33333333
+    console.log(a % b);// 1
+
+
+    // 逻辑运算  and or not
+
+    // !取非
+    console.log(!10);
+    console.log(!0);
+    console.log(!true);
+    console.log(!false);
+    console.log(!'hello');
+    console.log(!'');
+
+    var c;
+    if (!c){
+      console.log("^_^!!!");
+    }
+
+
+    // && 逻辑与， 并且
+    /*
+     逻辑与的特点：短路
+     短路：与运算从左向右执行，一旦遇到一个为假的,那么后边的不再执行
+    */
+
+    console.log("*********************and********************");
+
+    console.log(10 && 0);//0
+    console.log(0 && 10);//0
+    console.log(10 && 20);//20
+    console.log(10 && true);//true
+    console.log(10 && false);//false
+
+    var d = 10;
+
+    //d++本身是一个表达式，只不过该表达式的值等于 没有自增1之前的值。
+    //d
+    console.log(10 && 20 && 30 && d++);//10
+    console.log(d);//11
+
+
+    var e = 10, f = 10;
+    var result1 = e++;
+
+    //++f本身是一个表达式，只不过该表达式的值等于 自增1之后的值。
+    var result2 = ++f;
+    console.log(result1,result2,e,f);
+
+
+    console.log((10<20) && (10<5));//false
+
+
+    console.log("*********************or********************");
+    /*
+     逻辑或的特点：短路, ||
+     短路：与运算从左向右执行，一旦遇到一个为真的,那么后边的不再执行
+    */
+
+    console.log(10 || false);//10
+    console.log(false || 10 || 20 );//10
+
+
+
+
+    console.log("*********************关系运算符********************");
+    console.log(10 > 20);
+    console.log(10 < 20);
+    console.log(10 < "23");
+    console.log("23" > "233");//,按照编码的大小去比较
+
+    console.log(10 > NaN);
+    console.log(10 < NaN);
+    console.log(10 == NaN);
+    console.log(NaN == NaN);//false
+
+
+    /*
+    ==  相等, 是先转换再比较
+    === 全等, 是仅比较而不转换
+    */
+
+    console.log(10 == "10");//true
+    console.log(10 === "10");//false
+
+    console.log(10 != "10");//false
+    console.log(10 !== "10");//true
+
+
+
+    console.log("*****************三目运算符************");
+
+// 如果表达式１的值为true, 那么表达式2的值会赋值给result;否则，表达式3的值会赋值给result
+    var result = 10 > 20 ?  'hello' : 'world';
+    console.log(result);
+
+    /*
+    if (10>20){
+    result = 'hello';
+    } else {
+    result = 'world';
+    }
+    */
+
+
+    //复合运算符
+    var a = 10, b = 20;
+    a += b; // a = a + b;
+    a -= b; // a = a - b;
+    a *= b; // a = a * b;
+    a /= b; // a = a / b;
+    a %= b; // a = a % b;
+
+
+    console.log("************逗号运算符*********");
+    /*
+    逗号运算符取最后一个的结果为整个表达式的结果,但是前边所有的表达式都会运算
+    */
+
+    var a = 10, b = 20, result;
+    result = (a++,a++,b++);
+    console.log(a,b,result);//
+
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

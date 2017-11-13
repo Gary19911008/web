@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>星座</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 350px;
+            height: 250px;
+            border: 1px solid gray;
+            margin: 100px auto;
+        }
+
+        .box h3 {
+            padding-left: 20px;
+            color: green;
+        }
+
+        .box-date {
+            height: 45px;
+            padding-left: 20px;
+        }
+
+        .box-date-back {
+            width: 50px;
+            height: 45px;
+            float: left;
+            background: url("./xingzuo/Icon.png") no-repeat;
+        }
+
+        .box-date select {
+            float: left;
+            margin-left: 15px;
+        }
+
+        .box-date .score {
+            height: 25px;
+            width: 170px;
+            float: left;
+            margin-left: 15px;
+            padding-top: 1px;
+        }
+
+        .score-span {
+            display: inline-block;
+            width: 80px;
+            height: 15px;
+            float: right;
+            margin-top: 3px;
+            background: url("./xingzuo/yunshi.png") no-repeat;
+        }
+
+        .score-span-span {
+            display: block;
+            width: 48px;
+            height: 15px;
+            background: url("./xingzuo/yunshi.png") no-repeat 0px -28px;
+        }
+
+        .content {
+            width: 100%;
+            height: 155px;
+            padding-top: 10px;
+            font-size: 12px;
+            color: pink;
+            text-indent: 2em;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h3>星座运势</h3>
+    <div class="box-date">
+        <div class="box-date-back" id="back-id"></div>
+        <select name="" id="select-id">
+            <option value="1">白羊座3.21-4.19</option>
+            <option value="2">白羊座</option>
+            <option value="3">白羊座</option>
+            <option value="4">白羊座</option>
+            <option value="5">白羊座</option>
+            <option value="6">白羊座</option>
+            <option value="7">白羊座</option>
+            <option value="8">白羊座</option>
+            <option value="9">白羊座</option>
+            <option value="10">白羊座</option>
+            <option value="11">白羊座</option>
+            <option value="12">白羊座</option>
+        </select>
+        <div class="score">今日运势：
+            <span class="score-span"><span class="score-span-span" id="score-id"></span></span>
+        </div>
+    </div>
+    <div class="content" id="content-id">
+        白羊座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热
+        情、阳光、乐观、坚强，对朋友也慷概大方性格直来直往，就是有点小脾气。白羊
+        男有大男人主义的性格，而白羊女就是女汉子的形象
+    </div>
+</div>
+
+
+<script>
+
+    var back = document.getElementById("back-id");
+    var sel = document.getElementById("select-id");
+    var score = document.getElementById("score-id");
+    var content = document.getElementById("content-id");
+
+    var s = [6,7,8,9,10,10,9,8,6,10,7,5];
+    var text = [
+        "白羊座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "狮子座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "水平座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "处女座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "射手座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "摩羯座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "双子座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "双鱼座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "天秤座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "金牛座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "巨蟹座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "天蝎座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象",
+
+        "天蝎座有一种让人看见就觉得开心的感觉，因为总是看起来都是那么地热 情、阳光、乐观、坚强，" +
+        "对朋友也慷概大方性格直来直往，就是有点小脾气。白羊男有大男人主义的性格，而白羊女就是女汉子的形象"
+    ];
+
+//    content.innerHTML = "<p>helloworld</p>";
+
+    sel.onchange = function () {
+        back.style.backgroundPosition = "0px " + (sel.value - 1) * (-50) + "px";
+        score.style.width = s[sel.value - 1] * 8 + "px";
+
+        //innerHTML属性用于修改该元素中的内容
+        content.innerHTML = text[sel.value - 1];
+    };
+
+</script>
+
+</body>
+</html>

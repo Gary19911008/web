@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>localStorage</title>
+  </head>
+  <body>
+
+    <h1> 02.localStorage.html</h1>
+
+    <script type="text/javascript">
+
+    for (var key in localStorage) {
+      console.log(localStorage[key]);
+    }
+
+    window.onstorage = function(event){
+      // 02 页面
+      console.log("event.key ", event.key);
+      console.log("event.oldValue", event.oldValue);
+      console.log("event.newValue", event.newValue);
+    }
+
+    </script>
+
+  </body>
+</html>

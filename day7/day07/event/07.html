@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>使用on方法进行事件绑定,通用的事件绑定方法</title>
+      <style>
+      #divId {
+        width: 200px;
+        height: 100px;
+        background: blue;
+      }
+    </style>
+  </head>
+  <body>
+
+    <button id="btn">按钮</button>
+
+    <button id="btn2">单击改变div的背景色</button>
+    <div id="divId"></div>
+
+    <script src="../jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+    /*
+     $("#btn").click(function(){....});
+    */
+    //on方法也可以绑定多个事件处理函数
+    $("#btn").on('click', function () {
+      console.log("click 1....");
+    }).on('click', function(){
+      console.log("click 2....");
+    });
+
+    $("#btn").on('dblclick', function () {
+      console.log("dbclick 1....");
+    });
+
+
+    /***************自定义事件的注册和触发**********************************/
+
+    //注册自定义的事件
+    $("#divId").on("changeColor", function(){
+      $("#divId").css("background-color", "red");
+    });
+
+    //btn2单击时，触发changeColor事件
+    $("#btn2").on('click', function(){
+
+      //trigger触发自定义的事件
+      $("#divId").trigger("changeColor");
+    });
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

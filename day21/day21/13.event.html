@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>event</title>
+    <style media="screen">
+      body {
+        height: 2000px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+      document.onkeydown = function (event) {
+
+        // 键盘
+        console.log("event.key", event.key);
+        console.log("event.code", event.code);
+      };
+
+      document.onclick = function (event) {
+
+        //屏幕
+        console.log("event.screenX ", event.screenX);
+        console.log("event.screenY ", event.screenY);
+
+        //浏览器可视窗口
+        console.log("event.clientX", event.clientX);
+        console.log("event.clientY", event.clientY);
+
+        //整个页面
+        console.log("event.pageX", event.pageX);
+        console.log("event.pageY", event.pageY);
+
+
+        //
+        console.log("event.button", event.button);
+        console.log("event.which", event.which);
+      };
+
+
+      //右键
+      document.oncontextmenu = function (event) {
+        console.log(event.button);
+      };
+
+    </script>
+
+  </body>
+</html>

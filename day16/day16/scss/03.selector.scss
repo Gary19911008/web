@@ -1,0 +1,32 @@
+// selector nest
+
+.one {
+  color: yellow;
+  height: 200px;
+  line-height: 200px;
+
+  .one_1 {
+    font-size: 50px;
+    color: green;
+    .one_1_1 {
+      background: red;
+    }
+
+    &::before {
+      content:"before ....";
+    }
+  }
+  &::before {
+    content:"before ....";
+  }
+}
+
+.two {
+  div {
+    color: green;
+  }
+
+  >div {
+    font-size: 100px;
+  }
+}

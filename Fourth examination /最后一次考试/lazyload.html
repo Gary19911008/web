@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>图片延迟加载的原理</title>
+  <style>
+    body,html {
+      height: 100%;
+      background: lightgreen;
+    }
+
+    img {
+      width: 300px;
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div>
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+    <img src="./1.jpg" originSrc="./1.jpg" alt="">
+
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+    <img src="./lazyload.gif" originSrc="./1.jpg" alt="">
+  </div>
+
+
+
+  <script src="./jquery-3.0.0.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    $(function() {
+      var imgs = $('img');
+      var count = 0;
+
+      //当前垂直滚动距离
+      var current = 0;
+      var clientHeight = $(window).height();
+
+      //可以根据浏览器的窗口变化重新计算
+      $(window).resize(function(){
+        clientHeight = $(window).height();
+      });
+
+      $(window).scroll(function() {
+        current = $(window).scrollTop();
+
+        //each方法是jQuery中的方法，不是数组上！！！
+        imgs.each(function(index, elem) {
+          //此处的elem,是DOM对象
+          //使用$(elem)
+          if (!elem.isSet) {
+
+            //当图片出现在浏览器的可视窗口的范围内
+            if ((current + clientHeight) > $(elem).offset().top) {
+              var imgSrc = $(elem).attr("originSrc"); //获得标签上的特性
+              $(elem).attr("src", imgSrc);
+              elem.isSet = true; //确保加载之后不再重复加载
+
+              //注册加载成功事件
+              $(elem).on('load', function() {
+                console.log(++count);
+              });
+            }
+          }
+        });
+      });
+    });
+
+  </script>
+
+</body>
+
+</html>

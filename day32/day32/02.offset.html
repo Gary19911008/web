@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>offset动画</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .ctrl button {
+        width: 100px;
+        height: 80px;
+        text-align: center;
+      }
+
+      #box {
+        width: 100px;
+        height: 100px;
+        background: green;
+        border-radius: 50%;
+        position: absolute;
+        top: 100px;
+        left: 0px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="ctrl">
+      <button id="go">go</button>
+      <button id="back">back</button>
+    </div>
+
+    <div id="box"></div>
+
+    <script src="./jquery.min.js" charset="utf-8"></script>
+    <script src="./move.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+    var box = document.getElementById("box");
+    var timer;
+
+    $("#go").click(function(){
+      //向右移动
+      linearMove(box, 1500);
+    });
+
+    $("#back").click(function(){
+      //向左移动
+      slowDownMove(box, 10);
+    });
+
+    </script>
+
+  </body>
+</html>

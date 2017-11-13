@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>for循环</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var i;
+
+
+    /*
+    条件可以省略，但是“;”不能省略
+    */
+    for (i = 0; i < 10 ;i++) {
+      console.log(i);
+    }
+
+    console.log("after for....");
+
+
+    for (var j = 10; j < 20; j = j + 2){
+      console.log(j);
+    }
+    //
+    // for (;;){
+    //   //死循环
+    //   console.log("xxx");
+    // }
+
+    // for(var j = 0; j < 10;){
+    //   console.log("yyy");
+    // }
+
+
+    //a仍然属于全局变量
+    for (var a = 10; a > 0; a--){
+      console.log(a);
+    }
+
+    console.log(a);
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

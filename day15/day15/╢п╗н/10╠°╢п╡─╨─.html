@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>跳动的心</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html, body {
+        height: 100%;
+        background: #ffa5a5;
+      }
+
+      .box {
+        width: 500px;
+        height: 500px;
+        position: relative;
+        margin: 100px auto;
+      }
+      .left,
+      .right {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        box-shadow: 0 0 50px #d5093c;
+        animation: run 1s ease  infinite;
+      }
+
+      .left {
+        left: 50%;
+        margin-left: -20px;
+      }
+      .right {
+        right: 50%;
+        margin-right: -20px;
+      }
+
+      .center {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        box-shadow: 0 0 50px #d5093c;
+        transform: rotate(45deg);
+        left: 50%;
+        margin-left: -100px;
+        top: 50%;
+        margin-top: -170px;
+        animation: run 1s ease  infinite;
+      }
+
+      @keyframes run {
+        0% {
+          /*其中rotate是为了保证正方形的的方向不变*/
+          transform:  rotate(45deg) scale(1);
+        }
+        50% {
+          transform: rotate(45deg) scale(1.2);
+        }
+        100% {
+          transform:  rotate(45deg) scale(1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="left"></div>
+      <div class="center"></div>
+      <div class="right"></div>
+    </div>
+
+  </body>
+</html>

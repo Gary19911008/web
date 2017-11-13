@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>小汽车动画</title>
+    <style media="screen">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+
+      .img{
+        width:150px;
+        height: 100px;
+        background: url("./day14/image/car.jpg") no-repeat;
+        background-size: 150px 100px;
+        margin-top: 500px;
+        animation:run 2s linear infinite forwards;
+        position: absolute;
+
+      }
+
+      @keyframes run {
+        0%{
+          width:150px;
+          height: 100px;
+          transform: skewX(45deg);
+          left:0px;
+
+        }
+
+
+
+        20%{
+          width:150px;
+          height: 100px;
+          transform:skewX(0deg);
+          left: 300px;
+        }
+
+
+        80%{
+          width:150px;
+          height: 100px;
+          transform:skewX(0deg);
+          left: 1400px;
+        }
+
+        99%{
+          width:150px;
+          height: 100px;
+          transform: skewX(-20deg);
+          left: 1600px;
+
+        }
+
+
+        100%{
+          width:150px;
+          height: 100px;
+          transform: skewX(0deg);
+          left:1600px;
+
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="img"></div>
+
+  </body>
+</html>

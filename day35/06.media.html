@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>多媒体标签</title>
+  </head>
+  <body>
+
+    <!-- controls面板
+    loop循环播放
+    autoplay
+    -->
+    <audio controls  loop>
+      <!-- source用于指定音频，按照顺序，直到找到一个支持的格式为止  -->
+      <source src="./music1.ogg">
+      <source src="./12306.wav">
+      <source src="./music1.mp3">
+    </audio>
+
+    <hr>
+
+    <!--.
+    poster属性用于给视频指定封面
+    -->
+    <video  id="video-1" width="500" height="300" controls poster="./poster.jpg">
+      <source src="./video/chrome.ogv">
+      <source src="./video/fun.mp4">
+    </video>
+
+
+    <!-- https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLMediaElement video的参考文档 -->
+    <!--编写自定义的面板  -->
+    <!--
+    需要知识：
+    1. 视频的信息（时间长度）, v.duration
+    2. 快进，快退 video.current += 5;
+    3. 静音, video.muted = true
+    4. 加速，减速 video.palybackRate [0.25, 0.5]
+    5. 当前播放进度  video.currentTime
+    6. 音量的调节 video.volume [0,1.0]
+   -->
+
+
+   <script type="text/javascript">
+
+   var v = document.getElementById("video-1");
+
+   console.log(v.duration);
+
+   //loadedmetadata, 事件在元信息加载完毕之后触发
+   v.addEventListener('loadedmetadata', function(){
+     console.log("视频元信息加载完毕！");
+     console.log("视频总长为 %ds！", v.duration);
+
+   },false);
+
+
+
+   </script>
+
+
+
+  </body>
+</html>

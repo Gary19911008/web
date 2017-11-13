@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+     .one::first-letter {
+       font-size: 50px;
+       font-weight: bolder;
+     }
+
+
+     /*
+     浏览器的兼容性问题
+     */
+     .two::-webkit-input-placeholder{
+       color: blue;
+     }
+
+     .two::-ms-input-placeholder {
+       color: blue;
+     }
+
+     .two::-moz-placeholder {
+       color: blue;
+     }
+
+
+     /*
+     selection文本选中时，修改color，background-color
+     */
+     .two::selection {
+       color: red;
+       background: blue;
+     }
+
+    </style>
+  </head>
+  <body>
+
+    <p class="one">我skhjkdkdjkjdkhjdkljhkdjhkldjklhjfdkjhlkfjkjkjkjhkhjk</p>
+
+
+    <input class="two" type="text" placeholder="邮箱/用户名/手机号">
+
+    <p class="two">
+      skjgksjksdjkjdkhjkdjkdjhjdlhjkdljhlkdjhkdjglkjalkjPKGOWUTOJKGJEGLKDSJG <br>
+      skjgksjksdjkjdkhjkdjkdjhjdlhjkdljhlkdjhkdjglkjalkjPKGOWUTOJKGJEGLKDSJG <br>
+      skjgksjksdjkjdkhjkdjkdjhjdlhjkdljhlkdjhkdjglkjalkjPKGOWUTOJKGJEGLKDSJG <br>
+      skjgksjksdjkjdkhjkdjkdjhjdlhjkdljhlkdjhkdjglkjalkjPKGOWUTOJKGJEGLKDSJG <br>
+      skjgksjksdjkjdkhjkdjkdjhjdlhjkdljhlkdjhkdjglkjalkjPKGOWUTOJKGJEGLKDSJG <br>
+      skjgksjksdjkjdkhjkdjkdjhjdlhjkdljhlkdjhkdjglkjalkjPKGOWUTOJKGJEGLKDSJG <br>
+    </p>
+
+
+
+  </body>
+</html>

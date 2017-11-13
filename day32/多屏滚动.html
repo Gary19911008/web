@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>多平滚动</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    .ul1 {
+      width: 100%;
+      height: 100%;
+    }
+
+    .ul1 li {
+      width: 100%;
+      height: 100%;
+    }
+
+    .ul2 {
+      position: fixed;
+      left: 20px;
+      top: 300px;
+    }
+
+    .ul2 li {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="ul1" id="ul1-id">
+    <li>第一屏</li>
+    <li>第二屏</li>
+    <li>第三屏</li>
+    <li>第四瓶</li>
+  </ul>
+
+  <ul class="ul2" id="ul2-id">
+    <li>one</li>
+    <li>two</li>
+    <li>three</li>
+    <li>four</li>
+  </ul>
+
+  <script src="./getScroll.js" charset="utf-8"></script>
+  <script src="./slowDown.js" charset="utf-8"></script>
+
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var colors = ["red", "blue", "green", "yellow"];
+    var u1 = $("#ul1-id");
+    var u2 = $("#ul2-id");
+
+    var l1s = u1.children();
+    var l2s = u2.children();
+
+    var sHeight = l1s.eq(0).height();
+
+    var current = 0;
+    var timer = null;
+
+    window.onscroll = function(){
+      current = getScroll().top;
+    };
+
+    for (var i = 0; i < l1s.length; i++) {
+      l1s.eq(i).css("backgroundColor", colors[i]);
+      l2s.eq(i).css("backgroundColor", colors[i]);
+
+      l2s.eq(i).on("click",i,function(event){
+        var target = event.data * sHeight;
+        slowDown(target);
+      });
+    }
+
+
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>exec方法</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    //RegExp.prototype.exec()
+    /*
+    i， 标志位， 忽略大小写 ignore
+    */
+    var pattern = /quick\s(brown).+?(jumps)/ig;
+    var result = null;
+    var src = "The Quick Brown Fox Jumps Over The Lazy Dog The Quick Brown Fox Jumps Over The Lazy Dog The Quick Brown Fox Jumps Over The Lazy Dog";
+
+    // while (result = pattern.exec(src))
+    while ((result = pattern.exec(src)) != null) {
+
+      console.log("本次次result ", result);
+
+      //pattern上属性 lastIndex 保存的是下一次开始查找的位置
+      console.log("下一次 pattern.lastIndex", pattern.lastIndex);
+    }
+
+
+  </script>
+
+</body>
+
+</html>

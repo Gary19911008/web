@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <div id="items">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+    </div>
+
+
+    <ul id="lists">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+
+    <script>
+
+    // 创建节点
+    var one = document.createElement("div");
+    // var two = document.createElement("<div>");//不可以带 <>符号
+
+    // 给创建的节点添加内容
+    one.innerHTML = "我是新来的div";
+    one.innerHTML = "<h1 style='color:red;'>我才是新来的div</h1>"
+
+    //将创建的节点插入到body的最后位置
+    // document.body.appendChild(one);
+
+
+    var two = document.createElement("div");
+    two.innerHTML = "<h1 style='color:green;'>green颜色</h1>"
+
+
+    var items = document.getElementById("items");
+    var old = items.children[1];
+
+    //在items的子元素old之前，插入一个新的one元素
+    items.insertBefore(one,old);
+
+    //如果第二个参数为null,那么insertBefore的功能和appendChild一样
+    items.insertBefore(two,null);
+
+
+
+
+    // 删除节点 removeChild
+    var lists = document.getElementById("lists");
+
+    //保存了删除的节点，便于将来使用
+    var delNode = lists.removeChild(lists.firstElementChild);
+
+
+
+    /*
+    表格：
+    var stus = [
+    [lisi,20,88],[zhangsan,18,59],[zhaosi,40,30],[wangwu,30,66],[zhaoliu,34,67],[wangqi,78,90]
+    ];
+    要求：
+    1. 每一行的末尾都有一个删除按钮，点击删除该行
+    2. 使用原生js，不能用Jquery
+    */
+
+
+
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

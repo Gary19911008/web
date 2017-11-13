@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>自定义动画</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    #box {
+      width: 100px;
+      height: 100px;
+      background: red;
+      position: absolute;
+      top: 100px;
+      left: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <button id="forward">前进</button>
+  <button id="backward">后退</button>
+
+  <div id="box"></div>
+
+  <script type="text/javascript">
+
+  var forward = document.getElementById("forward");
+  var backward = document.getElementById("backward");
+  var box = document.getElementById("box");
+
+
+  var timer;
+  forward.onclick = function(){
+    //一定要先清除定时，确保只有一个定时器
+    clearInterval(timer);
+    timer = setInterval(function(){
+      box.style.left = box.offsetLeft  + 50 + "px";
+
+      if (box.offsetLeft > 1600) {
+        clearInterval(timer);
+      }
+
+    }, 50);
+  };
+
+  backward.onclick = function(){
+    //一定要先清除定时，确保只有一个定时器
+    clearInterval(timer);
+    timer = setInterval(function(){
+      box.style.left = box.offsetLeft  - 50 + "px";
+      if (box.offsetLeft <= 0) {
+        clearInterval(timer);
+      }
+    }, 50);
+  };
+
+
+  /*
+  封装函数，实现水平匀速移动
+  function move(elem,step,interval,target);
+  @elem, 要移动的元素
+  @step, 每一次移动的步长(px)
+  @interval, 定时器的间隔时间
+  @target, 最终位置
+  */
+
+  /*
+  封装函数，实现水平减速移动
+  function move(elem,step,interval,target);
+  @elem, 要移动的元素
+  @step, 每一次移动的步长(px)
+  @interval, 定时器的间隔时间
+  @target, 最终位置
+  */
+
+
+  /*
+  百度心电图  http://home.baidu.com/
+
+  编写鼠标放大镜效果
+  */
+
+
+
+
+  </script>
+
+</body>
+
+</html>

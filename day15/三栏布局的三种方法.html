@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>三栏布局的三种方法</title>
+    <style media="screen">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+
+      /*三栏布局的第一种方法 使用浮动*/
+
+      .left{
+        width: 300px;
+        height: 200px;
+        background: blue;
+        float: left;
+      }
+
+      .right{
+        width: 300px;
+        height: 200px;
+        background: red;
+        float: right;
+      }
+
+      .middle{
+        height: 200px;
+        margin-left: 300px;
+        margin-right: 300px;
+        background: yellow;
+      }
+
+      /*三栏布局的第二中方法 定位*/
+
+      .one{
+        width: 300px;
+        height: 200px;
+        background: blue;
+        position: absolute;
+        left: 0;
+        top: 300px;
+      }
+
+      .two{
+        height: 200px;
+        background: yellow;
+        position: absolute;
+        left: 300px;
+        right: 300px;
+        top: 300px;
+      }
+
+      .three{
+        width: 300px;
+        height: 200px;
+        background: red;
+        position: absolute;
+        right: 0;
+        top: 300px;
+      }
+      /*三栏布局第三种方法 使用伸缩盒子  在父级设置display:flex是子元素伸缩*/
+      .four{
+        width: 100%;
+        height: 200px;
+        margin-top: 400px;
+        display: flex;
+
+      }
+
+      .four>div:nth-child(1){
+        width: 300px;
+        height: 200px;
+        background: blue;
+        /*设置子元素的扩展比例和收缩为0使其大小固定*/
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+      .four>div:nth-child(2){
+        height: 200px;
+        background: yellow;
+        /*设置子元素的扩展比例和收缩为1使其填充大小*/
+        flex-grow: 1;
+        flex-shrink: 1;
+      }
+
+      .four>div:nth-child(3){
+        width: 300px;
+        height: 200px;
+        background: red;
+        /*设置子元素的扩展比例和收缩为0使其大小固定*/
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+
+
+
+
+    </style>
+  </head>
+  <body>
+
+    <!--三栏布局的第一种方法 使用浮动 middle一定要写在左右两个盒子之后,否则讲把右边的盒子挤下去-->
+    <div class="left"></div>
+    <div class="right"></div>
+    <div class="middle"></div>
+
+    <!--三栏布局的第二种方法  使用定位  -->
+
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+
+    <!-- 三栏布局第三中方法  使用伸缩盒子 -->
+    <div class="four">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+  </body>
+</html>

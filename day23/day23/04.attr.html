@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>属性，特性</title>
+    <style>
+      .vs {
+        width: 100px;
+        height: 100px;
+        background: green;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="box" name="1,2,3,4,5" class="vs">特性vs属性</div>
+
+    <script type="text/javascript">
+      var box = document.getElementById("box");
+
+
+      // 特性(直接写在开始标签中，比如：id,name,class)的操作
+
+      //获得指定的特性值,可以利用自定义特性来在标签上存储数据
+      console.log(box.getAttribute("name"));
+      console.log(box.getAttribute("id"));
+      console.log(box.getAttribute("class"));
+
+
+      //设置特性
+      // box.setAttribute(name,value);
+      var preClass = box.getAttribute('class');
+      box.setAttribute('class',  preClass + " " +  "vs2");
+
+
+      //删除特性
+      // box.removeAttribute('name');
+
+
+      /*
+       查询： jQuery  attr,prop
+      */
+
+      console.log("*****************属性********************");
+      console.log(box.id);//id,属性和特性一样
+      console.log(box.name);//没有该属性
+      console.log(box.class);//undefined
+      console.log(box.className);//类名
+      box.className += " vs3";
+
+
+      //通过属性来设置样式style
+
+      //通过style无法获得用css样式表设置的属性
+      console.log(box.style.width);
+      console.log(box.style.height);
+      console.log(box.style.backgroundColor);
+
+
+    </script>
+
+  </body>
+</html>

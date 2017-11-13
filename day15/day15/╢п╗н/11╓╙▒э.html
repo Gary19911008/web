@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>钟表</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .clock {
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+        border: 10px solid #000;
+        border-radius: 110px;
+        position: relative;
+      }
+      .line1, .line2, .line3, .line4,
+      .line5, .line6 {
+        width: 4px;
+        height: 200px;
+        background: gray;
+        position: absolute;
+        left: 50%;
+        margin-left: -1px;
+        opacity: 0.6;
+      }
+      .line1 {
+        width: 6px;
+      }
+      .line2 {
+        transform: rotate(30deg);
+      }
+      .line3 {
+        transform: rotate(60deg);
+      }
+      .line4 {
+        width: 6px;
+        transform: rotate(90deg);
+      }
+      .line5 {
+        transform: rotate(120deg);
+      }
+      .line6 {
+        transform: rotate(150deg);
+      }
+      .cover {
+        width: 164px;
+        height: 164px;
+        border-radius: 50%;
+        background: yellow;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -82px;
+        margin-top: -82px;
+        /*background: yellow;*/
+        background: #FFF;
+      }
+
+      .dot {
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        border-radius: 50%;
+        background: #000;
+        top: 50%;
+        left: 50%;
+        margin-left: -10px;
+        margin-top: -10px;
+        z-index: 2;/*让表心显示在最上边*/
+      }
+
+      .hour {
+        width: 6px;
+        height: 48px;
+        position: absolute;
+        background: #000;
+        top: 50%;
+        left: 50%;
+        margin-left: -3px;
+        margin-top: -48px;
+        transform-origin: bottom center;
+        animation: run 43200s  infinite;
+      }
+
+      .min {
+        width: 4px;
+        height: 60px;
+        position: absolute;
+        background: #000;
+        top: 50%;
+        left: 50%;
+        margin-left: -2px;
+        margin-top: -60px;
+        transform-origin: bottom center;
+        animation: run 3600s  infinite;
+      }
+      .sec {
+        width: 2px;
+        height: 75px;
+        position: absolute;
+        background: red;
+        top: 50%;
+        left: 50%;
+        margin-left: -1px;
+        margin-top: -75px;
+        transform-origin: bottom center;
+
+        /*steps用于指定动画的函数，指定步数为60步*/
+        animation: run 60s steps(60) infinite;
+      }
+
+      @keyframes run {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+      <div class="line4"></div>
+      <div class="line5"></div>
+      <div class="line6"></div>
+      <div class="cover"></div>
+      <div class="dot"></div>
+      <div class="hour"></div>
+      <div class="min"></div>
+      <div class="sec"></div>
+    </div>
+
+  </body>
+</html>

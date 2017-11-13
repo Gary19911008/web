@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>字符串</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+      var str = "helloworlddlrowolleh";
+
+      //判断是否回文？？？
+      function isPlaindrom(str){
+        var newStr = str.split('');
+        return str === (newStr.reverse().join(''));
+      }
+      
+      console.log(isPlaindrom(str));
+
+
+    </script>
+
+  </body>
+</html>

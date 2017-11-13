@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>this</title>
+  </head>
+  <body>
+
+    <button id="btn">按钮</button>
+
+    <script type="text/javascript">
+      var btn = doucment.getElementById('btn');
+
+      btn.onclick = function(){
+        console.log(this); //btn
+      }
+
+      console.log(this);//window
+    </script>
+
+  </body>
+</html>

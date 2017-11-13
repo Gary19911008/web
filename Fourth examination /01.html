@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=`device-width`, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>网页加载进度条</title>
+  <style media="screen">
+
+     *{
+       margin: 0;
+       padding: 0;
+     }
+
+    .loading {
+      height: 50px;
+      background: #FF6100;
+      position: fixed;
+      top: 0;
+      z-index: 99999;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="jquery.min.js" charset="utf-8"></script>
+  <div class="loading"></div>
+  <div id="header"></div>
+  <script type="text/javascript">
+    $('.loading').animate({'width': '33%'}, 50);
+  </script>
+  <div id="mainpage"></div>
+  <script type="text/javascript">
+    $('.loading').animate({'width': '55%'}, 50);
+  </script>
+  <div id="sider"></div>
+  <script type="text/javascript">
+    $('.loading').animate({'width': '80%'}, 50);
+  </script>
+  <div id="footer"></div>
+  <script type="text/javascript">
+    $('.loading').animate({'width': '100%'}, 50);
+  </script>
+
+</body>
+
+</html>

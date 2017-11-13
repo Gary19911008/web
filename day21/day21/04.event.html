@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>原生事件event</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .one {
+        width: 200px;
+        height: 200px;
+        background: blue;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function clickDiv(){
+      alert("我被点了。。。");
+    }
+    </script>
+
+    <!-- html中添加事件  -->
+    <button id="btn" onclick="alert('我被点了。。。')">点我</button>
+    <div class="one" onclick="clickDiv()"></div>
+
+
+
+
+  </body>
+</html>

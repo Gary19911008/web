@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>margin外边距</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .one,
+    .two {
+      width: 500px;
+      height: 200px;
+    }
+
+    .one {
+      background: yellow;
+      margin-bottom: -50px;
+    }
+
+    .two {
+      background: blue;
+      margin-top: -30px;
+      margin-bottom: 30px;
+    }
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <!--
+  上下外边距合并
+  同级元素margin-bottom margin-top
+  都是正值，间距取最大值
+  是正负值，间距求和
+  都是负值，重叠 为绝对值最大的一个
+ -->
+  <div class="one">one</div>
+  <div class="two">two</div>
+
+
+
+</body>
+
+</html>

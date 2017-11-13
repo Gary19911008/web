@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>call and apply</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+      var name = 'global'; //window.name
+
+      function fun(arg1,arg2){
+        console.log("this = ", this);
+        console.log("this.name = ", this.name);
+        console.log("arg1 = ", arg1);
+        console.log("arg2 = ", arg2);
+
+        /*
+        function fun2 (){
+          console.log("fun2 中  this = ", this);
+        }
+        fun2();
+        */
+      }
+
+      //直接调用
+      fun();
+      console.log("---------------------------------");
+
+      //间接调用
+      var obj = {
+        name: 'zhansan',
+        age: 20
+      };
+
+      var obj2 = {
+        name: 'lisi',
+        age: 20
+      }
+
+      /*
+      call方法的功能：在一个指定的this上调用函数，其实就是将函数内部的this指定为某个对象.
+      call方法从第二个参数开始的参数，都是传递给函数的参数！！！
+      */
+      fun.call(obj,10,20);
+      fun.call(obj2,100,200);
+      fun.call(null,1000,2000);
+
+
+      console.log("-------------apply-----------");
+      /*
+      apply: 功能和call一模一样
+      区别：给函数传参使用的是数组,虽然此处传递的是数组，但是apply会把该数组中的每个元素分别传递给函数
+      */
+      fun.apply(obj,[10,20]);
+
+
+
+
+    </script>
+
+  </body>
+</html>

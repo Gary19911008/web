@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>翻转文字</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        margin-top: 100px;
+        text-align: center;
+        font-size: 80px;
+        line-height: 1;
+      }
+
+      .box span {
+        display: inline-block;
+        position: relative;
+      }
+      .box span::before,
+      .box span::after {
+        content: attr(data-set);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 1s;
+      }
+      .box span::before {
+        transform: rotateY(-15deg);
+        z-index: 3;
+        color: #FFF;
+      }
+      .box span::after {
+        z-index: 2;
+        color: rgba(0, 0, 0, 0.5);
+      }
+
+      .box:hover span::before {
+        transform: rotateY(-40deg) skew(0, 10deg);
+      }
+
+      .box:hover span::after {
+        transform: skew(0, 20deg);
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="box">
+      <span data-set="世">世</span>
+      <span data-set="界">界</span>
+      <span data-set="你">你</span>
+      <span data-set="好">好</span>
+    </div>
+
+  </body>
+</html>

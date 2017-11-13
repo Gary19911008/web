@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>图片延迟加载</title>
+  <style>
+    img {
+      display: block;
+      width: 700px;
+      height: 280px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+    <img src="" alt="" data-url="./image/1.jpg">
+    <img src="" alt="" data-url="./image/2.jpg">
+    <img src="" alt="" data-url="./image/3.jpg">
+    <img src="" alt="" data-url="./image/4.jpg">
+    <img src="" alt="" data-url="./image/1.jpg">
+    <img src="" alt="" data-url="./image/2.jpg">
+    <img src="" alt="" data-url="./image/3.jpg">
+    <img src="" alt="" data-url="./image/4.jpg">
+    <img src="" alt="" data-url="./image/1.jpg">
+    <img src="" alt="" data-url="./image/2.jpg">
+    <img src="" alt="" data-url="./image/3.jpg">
+    <img src="" alt="" data-url="./image/4.jpg">
+  </div>
+
+  <script type="text/javascript">
+    var obj = document.querySelector('#box').querySelectorAll('img');
+    var h = window.innerHeight || document.documentElement.clientHeight;
+    for (var i = 0; i < obj.length; i++) {
+      obj[i].url = obj[i].getAttribute("data-url");
+      obj[i].top = obj[i].offsetTop;
+      obj[i].flag = true; //防止浏览器一直加载图片，这样图片加载成功后，滚动浏览器的时候就不会再加载图片了；
+    }
+    var Load = function(obj) {
+      var t = document.body.scrollTop || document.documentElement.scrollTop;
+      if (t + h > obj.top + 300 && obj.top > t) { //给个300为了提高让用户看到图片加载状态，更加友好
+        setTimeout(function() {
+          obj.src = obj.url;
+          obj.flag = false;
+        }, 500)
+      }
+    }
+    window.onscroll = window.onload = function() {
+      for (var i = 0; i < obj.length; i++) {
+        if (obj[i].flag) {
+          Load(obj[i]);
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

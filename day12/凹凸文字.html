@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>凹凸文字</title>
+    <style media="screen">
+      *{
+        margin: 0;
+        padding: 0;
+      }
+
+      body{
+        background: gray;
+      }
+
+      /*凹型阴影左上移动*/
+      .one{
+        color: gray;
+        text-shadow: -1px -1px 1px #000, 1px 1px 1px #fff;
+        font-size: 200px;
+      }
+
+      /*凸型隐形右下移动*/
+      .two{
+        color: gray;
+        text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff;
+        font-size: 200px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <p class="one">凹的文字</p>
+
+    <p class="two">凸的文字</p>
+
+  </body>
+</html>

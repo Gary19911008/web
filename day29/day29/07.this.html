@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>this问题</title>
+  </head>
+  <body>
+
+    <button id="btn">按钮</button>
+
+    <script type="text/javascript">
+    var btn = document.getElementById('btn');
+    btn.value = 100;
+
+    var value = 0;
+
+    var obj = {
+      value: 10,
+      handler: function(){
+        console.log(this.value);
+      }
+    };
+
+    obj.handler();//10
+
+    /*
+    1. 第一种方式
+    btn.addEventListener('click', function(){
+      console.log(this.value);//100
+    }, false);
+    */
+
+    /*
+    如果直接将一个函数作为 事件处理函数，那么只是将该函数的代码放到此处而已，和函数原来的this没有关系
+    完全等价于  第一种方式的代码
+     btn.addEventListener('click', obj.handler, false); //100
+    */
+
+
+    btn.addEventListener('click', function(){
+      console.log(this);//btn
+
+      obj.handler();//10
+
+      obj.handler.call(this);//100
+    }, false);
+
+
+
+
+
+    </script>
+
+  </body>
+</html>

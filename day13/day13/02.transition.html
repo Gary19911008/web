@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .f {
+        height: 200px;
+        border: 1px solid red;
+        position: relative;
+      }
+
+      .s {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background: yellow;
+        top: 0;
+        left: 0;
+
+        /*最后一个时间都是延迟时间*/
+        /*
+        transiton 需要在过渡的元素上提前设置好
+        */
+        transition: all 5s 1s linear;
+      }
+
+      .f:hover .s {
+        left: 90%;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="f">
+      <div class="s"></div>
+    </div>
+
+  </body>
+</html>

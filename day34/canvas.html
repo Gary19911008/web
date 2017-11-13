@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas</title>
+</head>
+<body>
+  <canvas id="can"></canvas>
+  <script type="text/javascript">
+    // 获得canvas dom对象
+    var can = document.getElementById("can");
+    // 设置canvas的宽高
+    can.width = 500;
+    can.height = 500;
+    // 设置canvas的边框
+    can.style.border = "1px solid red"
+    // 获得画布的上下文对象
+    var ctx = can.getContext("2d");
+    // 开始绘制图形
+    ctx.beginPath();
+    ctx.moveTo(10,10);
+    ctx.lineTo(100,10);
+    ctx.lineTo(100,100);
+    ctx.lineTo(10,100);
+    ctx.lineTo(10,10);
+    ctx.fillStyle = "red";
+    ctx.fill();
+
+    // 绘制填充矩形的简单写法
+    ctx.fillRect(10,150,100,100);
+
+    ctx.beginPath();
+    // 通过设置起始点坐标与终点左边可以画出直线
+    // 再用几条同样的线条收尾连接实现矩形
+    ctx.moveTo(150,150);
+    ctx.lineTo(300,150);
+    ctx.lineTo(300,300);
+    ctx.lineTo(150,300);
+    ctx.lineTo(150,150);
+    // 设置描边的颜色
+    ctx.strokeStyle = "red";
+    // 设置描边的宽度
+    ctx.lineWidth = 10;
+    // 设置描边  不然不会显示
+    ctx.stroke();
+
+    // 绘制描边矩形的简单写法
+    ctx.strokeRect(10,300,100,100);
+
+    // 矩形区域的擦除
+    ctx.clearRect(0,350,300,300);
+
+    // 重新设置画布的宽高可将画布清空
+    can.width = can.width;
+
+    // 绘制圆弧
+
+    ctx.beginPath();
+    // ctx.arc(x,y,r,sAngle,eAngle,counterclockwise)用于绘制圆弧，x，y是圆心，r是半径，sAngle圆弧起点（x轴右侧为0，eAngle是圆弧结束位置用Math.PI （Math.PI = 180度）counterclockwise 这只是正时针旋转还是逆时针，true是正时针，默认是false
+    ctx.arc(250,250,200,0,Math.PI * 0.25,false);
+    ctx.stroke();
+
+    // 绘制扇形
+
+    ctx.beginPath();
+    ctx.moveTo(250,250);
+    ctx.arc(250,250,200,Math.PI * 0.5,Math.PI * 0.75,false);
+    ctx.fillStyle = "red"
+    ctx.fill();
+
+  </script>
+
+</body>
+</html>

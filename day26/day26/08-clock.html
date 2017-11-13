@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clock {
+            width: 600px;
+            height: 600px;
+            background: url("./clock/clock.jpg");
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .clock > div {
+            width: 30px;
+            height: 600px;
+            position: absolute;
+            top: 0;
+
+            /*水平居中即可*/
+            left: 50%;
+            margin-left: -15px;
+        }
+
+        .h {
+            background: url("./clock/hour.png");
+        }
+
+        .m {
+            background: url("./clock/minute.png");
+        }
+
+        .s {
+            background: url("./clock/second.png");
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="clock" id="clock-id">
+    <div class="h"></div>
+    <div class="m"></div>
+    <div class="s"></div>
+</div>
+
+<script>
+
+    var clock = document.getElementById("clock-id");
+    var h = clock.children[0];
+    var m = clock.children[1];
+    var s = clock.children[2];
+    console.log(h,m,s);
+
+    var timer  = null;
+
+    function  fn(){
+
+        var d = new Date();
+        var mills = d.getMilliseconds();
+        var sec = d.getSeconds() + mills / 1000;
+        var min = d.getMinutes() + sec / 60;
+        var hour = d.getHours() + min / 60;
+
+        //rotate(" + hour * 30  + "deg)", 末尾不要添加分号。
+        h.style.WebkitTransform = "rotate(" + hour * 30  + "deg)";
+        m.style.WebkitTransform = "rotate(" + min * 6  + "deg)";
+        s.style.WebkitTransform = "rotate(" + sec * 6  + "deg)";
+
+        h.style.MozTransform = "rotate(" + hour * 30  + "deg)";
+        m.style.MozTransform = "rotate(" + min * 6  + "deg)";
+        s.style.MozTransform = "rotate(" + sec * 6  + "deg)";
+
+        h.style.transform = "rotate(" + hour * 30  + "deg)";
+        m.style.transform = "rotate(" + min * 6  + "deg)";
+        s.style.transform = "rotate(" + sec * 6  + "deg)";
+    }
+
+    timer = setInterval(fn, 10);
+
+
+</script>
+
+</body>
+</html>

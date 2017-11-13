@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>自定义错误</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    var a = 10;
+
+    try {
+      if (a === 10){
+
+        //产生一个自定义的错误
+        var err = new Error("错误原因", "09.error.html", 17);
+        //手动抛出错误
+        throw err;
+      }
+    } catch (e){
+      //catch可以捕获任何错误
+      console.log(e);
+    }
+
+
+    </script>
+
+  </body>
+</html>

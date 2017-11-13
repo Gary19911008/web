@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>sessionStorage</title>
+  </head>
+  <body>
+
+
+    <!-- 可以实现同一会话页面的通信
+    但是相互之间是无法修改的
+    -->
+    <a href="./12.sessionStorage.html" target="_blank">跳转到另外一个页面</a>
+
+    <!--
+    sessionStorage存储和本次会话有关联的数据，
+    生命：周期很短， 标签页关闭或者浏览器关闭数据全部都会消失
+   -->
+
+
+   <script type="text/javascript">
+
+   //设置
+   sessionStorage.setItem("key0", 0);
+   sessionStorage.setItem("key1", 1);
+   sessionStorage.setItem("key2", 2);
+
+   //获得
+   sessionStorage.getItem("key0");
+
+   //修改
+   sessionStorage.setItem("key0", 100);
+
+   //删除
+   sessionStorage.removeItem("key2");
+   //删除所有
+  //  sessionStorage.clear();
+
+   </script>
+
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>全屏API</title>
+    <style media="screen">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      #box {
+        width: 100px;
+        height: 100px;
+        background: yellow;
+      }
+    </style>
+  </head>
+  <body>
+
+    <video  id="video" controls>
+      <source src="./video/fun.mp4">
+    </video>
+    <button id="btn">视频全屏</button>
+
+    <div id="box">
+      我要全屏
+    </div>
+
+    <script type="text/javascript">
+
+    var v = document.getElementById("video");
+    var btn = document.getElementById("btn");
+    var box = document.getElementById("box");
+
+
+
+    //全屏方法
+    function fullScreen(elem){
+      if (elem.requestFullscreen){
+        elem.requestFullscreen();
+      } else if (elem.mozRequestFullScreen){
+        elem.mozRequestFullScreen();
+      } else if (elem.webkitRequestFullscreen){
+        elem.webkitRequestFullscreen();
+        // elem.style.width = "100%";
+        // elem.style.height = "100%";
+      }
+
+    }
+
+    //取消全屏
+    function cancelFullScreen(){
+      if (document.cancelFullScreen){
+        document.cancelFullScreen();
+      } else if (document.mozCancelFullScreen){
+        document.mozCancelFullScreen();
+      } else if (document.webkitCancelFullScreen){
+      document.webkitCancelFullScreen();
+      }
+    }
+
+    btn.onclick = function(){
+      fullScreen(v);
+    }
+
+    //完善box的双击事件，通过双击实现全屏和取消全屏
+    //完善box的双击事件，通过Enter双击实现全屏和取消全屏
+    box.ondblclick = function(){
+      fullScreen(box);
+    }
+
+
+
+
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>组合继承: 借用构造函数 + 原型链继承</title>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+
+    /*
+    功能：用于实现原型方法和属性的继承
+    @sup, 被继承的构造函数
+    @sub, 要继承的构造函数
+    */
+    function inherit(Sup,Sub){
+      //定义空构造函数的目的，就是为了不携带多余的属性
+       function F(){};
+       F.prototype = Sup.prototype;
+       Sub.prototype = new F();
+       Sub.prototype.constructor = Sub;
+    }
+
+    function Person(name,age){
+      this.name = name;
+      this.age = age;
+    }
+
+    Person.prototype.sayHello = function(){
+      console.log("hello.....");
+    };
+
+
+    function Student(name,age,score){
+      //使用借用构造函数,继承构造函数内部的属性
+      Person.call(this, name, age);
+      this.score = score;
+    }
+
+    /*
+    使用原型链继承原型方法和原型属性
+    要解决使用new Person()产生多余的属性的问题
+    */
+    inherit(Person,Student);
+
+
+    var stu1 = new Student('lisi', 20, 34);
+    console.log(stu1);
+
+    </script>
+
+  </body>
+</html>

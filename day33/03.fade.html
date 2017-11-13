@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>fade效果</title>
+  </head>
+  <body>
+
+    <button id="show">点击淡入</button>
+    <button id="hide">点击淡出</button>
+
+    <img src="./images/jd-2.jpg" style="display:none;" alt="">
+
+    <script src="./jquery-3.0.0.js" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    $("#show").click(function(){
+      $("img").eq(0).fadeIn(2000);
+    });
+
+    $("#hide").click(function(){
+      $("img").eq(0).fadeOut(2000);
+    });
+
+    </script>
+
+  </body>
+</html>

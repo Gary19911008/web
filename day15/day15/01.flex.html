@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>伸缩盒子</title>
+    <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .f1 {
+      width: 100%;
+      height: 300px;
+      border: 1px solid red;
+      box-sizing: border-box;
+
+      /*flex在父元素上设置，表示子元素都变成可伸缩的*/
+      /*
+      默认横轴是主轴
+      */
+      display: flex;
+    }
+
+    .f1_s {
+      width: 200px;
+      height: 100px;
+      background: pink;
+
+    }
+
+    .f1_s:nth-child(1){
+      /*
+      当前元素的扩展比例
+      */
+      flex-grow: 1;
+
+      /*收缩比例*/
+      flex-shrink: 1;
+    }
+
+    .f1_s:nth-child(2){
+      flex-grow: 2;
+      flex-shrink: 2;
+    }
+
+    .f1_s:nth-child(3){
+      flex-grow: 3;
+      flex-shrink: 3;
+    }
+
+
+    .f2 {
+      width: 100%;
+      height: 600px;
+      border: 1px solid red;
+      box-sizing: border-box;
+      margin-top: 50px;
+
+
+      display: flex;
+      /*纵向排列,纵轴是主轴*/
+      flex-direction: column;
+    }
+
+    .f2_s {
+      width: 200px;
+      height: 150px;
+      background: pink;
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="f1">
+      <div class="f1_s">1</div>
+      <div class="f1_s">2</div>
+      <div class="f1_s">3</div>
+    </div>
+
+    <div class="f2">
+      <div class="f2_s">1</div>
+      <div class="f2_s">2</div>
+      <div class="f2_s">3</div>
+    </div>
+
+  </body>
+</html>

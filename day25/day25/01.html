@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>字符串</title>
+</head>
+
+<body>
+
+  <div>
+    输入：<input id="in" type="text">
+    <button id="btn">转换为大写</button>
+  </div>
+  <h1>输出：<span id="out"></span></h1>
+
+  <script type="text/javascript">
+
+    var ins = document.getElementById("in");
+    var out = document.getElementById("out");
+    var btn = document.getElementById("btn");
+
+    btn.onclick = function () {
+      //进行大写转换，并输出
+      out.innerHTML  = convertToUpper(ins.value);
+    };
+
+    /*
+    @str,字符串
+    return: 大写的字符串
+    */
+    function convertToUpper(str){
+      var result = "", code;
+
+      for (var i = 0; i < str.length; i++) {
+        //先获得编码
+        code = str.charCodeAt(i);
+
+        //小写字母
+        if ((code >= 97)  &&  (code <= 122)){
+          //得到大写的编码
+          code -= 32;
+
+          //大写的编码转成字符
+          result += String.fromCharCode(code);
+        } else {
+          result += str[i];
+        }
+      }
+
+      return result;
+    }
+  </script>
+
+</body>
+
+</html>
